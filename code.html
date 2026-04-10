@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error": "#ffffff",
+              "surface-dim": "#d8dadd",
+              "on-secondary-fixed-variant": "#594319",
+              "surface-container": "#eceef1",
+              "inverse-primary": "#adc8f3",
+              "inverse-surface": "#2e3133",
+              "surface-bright": "#f8f9fd",
+              "on-tertiary": "#ffffff",
+              "inverse-on-surface": "#eff1f4",
+              "secondary": "#735a2e",
+              "outline-variant": "#c4c6cf",
+              "on-primary-container": "#708ab2",
+              "on-tertiary-container": "#738ca4",
+              "error": "#ba1a1a",
+              "primary-container": "#002244",
+              "on-primary-fixed": "#001c3a",
+              "on-background": "#191c1f",
+              "surface": "#f8f9fd",
+              "surface-container-high": "#e6e8ec",
+              "on-surface": "#191c1f",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#adc8f3",
+              "surface-container-highest": "#e1e2e6",
+              "on-tertiary-fixed-variant": "#31495e",
+              "on-tertiary-fixed": "#011d31",
+              "on-secondary-fixed": "#271900",
+              "on-secondary-container": "#785f32",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "tertiary": "#000d19",
+              "tertiary-fixed": "#cde5ff",
+              "tertiary-container": "#082438",
+              "error-container": "#ffdad6",
+              "outline": "#74777f",
+              "primary-fixed": "#d4e3ff",
+              "primary": "#000b1d",
+              "secondary-fixed-dim": "#e3c28c",
+              "tertiary-fixed-dim": "#b0c9e3",
+              "surface-variant": "#e1e2e6",
+              "surface-tint": "#456085",
+              "secondary-fixed": "#ffdea9",
+              "on-error-container": "#93000a",
+              "on-primary-fixed-variant": "#2d486c",
+              "background": "#f8f9fd",
+              "secondary-container": "#fddba3",
+              "surface-container-low": "#f2f4f7",
+              "on-surface-variant": "#43474e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(0, 11, 29, 0.92) 0%, rgba(0, 11, 29, 0.7) 40%, rgba(0, 34, 68, 0.4) 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary/30">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-[#000b1d] dark:bg-[#000b1d] bg-gradient-to-r from-[#000b1d] to-[#002244] border-b border-white/10 shadow-2xl shadow-black/20 font-['Manrope'] antialiased tracking-tight">
+<div class="flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3 group cursor-pointer">
+<img alt="Tracemet Scientific logo" class="h-10 w-10 object-contain rounded-lg h-12 w-12" data-alt="Tracemet Scientific gold and navy professional logo" src="https://lh3.googleusercontent.com/aida/ADBb0uiWrM-12vD1OS6YWRKOShhEws0MBnvqIVt62kuvEfjBQQkWzpNFa1iIcKiAjJXxrz6yqXI1IvwkRytFMPQICU1ydm5bXZQYJx1iJpnBRszsYg3seiXdVOFbUvm-nGaBCWJNup7SMSo6gPdh6NmLLNesm5FATy_aTAeB77YFSszE7E7Ysa2dSXtvREiiPm8uDXt3fmaMIxg1Bex_1yRs5TnwXG23Tw7yPIiVKLTsanDGnvQAXqWiINfUZbD3P5gsYUuaantIMZaDhQ"/>
+<span class="text-xl font-bold tracking-tighter text-white uppercase">Tracemet Scientific</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-[#735a2e] border-b-2 border-[#735a2e] pb-1 font-semibold" href="#">Standards</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="#">Instruments</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="#">Services</a>
+<a class="text-slate-300 hover:text-white transition-colors" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-5 py-2.5 text-slate-300 hover:text-white transition-all duration-300 active:scale-95 text-sm font-medium">Contact Us</button>
+<button class="px-6 py-2.5 bg-gradient-to-br from-secondary to-on-secondary-container text-white font-semibold rounded-lg shadow-lg shadow-black/20 hover:brightness-110 active:scale-95 transition-all duration-300 text-sm">Request a Quote</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[800px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="High-tech analytical laboratory environment" class="w-full h-full object-cover" data-alt="Vibrant high-tech chemistry laboratory with glassware and metrological equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx2UAlBIWKRaNBuxsA8mnm_8afXL-QTQB-qbILnU0zJK-CEuf-zdTs3v2vnOQ0GU7Cf9PcWe1O4eNlfAwnxblAO-KxndHP23Ib6CPsr-3_J4WCHN7OqeIw3ZqHeI7m0zt3h2BG-nD8Aws0n9enwMaNsgCFLh4PqwcViOilI1L6Z4n-9YG3-TMi_sXMVEnmd_rRSsqmtiCnr8c5V9E2mT_I-juzusl6b63Tz7E7lYT45aHkL_YLQuDoLpoCBd88yyNTvi2bcZRtq44"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 max-w-[1440px] mx-auto px-8 w-full pt-20">
+<div class="max-w-4xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary-fixed-dim font-bold text-xs tracking-widest uppercase mb-6 backdrop-blur-sm">
+                        Analytical Excellence
+                    </div>
+<h1 class="text-6xl md:text-8xl font-extrabold text-white font-headline leading-[1.05] tracking-tighter mb-8 drop-shadow-2xl">
+                        Metrologically <br/><span class="text-secondary">Traceable Standards</span>
+</h1>
+<p class="text-xl text-slate-100 max-w-2xl mb-12 font-medium leading-relaxed drop-shadow-md">Tracemet Scientific, Your Scientific Partner in Traceability and Metrology</p>
+<!-- Search Bar -->
+<div class="relative max-w-3xl glass-panel p-2 rounded-2xl border border-white/20 shadow-2xl">
+<div class="flex items-center gap-3 px-6 py-4 bg-white rounded-xl shadow-inner">
+<span class="material-symbols-outlined text-slate-400">search</span>
+<input class="flex-1 border-none focus:ring-0 text-primary font-medium placeholder:text-slate-400" placeholder="Search by CAS number, analyte, or product code..." type="text"/>
+<button class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95">Search</button>
+</div>
+</div>
+<div class="mt-8 flex items-center gap-8 text-slate-200 text-sm font-semibold drop-shadow-md">
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> NIST Traceable</span>
+<span class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-lg">check_circle</span> Global Distribution</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Section -->
+<section class="py-24 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<h2 class="text-4xl font-extrabold text-primary font-headline tracking-tight mb-4">Precision Product Categories</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl">Our metrological solutions are engineered for specific analytical environments, ensuring peak instrument performance and compliance.</p>
+</div>
+<button class="group flex items-center gap-2 text-primary font-bold border-b-2 border-primary/20 hover:border-primary transition-all pb-1">
+                        Explore Our Capabilities
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+<!-- Column 1: Chromatography -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
+<div class="h-64 overflow-hidden">
+<img alt="Agilent GC 8890" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ujfXXKMbDe7xrxUdPXNsY7ohdQNhJVQ5tI8WZL_i57Yal5EiRgDGV0VhJYIwbBfUwWmzV_zQlwU_qRjGaLizOiKzrJ0FU27YexKFFbpW_q2qBNwG5dprvGDsmZzYmoN31pdFhY-qS3pmmNo4iVP3nw3QRznO8LFUgbo_jEunVkG3kDIRat--eafUzbhuodg69H9zWdr5sQsyuK23T8d33GRcIzgmLBUeNE4cEBkVRV9Gh-BOnTvT4ObxsjKVv574VfYow1bBdrC"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-primary mb-3">Chromatography</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Optimized standards for HPLC, GC, and IC systems including pesticide, PAH mixes, and high-purity mobile phases.</p>
+</div>
+</div>
+<!-- Column 2: Inorganic Elemental -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
+<div class="h-64 overflow-hidden">
+<img alt="Shimadzu AAS/UV VIS" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0uhP09-8hg5hmuVlP3P5ZxUOgLI5ktOVePgC2otxiqMYIMxCB1nt9zBc5GsLJyTmVU0z5VFXRZW4cJuyQQCt1pQCjLTmFHQN1ttDZyEIylC4NLMgvXgAgv1EGuHZ9YSh-NwWv-PIh1vp6lQWzQwACQ_Kkz4gBghwRrOCtlW7LdO4itzY4gOqTPF7IjdxfS_JgIWi2Y0YGv5t-1xghkDllL5sE6st-oac5bQQbJkCAu2jMOEkLV1oZFY1bSra8U2i103VdrysPzfLTQ"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-primary mb-3">Inorganic Elemental</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">High-purity single and multi-element standards for UV-VIS and Atomic Absorption.</p>
+</div>
+</div>
+<!-- Column 3: Multi-Component -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
+<div class="h-64 overflow-hidden">
+<img alt="Perkin Elmer Nexion 2000" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ugDRs-eppNk2A2-ws7gVW_hqJhSmA3fdwUf0YDBn_7dqGVcz8jHSPpzD5L31-iVJzRqz9gxwkt_eWAKuWwyoQgzNfzkNLiivDko_6WdiuW2fhcJaMvnrSo8d3G4CeSeRhcQ7jTiiAXaJxaqWIQMdrS0Cyluwh1IuOC2BoUVpOBS7MDbsjbyfL_-nmYUNt8MOXg8jaf0yTWczLNvlyLg7c-XCa2YmrcPja7pnFLZ9Qcsk1I_y8vQQzVC9YcpOw_lI4wAqSykYooHxQ"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-primary mb-3">ICP-MS &amp; ICP-OES Standards</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Specialized NIST-traceable standards designed for high-sensitivity plasma spectroscopy and matrix-matched analysis.</p>
+</div>
+</div>
+<!-- Column 4: Electrochemical -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
+<div class="h-64 overflow-hidden relative">
+<img alt="Electrochemical measurement system" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Mettler Toledo Professional electrochemical measurement instrument with blurred branding" src="https://lh3.googleusercontent.com/aida/ADBb0ui56K-gT20e1KEpvG5zrSfMK-sRnuT23XqggYJlU3nbpywYTUvmf4otPSi_dcZnhth04nYjlIk6pGY727_CCgEBoxIM8TD3Dkm7-bDGbPTKwN7_O9wy8itUCM00UdutF6Az8OhXXwc2eDD78kKBvn7Gjcj83iLksU2xgPMpbmS8-9YJRuw5I224Ds8UNdce3jA6bcrzmsAuPEc5afvCUTFqtgynN0qLk1tKJOTGA_jJ6ISCtSvED9JJuziCt-fymJQ6K5Uf3KBGPA"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-primary mb-3">Electrochemical</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Precision pH buffers, conductivity standards, and ion-selective electrode solutions.</p>
+</div>
+</div>
+<!-- Column 5: High-Purity Powders -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
+<div class="h-64 overflow-hidden">
+<img alt="High-Purity Powders" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Digital Balance with high-purity crystalline powders in a laboratory" src="https://lh3.googleusercontent.com/aida/ADBb0uhZ8_7q7uGdJI5AuFZODMX9NCk6qwm_D4rFMBq4ZDD2Dadu1vXzi5n7iwTVph-MyFUegt9XO1EXe4wiOHy2ufG77eiGr6OC-cJhC29yKJjjJegvL9aYyny2hpK-zWt-SSDuc23VkjHrvKIPffVG8zSBjQSoXl86ImLTwBNR33QFY6GyM-HSIyQm9Ouqodo5hJXHwQOcpIt8MA3DejaCq7djxFf58BRatzBdOCxkaKpaVLO6f3hydACepDHzOCkMnOZ60whS9VO_"/>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold text-primary mb-3">High-Purity Powders</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Ultra-pure chemicals and crystalline standards for primary calibration and synthesis.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-20 bg-primary overflow-hidden relative">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary-container/50 to-transparent"></div>
+<div class="max-w-[1440px] mx-auto px-8 relative z-10">
+<div class="flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="flex-1">
+<h2 class="text-4xl font-bold text-white font-headline mb-6">Looking for a custom solution?</h2>
+<p class="text-slate-400 text-xl leading-relaxed max-w-2xl">Our metrologists can formulate custom multi-component standards tailored to your specific analytical methodology and matrix requirements.</p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-secondary text-white font-bold rounded-lg shadow-xl shadow-black/20 hover:scale-105 transition-all active:scale-95">Configure Custom Mix</button>
+<button class="px-8 py-4 bg-white/10 text-white font-bold rounded-lg border border-white/20 hover:bg-white/20 transition-all active:scale-95">Download Catalog</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto py-12 bg-slate-950 dark:bg-slate-950 border-t border-slate-800 font-['Inter'] text-sm tracking-wide">
+<div class="flex flex-col md:flex-row justify-between items-start px-12 max-w-[1440px] mx-auto gap-12">
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<img alt="Tracemet Scientific logo" class="object-contain h-12 w-12" data-alt="Tracemet Scientific footer logo" src="https://lh3.googleusercontent.com/aida/ADBb0ui4XT2ZEkd4OXOauAbDyA9RXQ9AeAKtpX-McRs2y3QfmyNiZAPngAxyDNX7lc4xwTTzfjZJjZxGDyQKeJk7YPliQJYQty-wzI1RUnViDDI4VN7rmwoCX_UI_2rOGJIjRrzbhqrJeLvBNAel6eVKE2AvuF0tYWT9TVdl_EoozghGwWxYTMp48E5hGehyV36rwccGYEdHUwyD_TSjtXfsfMAwcZ97Xv54gyyzwEsLVbyspMvjzJEuSW_kLHY"/>
+<span class="text-lg font-semibold text-slate-100 uppercase tracking-tighter">Tracemet Scientific</span>
+</div>
+<p class="text-slate-500 max-w-xs leading-relaxed">
+                    Global leaders in metrological traceability and analytical excellence. Precision defined at every step.
+                </p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-lg">share</span></a>
+<a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-lg">mail</span></a>
+<a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-secondary transition-colors" href="#" title="LinkedIn"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg></a>
+<a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-secondary transition-colors" href="#" title="Facebook"><svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"></path></svg></a>
+</div>
+<div class="space-y-2 mt-4 text-slate-500">
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">mail</span> <a class="hover:text-secondary transition-colors" href="mailto:info@tracemetsci.com">info@tracemetsci.com</a></p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">call</span> <a class="hover:text-secondary transition-colors" href="tel:+201130091506">+201130091506</a></p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">call</span> <a class="hover:text-secondary transition-colors" href="tel:+201130091508">+201130091508</a></p>
+<p class="flex items-center gap-2"><span class="material-symbols-outlined text-sm text-secondary">location_on</span> <span>Head Office: Maadi</span></p>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
+<div class="space-y-4">
+<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">Solutions</h4>
+<ul class="space-y-2 text-slate-500">
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Chromatography</a></li>
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Inorganic Elemental</a></li>
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Custom Mixtures</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">Company</h4>
+<ul class="space-y-2 text-slate-500">
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Technical Support</a></li>
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Global Support</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">Legal</h4>
+<ul class="space-y-2 text-slate-500">
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-[#735a2e] transition-colors" href="#">Accreditation</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-12 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-xs">
+<p>© 2024 Tracemet Scientific. Precision defined.</p>
+<div class="flex items-center gap-6">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">language</span> English (International)</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">verified_user</span> Secure Metrology Portal</span>
+</div>
+</div>
+</footer>
+</body></html>
