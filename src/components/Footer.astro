@@ -1,3 +1,19 @@
+---
+import { useTranslations, getAlternateUrl, type Lang } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const currentPath = Astro.url.pathname;
+const altUrl = getAlternateUrl(lang, currentPath);
+const altLang = lang === 'en' ? 'ar' : 'en';
+---
+
 <footer class="w-full mt-auto py-12 bg-slate-950 dark:bg-slate-950 border-t border-slate-800 font-['Inter'] text-sm tracking-wide">
 	<div class="flex flex-col md:flex-row justify-between items-start px-12 max-w-[1440px] mx-auto gap-12">
 		<div class="space-y-6">
@@ -10,7 +26,7 @@
 				<span class="text-lg font-semibold text-slate-100 uppercase tracking-tighter">Tracemet Scientific</span>
 			</div>
 			<p class="text-slate-500 max-w-xs leading-relaxed">
-				Global leaders in metrological traceability and analytical excellence. Precision defined at every step.
+				{t('footer.desc')}
 			</p>
 			<div class="flex gap-4">
 				<a href="#" class="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-slate-400 hover:text-secondary transition-colors">
@@ -45,42 +61,51 @@
 				</p>
 				<p class="flex items-center gap-2">
 					<span class="material-symbols-outlined text-sm text-secondary">location_on</span>
-					<span>Head Office: Maadi</span>
+					<span>{t('footer.office')}</span>
 				</p>
 			</div>
 		</div>
 		<div class="grid grid-cols-2 md:grid-cols-3 gap-12">
 			<div class="space-y-4">
-				<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">Solutions</h4>
+				<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">{t('footer.solutions')}</h4>
 				<ul class="space-y-2 text-slate-500">
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Chromatography</a></li>
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Inorganic Elemental</a></li>
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Custom Mixtures</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.chromatography')}</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.inorganic')}</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.custom')}</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">
-				<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">Company</h4>
+				<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">{t('footer.company')}</h4>
 				<ul class="space-y-2 text-slate-500">
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">About Us</a></li>
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Technical Support</a></li>
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Global Support</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.about')}</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.support')}</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.global')}</a></li>
 				</ul>
 			</div>
 			<div class="space-y-4">
-				<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">Legal</h4>
+				<h4 class="text-white font-bold uppercase text-[10px] tracking-widest">{t('footer.legal')}</h4>
 				<ul class="space-y-2 text-slate-500">
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Privacy Policy</a></li>
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Terms of Service</a></li>
-					<li><a href="#" class="hover:text-[#735a2e] transition-colors">Accreditation</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.privacy')}</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.terms')}</a></li>
+					<li><a href="#" class="hover:text-[#735a2e] transition-colors">{t('footer.accreditation')}</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 	<div class="max-w-[1440px] mx-auto px-12 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-xs">
-		<p>&copy; 2024 Tracemet Scientific. Precision defined.</p>
+		<p>{t('footer.copyright')}</p>
 		<div class="flex items-center gap-6">
-			<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">language</span> English (International)</span>
-			<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">verified_user</span> Secure Metrology Portal</span>
+			<!-- Language switcher -->
+			<div class="flex items-center gap-1">
+				<span class="material-symbols-outlined text-sm">language</span>
+				<span class="font-semibold text-slate-300">{languages[lang]}</span>
+				<span class="mx-1 text-slate-600">|</span>
+				<a href={altUrl} class="hover:text-secondary transition-colors">{languages[altLang]}</a>
+			</div>
+			<span class="flex items-center gap-1">
+				<span class="material-symbols-outlined text-sm">verified_user</span>
+				{t('footer.secure')}
+			</span>
 		</div>
 	</div>
 </footer>

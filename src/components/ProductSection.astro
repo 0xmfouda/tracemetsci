@@ -1,82 +1,66 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const products = [
+	{
+		key: 'chromatography',
+		img: 'https://lh3.googleusercontent.com/aida/ADBb0ujfXXKMbDe7xrxUdPXNsY7ohdQNhJVQ5tI8WZL_i57Yal5EiRgDGV0VhJYIwbBfUwWmzV_zQlwU_qRjGaLizOiKzrJ0FU27YexKFFbpW_q2qBNwG5dprvGDsmZzYmoN31pdFhY-qS3pmmNo4iVP3nw3QRznO8LFUgbo_jEunVkG3kDIRat--eafUzbhuodg69H9zWdr5sQsyuK23T8d33GRcIzgmLBUeNE4cEBkVRV9Gh-BOnTvT4ObxsjKVv574VfYow1bBdrC',
+		alt: 'Agilent GC 8890',
+	},
+	{
+		key: 'inorganic',
+		img: 'https://lh3.googleusercontent.com/aida/ADBb0uhP09-8hg5hmuVlP3P5ZxUOgLI5ktOVePgC2otxiqMYIMxCB1nt9zBc5GsLJyTmVU0z5VFXRZW4cJuyQQCt1pQCjLTmFHQN1ttDZyEIylC4NLMgvXgAgv1EGuHZ9YSh-NwWv-PIh1vp6lQWzQwACQ_Kkz4gBghwRrOCtlW7LdO4itzY4gOqTPF7IjdxfS_JgIWi2Y0YGv5t-1xghkDllL5sE6st-oac5bQQbJkCAu2jMOEkLV1oZFY1bSra8U2i103VdrysPzfLTQ',
+		alt: 'Shimadzu AAS/UV VIS',
+	},
+	{
+		key: 'icp',
+		img: 'https://lh3.googleusercontent.com/aida/ADBb0ugDRs-eppNk2A2-ws7gVW_hqJhSmA3fdwUf0YDBn_7dqGVcz8jHSPpzD5L31-iVJzRqz9gxwkt_eWAKuWwyoQgzNfzkNLiivDko_6WdiuW2fhcJaMvnrSo8d3G4CeSeRhcQ7jTiiAXaJxaqWIQMdrS0Cyluwh1IuOC2BoUVpOBS7MDbsjbyfL_-nmYUNt8MOXg8jaf0yTWczLNvlyLg7c-XCa2YmrcPja7pnFLZ9Qcsk1I_y8vQQzVC9YcpOw_lI4wAqSykYooHxQ',
+		alt: 'Perkin Elmer Nexion 2000',
+	},
+	{
+		key: 'electrochemical',
+		img: 'https://lh3.googleusercontent.com/aida/ADBb0ui56K-gT20e1KEpvG5zrSfMK-sRnuT23XqggYJlU3nbpywYTUvmf4otPSi_dcZnhth04nYjlIk6pGY727_CCgEBoxIM8TD3Dkm7-bDGbPTKwN7_O9wy8itUCM00UdutF6Az8OhXXwc2eDD78kKBvn7Gjcj83iLksU2xgPMpbmS8-9YJRuw5I224Ds8UNdce3jA6bcrzmsAuPEc5afvCUTFqtgynN0qLk1tKJOTGA_jJ6ISCtSvED9JJuziCt-fymJQ6K5Uf3KBGPA',
+		alt: 'Electrochemical measurement system',
+	},
+	{
+		key: 'powders',
+		img: 'https://lh3.googleusercontent.com/aida/ADBb0uhZ8_7q7uGdJI5AuFZODMX9NCk6qwm_D4rFMBq4ZDD2Dadu1vXzi5n7iwTVph-MyFUegt9XO1EXe4wiOHy2ufG77eiGr6OC-cJhC29yKJjjJegvL9aYyny2hpK-zWt-SSDuc23VkjHrvKIPffVG8zSBjQSoXl86ImLTwBNR33QFY6GyM-HSIyQm9Ouqodo5hJXHwQOcpIt8MA3DejaCq7djxFf58BRatzBdOCxkaKpaVLO6f3hydACepDHzOCkMnOZ60whS9VO_',
+		alt: 'High-Purity Powders',
+	},
+] as const;
+---
+
 <section class="py-24 bg-surface-container-low">
 	<div class="max-w-[1440px] mx-auto px-8">
 		<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
 			<div>
-				<h2 class="text-4xl font-extrabold text-primary font-headline tracking-tight mb-4">Precision Product Categories</h2>
-				<p class="text-on-surface-variant text-lg max-w-2xl">Our metrological solutions are engineered for specific analytical environments, ensuring peak instrument performance and compliance.</p>
+				<h2 class="text-4xl font-extrabold text-primary font-headline tracking-tight mb-4">{t('products.title')}</h2>
+				<p class="text-on-surface-variant text-lg max-w-2xl">{t('products.subtitle')}</p>
 			</div>
 		</div>
 		<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-			<!-- Chromatography -->
-			<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
-				<div class="h-64 overflow-hidden">
-					<img
-						src="https://lh3.googleusercontent.com/aida/ADBb0ujfXXKMbDe7xrxUdPXNsY7ohdQNhJVQ5tI8WZL_i57Yal5EiRgDGV0VhJYIwbBfUwWmzV_zQlwU_qRjGaLizOiKzrJ0FU27YexKFFbpW_q2qBNwG5dprvGDsmZzYmoN31pdFhY-qS3pmmNo4iVP3nw3QRznO8LFUgbo_jEunVkG3kDIRat--eafUzbhuodg69H9zWdr5sQsyuK23T8d33GRcIzgmLBUeNE4cEBkVRV9Gh-BOnTvT4ObxsjKVv574VfYow1bBdrC"
-						alt="Agilent GC 8890"
-						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-					/>
+			{products.map(({ key, img, alt }) => (
+				<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
+					<div class="h-64 overflow-hidden">
+						<img
+							src={img}
+							alt={alt}
+							class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+						/>
+					</div>
+					<div class="p-6">
+						<h3 class="text-xl font-bold text-primary mb-3">{t(`products.${key}.title` as any)}</h3>
+						<p class="text-on-surface-variant text-sm leading-relaxed">{t(`products.${key}.desc` as any)}</p>
+					</div>
 				</div>
-				<div class="p-6">
-					<h3 class="text-xl font-bold text-primary mb-3">Chromatography</h3>
-					<p class="text-on-surface-variant text-sm leading-relaxed">Optimized standards for HPLC, GC, and IC systems including pesticide, PAH mixes, and high-purity mobile phases.</p>
-				</div>
-			</div>
-			<!-- Inorganic Elemental -->
-			<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
-				<div class="h-64 overflow-hidden">
-					<img
-						src="https://lh3.googleusercontent.com/aida/ADBb0uhP09-8hg5hmuVlP3P5ZxUOgLI5ktOVePgC2otxiqMYIMxCB1nt9zBc5GsLJyTmVU0z5VFXRZW4cJuyQQCt1pQCjLTmFHQN1ttDZyEIylC4NLMgvXgAgv1EGuHZ9YSh-NwWv-PIh1vp6lQWzQwACQ_Kkz4gBghwRrOCtlW7LdO4itzY4gOqTPF7IjdxfS_JgIWi2Y0YGv5t-1xghkDllL5sE6st-oac5bQQbJkCAu2jMOEkLV1oZFY1bSra8U2i103VdrysPzfLTQ"
-						alt="Shimadzu AAS/UV VIS"
-						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-					/>
-				</div>
-				<div class="p-6">
-					<h3 class="text-xl font-bold text-primary mb-3">Inorganic Elemental</h3>
-					<p class="text-on-surface-variant text-sm leading-relaxed">High-purity single and multi-element standards for UV-VIS and Atomic Absorption.</p>
-				</div>
-			</div>
-			<!-- ICP-MS & ICP-OES -->
-			<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
-				<div class="h-64 overflow-hidden">
-					<img
-						src="https://lh3.googleusercontent.com/aida/ADBb0ugDRs-eppNk2A2-ws7gVW_hqJhSmA3fdwUf0YDBn_7dqGVcz8jHSPpzD5L31-iVJzRqz9gxwkt_eWAKuWwyoQgzNfzkNLiivDko_6WdiuW2fhcJaMvnrSo8d3G4CeSeRhcQ7jTiiAXaJxaqWIQMdrS0Cyluwh1IuOC2BoUVpOBS7MDbsjbyfL_-nmYUNt8MOXg8jaf0yTWczLNvlyLg7c-XCa2YmrcPja7pnFLZ9Qcsk1I_y8vQQzVC9YcpOw_lI4wAqSykYooHxQ"
-						alt="Perkin Elmer Nexion 2000"
-						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-					/>
-				</div>
-				<div class="p-6">
-					<h3 class="text-xl font-bold text-primary mb-3">ICP-MS &amp; ICP-OES Standards</h3>
-					<p class="text-on-surface-variant text-sm leading-relaxed">Specialized NIST-traceable standards designed for high-sensitivity plasma spectroscopy and matrix-matched analysis.</p>
-				</div>
-			</div>
-			<!-- Electrochemical -->
-			<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
-				<div class="h-64 overflow-hidden relative">
-					<img
-						src="https://lh3.googleusercontent.com/aida/ADBb0ui56K-gT20e1KEpvG5zrSfMK-sRnuT23XqggYJlU3nbpywYTUvmf4otPSi_dcZnhth04nYjlIk6pGY727_CCgEBoxIM8TD3Dkm7-bDGbPTKwN7_O9wy8itUCM00UdutF6Az8OhXXwc2eDD78kKBvn7Gjcj83iLksU2xgPMpbmS8-9YJRuw5I224Ds8UNdce3jA6bcrzmsAuPEc5afvCUTFqtgynN0qLk1tKJOTGA_jJ6ISCtSvED9JJuziCt-fymJQ6K5Uf3KBGPA"
-						alt="Electrochemical measurement system"
-						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-					/>
-				</div>
-				<div class="p-6">
-					<h3 class="text-xl font-bold text-primary mb-3">Electrochemical</h3>
-					<p class="text-on-surface-variant text-sm leading-relaxed">Precision pH buffers, conductivity standards, and ion-selective electrode solutions.</p>
-				</div>
-			</div>
-			<!-- High-Purity Powders -->
-			<div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10">
-				<div class="h-64 overflow-hidden">
-					<img
-						src="https://lh3.googleusercontent.com/aida/ADBb0uhZ8_7q7uGdJI5AuFZODMX9NCk6qwm_D4rFMBq4ZDD2Dadu1vXzi5n7iwTVph-MyFUegt9XO1EXe4wiOHy2ufG77eiGr6OC-cJhC29yKJjjJegvL9aYyny2hpK-zWt-SSDuc23VkjHrvKIPffVG8zSBjQSoXl86ImLTwBNR33QFY6GyM-HSIyQm9Ouqodo5hJXHwQOcpIt8MA3DejaCq7djxFf58BRatzBdOCxkaKpaVLO6f3hydACepDHzOCkMnOZ60whS9VO_"
-						alt="High-Purity Powders"
-						class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-					/>
-				</div>
-				<div class="p-6">
-					<h3 class="text-xl font-bold text-primary mb-3">High-Purity Powders</h3>
-					<p class="text-on-surface-variant text-sm leading-relaxed">Ultra-pure chemicals and crystalline standards for primary calibration and synthesis.</p>
-				</div>
-			</div>
+			))}
 		</div>
 	</div>
 </section>
