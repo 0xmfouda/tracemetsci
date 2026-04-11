@@ -1,13 +1,26 @@
+---
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+	title?: string;
+	lang?: Lang;
+}
+
+const { title = 'TraceMet Science', lang = 'en' } = Astro.props;
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+---
+
 <!doctype html>
-<html class="light" lang="en">
+<html class="light" lang={lang} dir={dir}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Tracemet Scientific</title>
+		<title>{title}</title>
 		<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+		{lang === 'ar' && <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />}
 		<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 		<script is:inline src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 		<script is:inline id="tailwind-config">
@@ -86,6 +99,11 @@
 			}
 			.material-symbols-outlined {
 				font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+			}
+			/* Arabic font override */
+			:lang(ar), :lang(ar) * {
+				font-family: 'Cairo', sans-serif !important;
+				letter-spacing: 0 !important;
 			}
 		</style>
 	</head>

@@ -9,7 +9,13 @@ export default defineConfig({
     platformProxy: {
       enabled: true
     },
-
     imageService: "cloudflare"
-  })
+  }),
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'ar'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

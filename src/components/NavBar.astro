@@ -1,27 +1,40 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const homeUrl = getRelativeLocaleUrl(lang, '');
+const contactUrl = getRelativeLocaleUrl(lang, 'contact');
+---
+
 <header class="w-full top-0 sticky z-50 bg-[#000b1d] dark:bg-[#000b1d] bg-gradient-to-r from-[#000b1d] to-[#002244] border-b border-white/10 shadow-2xl shadow-black/20 font-['Manrope'] antialiased tracking-tight">
 	<div class="flex items-center justify-between px-8 py-4 max-w-[1440px] mx-auto">
 		<div class="flex items-center gap-8">
-			<div class="flex items-center gap-3 group cursor-pointer">
+			<a href={homeUrl} class="flex items-center gap-3 group cursor-pointer">
 				<img
 					src="https://lh3.googleusercontent.com/aida/ADBb0uiWrM-12vD1OS6YWRKOShhEws0MBnvqIVt62kuvEfjBQQkWzpNFa1iIcKiAjJXxrz6yqXI1IvwkRytFMPQICU1ydm5bXZQYJx1iJpnBRszsYg3seiXdVOFbUvm-nGaBCWJNup7SMSo6gPdh6NmLLNesm5FATy_aTAeB77YFSszE7E7Ysa2dSXtvREiiPm8uDXt3fmaMIxg1Bex_1yRs5TnwXG23Tw7yPIiVKLTsanDGnvQAXqWiINfUZbD3P5gsYUuaantIMZaDhQ"
 					alt="Tracemet Scientific logo"
 					class="h-10 w-10 object-contain rounded-lg h-12 w-12"
 				/>
 				<span class="text-xl font-bold tracking-tighter text-white uppercase">Tracemet Scientific</span>
-			</div>
+			</a>
 			<nav class="hidden md:flex items-center gap-6">
-				<a href="#" class="text-[#735a2e] border-b-2 border-[#735a2e] pb-1 font-semibold">Home</a>
-				<a href="#" class="text-slate-300 hover:text-white transition-colors">Products</a>
-				<a href="#" class="text-slate-300 hover:text-white transition-colors">Resources</a>
+				<a href={homeUrl} class="text-[#735a2e] border-b-2 border-[#735a2e] pb-1 font-semibold">{t('nav.home')}</a>
+				<a href="#" class="text-slate-300 hover:text-white transition-colors">{t('nav.products')}</a>
+				<a href="#" class="text-slate-300 hover:text-white transition-colors">{t('nav.resources')}</a>
 			</nav>
 		</div>
 		<div class="flex items-center gap-4">
-					<a
-						href="/contact"
-					>
-			<button class="px-5 py-2.5 text-slate-300 hover:text-white transition-all duration-300 active:scale-95 text-sm font-medium">Contact Us</button>
-					</a>
-			<button class="px-6 py-2.5 bg-gradient-to-br from-secondary to-on-secondary-container text-white font-semibold rounded-lg shadow-lg shadow-black/20 hover:brightness-110 active:scale-95 transition-all duration-300 text-sm">Request a quote</button>
+			<a href={contactUrl}>
+				<button class="px-5 py-2.5 text-slate-300 hover:text-white transition-all duration-300 active:scale-95 text-sm font-medium">{t('nav.contact')}</button>
+			</a>
+			<button class="px-6 py-2.5 bg-gradient-to-br from-secondary to-on-secondary-container text-white font-semibold rounded-lg shadow-lg shadow-black/20 hover:brightness-110 active:scale-95 transition-all duration-300 text-sm">{t('nav.quote')}</button>
 		</div>
 	</div>
 </header>
