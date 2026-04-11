@@ -116,6 +116,8 @@ export const ui = {
 		'page.products.noresults.desc':
 			'Try adjusting your search or selecting a different category.',
 		'page.products.noresults.reset': 'Clear filters',
+		'page.products.prev': 'Prev',
+		'page.products.next': 'Next',
 	},
 	ar: {
 		// Site
@@ -223,5 +225,7 @@ export const ui = {
 		'page.products.noresults.title': 'لا توجد منتجات',
 		'page.products.noresults.desc': 'جرّب تعديل بحثك أو اختيار فئة مختلفة.',
 		'page.products.noresults.reset': 'مسح الفلاتر',
+		'page.products.prev': 'السابق',
+		'page.products.next': 'التالي',
 	},
 } as const;
