@@ -10,6 +10,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const homeUrl = getRelativeLocaleUrl(lang, '');
+const productsUrl = getRelativeLocaleUrl(lang, 'products');
 const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 ---
 
@@ -25,8 +26,8 @@ const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 				<span class="text-xl font-bold tracking-tighter text-white uppercase">Tracemet Scientific</span>
 			</a>
 			<nav class="hidden md:flex items-center gap-6">
-				<a href={homeUrl} class="text-[#735a2e] border-b-2 border-[#735a2e] pb-1 font-semibold">{t('nav.home')}</a>
-				<a href="#" class="text-slate-300 hover:text-white transition-colors">{t('nav.products')}</a>
+				<a href={homeUrl} class="text-slate-300 hover:text-white transition-colors font-semibold">{t('nav.home')}</a>
+				<a href={productsUrl} class="text-slate-300 hover:text-white transition-colors">{t('nav.products')}</a>
 				<a href="#" class="text-slate-300 hover:text-white transition-colors">{t('nav.resources')}</a>
 			</nav>
 		</div>
