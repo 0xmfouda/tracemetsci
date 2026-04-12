@@ -1,5 +1,7 @@
 ---
 import { useTranslations, type Lang } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { products } from '../data/products';
 
 interface Props {
 	lang: Lang;
@@ -7,9 +9,17 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const productsUrl = getRelativeLocaleUrl(lang, 'products');
+
+// Compact data for suggestions — only what the client needs
+const suggestionData = products.map((p) => ({
+	name: p.name[lang],
+	code: p.code,
+	cas: p.cas ?? null,
+}));
 ---
 
-<section class="relative min-h-[800px] flex items-center overflow-hidden">
+<section class="relative min-h-[800px] flex items-center overflow-x-hidden">
 	<div class="absolute inset-0 z-0">
 		<img
 			src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx2UAlBIWKRaNBuxsA8mnm_8afXL-QTQB-qbILnU0zJK-CEuf-zdTs3v2vnOQ0GU7Cf9PcWe1O4eNlfAwnxblAO-KxndHP23Ib6CPsr-3_J4WCHN7OqeIw3ZqHeI7m0zt3h2BG-nD8Aws0n9enwMaNsgCFLh4PqwcViOilI1L6Z4n-9YG3-TMi_sXMVEnmd_rRSsqmtiCnr8c5V9E2mT_I-juzusl6b63Tz7E7lYT45aHkL_YLQuDoLpoCBd88yyNTvi2bcZRtq44"
@@ -30,17 +40,155 @@ const t = useTranslations(lang);
 				{t('hero.tagline')}
 			</p>
 			<!-- Search Bar -->
-			<div class="relative max-w-3xl glass-panel p-2 rounded-2xl border border-white/20 shadow-2xl">
+			<div
+				class="relative max-w-3xl glass-panel p-2 rounded-2xl border border-white/20 shadow-2xl"
+				data-products-url={productsUrl}
+				data-products={JSON.stringify(suggestionData)}
+			>
 				<div class="flex items-center gap-3 px-6 py-4 bg-white rounded-xl shadow-inner">
 					<span class="material-symbols-outlined text-slate-400">search</span>
 					<input
+						id="hero-search-input"
 						type="text"
+						autocomplete="off"
 						class="flex-1 border-none focus:ring-0 text-primary font-medium placeholder:text-slate-400"
 						placeholder={t('hero.search.placeholder')}
 					/>
-					<button class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95">{t('hero.search.button')}</button>
+					<button id="hero-search-btn" class="bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95">{t('hero.search.button')}</button>
 				</div>
+				<!-- Suggestions dropdown (positioned via JS with fixed positioning) -->
+				<ul
+					id="hero-suggestions"
+					class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-100 overflow-y-auto z-[9999] max-h-80"
+					role="listbox"
+				></ul>
 			</div>
 		</div>
 	</div>
 </section>
+
+<script>
+	const input       = document.getElementById('hero-search-input') as HTMLInputElement;
+	const btn         = document.getElementById('hero-search-btn') as HTMLButtonElement;
+	const suggList    = document.getElementById('hero-suggestions') as HTMLUListElement;
+	const wrapper     = btn.closest('[data-products-url]') as HTMLElement;
+	const productsUrl = wrapper.dataset.productsUrl!;
+
+	type SuggestionItem = { name: string; code: string; cas: string | null };
+	const allProducts: SuggestionItem[] = JSON.parse(wrapper.dataset.products!);
+
+	let activeIndex = -1;
+
+	function navigate(query?: string) {
+		const q = (query ?? input.value).trim();
+		const url = q ? `${productsUrl}?q=${encodeURIComponent(q)}` : productsUrl;
+		window.location.href = url;
+	}
+
+	function highlight(text: string, query: string): string {
+		if (!query) return text;
+		const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+		return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark class="bg-secondary/30 text-primary rounded-sm">$1</mark>');
+	}
+
+	function positionDropdown() {
+		const rect = input.getBoundingClientRect();
+		suggList.style.top    = `${rect.bottom + 8}px`;
+		suggList.style.left   = `${rect.left}px`;
+		suggList.style.width  = `${wrapper.getBoundingClientRect().width}px`;
+	}
+
+	function buildSuggestions(q: string) {
+		const query = q.trim().toLowerCase();
+		if (!query) { hideSuggestions(); return; }
+
+		const matches = allProducts.filter((p) =>
+			p.name.toLowerCase().includes(query) ||
+			p.code.toLowerCase().includes(query) ||
+			(p.cas && p.cas.toLowerCase().includes(query))
+		).slice(0, 7);
+
+		if (matches.length === 0) { hideSuggestions(); return; }
+
+		activeIndex = -1;
+		suggList.innerHTML = matches.map((p, i) => `
+			<li
+				role="option"
+				data-index="${i}"
+				data-query="${p.name}"
+				class="flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-slate-50 transition-colors border-b border-slate-100/70 last:border-0"
+			>
+				<span class="material-symbols-outlined text-slate-400 text-lg shrink-0">science</span>
+				<span class="flex-1 min-w-0">
+					<span class="block text-sm font-semibold text-on-surface truncate">${highlight(p.name, q)}</span>
+					<span class="block text-xs text-on-surface-variant font-mono mt-0.5">
+						${highlight(p.code, q)}${p.cas ? ` · CAS ${highlight(p.cas, q)}` : ''}
+					</span>
+				</span>
+				<span class="material-symbols-outlined text-slate-300 text-base shrink-0">arrow_forward</span>
+			</li>
+		`).join('');
+
+		suggList.querySelectorAll('li').forEach((li) => {
+			li.addEventListener('mousedown', (e) => {
+				e.preventDefault(); // keep focus on input
+				navigate((li as HTMLElement).dataset.query!);
+			});
+		});
+
+		positionDropdown();
+		suggList.classList.remove('hidden');
+	}
+
+	function hideSuggestions() {
+		suggList.classList.add('hidden');
+		activeIndex = -1;
+	}
+
+	function setActive(index: number) {
+		const items = suggList.querySelectorAll<HTMLElement>('li');
+		items.forEach((li, i) => {
+			li.classList.toggle('bg-slate-50', i === index);
+		});
+		activeIndex = index;
+		if (index >= 0 && items[index]) {
+			input.value = items[index].dataset.query!;
+		}
+	}
+
+	input.addEventListener('input', () => buildSuggestions(input.value));
+
+	input.addEventListener('keydown', (e) => {
+		const items = suggList.querySelectorAll<HTMLElement>('li');
+		if (e.key === 'ArrowDown') {
+			e.preventDefault();
+			setActive(Math.min(activeIndex + 1, items.length - 1));
+		} else if (e.key === 'ArrowUp') {
+			e.preventDefault();
+			setActive(Math.max(activeIndex - 1, -1));
+		} else if (e.key === 'Escape') {
+			hideSuggestions();
+		} else if (e.key === 'Enter') {
+			hideSuggestions();
+			navigate();
+		}
+	});
+
+	input.addEventListener('blur', () => {
+		// Small delay so mousedown on suggestion fires first
+		setTimeout(hideSuggestions, 150);
+	});
+
+	window.addEventListener('scroll', () => {
+		if (!suggList.classList.contains('hidden')) positionDropdown();
+	}, { passive: true });
+
+	window.addEventListener('resize', () => {
+		if (!suggList.classList.contains('hidden')) positionDropdown();
+	});
+
+	btn.addEventListener('click', () => {
+		hideSuggestions();
+		navigate();
+	});
+</script>
