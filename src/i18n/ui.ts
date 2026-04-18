@@ -13,7 +13,6 @@ export const ui = {
 		// NavBar
 		'nav.home': 'Home',
 		'nav.products': 'Products',
-		'nav.resources': 'Resources',
 		'nav.contact': 'Contact Us',
 		'nav.quote': 'Request a quote',
 		// Hero
@@ -125,7 +124,6 @@ export const ui = {
 		// NavBar
 		'nav.home': 'الرئيسية',
 		'nav.products': 'المنتجات',
-		'nav.resources': 'الموارد',
 		'nav.contact': 'تواصل معنا',
 		'nav.quote': 'طلب عرض سعر',
 		// Hero
