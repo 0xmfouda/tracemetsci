@@ -146,8 +146,12 @@ export const ui = {
 		'page.products.instruments.title': 'Instruments — TraceMet Science',
 		'page.products.instruments.heading': 'Laboratory Instruments',
 		'page.products.instruments.subtitle':
-			'Precision liquid-handling, weighing, heating, and calibration instruments — certified, traceable, and ready for your analytical workflow.',
+			'Precision liquid-handling, weighing, heating, and electrochemistry instruments — certified, traceable, and ready for your analytical workflow.',
 		'page.products.instruments.specs': 'Specifications',
+		'page.products.instruments.filter.pipetting': 'Pipetting',
+		'page.products.instruments.filter.weighing': 'Weighing',
+		'page.products.instruments.filter.heating': 'Heating',
+		'page.products.instruments.filter.electrochemistry': 'Electrochemistry',
 		'page.products.back': 'Back to products',
 	},
 	ar: {
@@ -286,8 +290,12 @@ export const ui = {
 		'page.products.instruments.title': 'الأجهزة — تريسمت العلمية',
 		'page.products.instruments.heading': 'الأجهزة المخبرية',
 		'page.products.instruments.subtitle':
-			'أجهزة دقيقة للمناولة السائلة والوزن والتسخين والمعايرة — معتمدة وقابلة للتتبع وجاهزة لسير عملك التحليلي.',
+			'أجهزة دقيقة للمناولة السائلة والوزن والتسخين والكيمياء الكهربائية — معتمدة وقابلة للتتبع وجاهزة لسير عملك التحليلي.',
 		'page.products.instruments.specs': 'المواصفات',
+		'page.products.instruments.filter.pipetting': 'المناولة السائلة',
+		'page.products.instruments.filter.weighing': 'الوزن',
+		'page.products.instruments.filter.heating': 'التسخين',
+		'page.products.instruments.filter.electrochemistry': 'الكيمياء الكهربائية',
 		'page.products.back': 'العودة إلى المنتجات',
 	},
 } as const;
