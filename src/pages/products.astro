@@ -346,12 +346,16 @@ const categories: { key: Category | 'all'; label: string }[] = [
 		applyFilters();
 	});
 
-	// Pre-populate search from ?q= URL parameter
+	// Pre-populate search and category from URL parameters
 	const urlParams = new URLSearchParams(window.location.search);
 	const qParam = urlParams.get('q');
 	if (qParam) {
 		searchInput.value = qParam;
 		searchQuery = qParam.trim().toLowerCase();
+	}
+	const categoryParam = urlParams.get('category');
+	if (categoryParam) {
+		setActiveFilter(categoryParam);
 	}
 
 	// Initialise — shows page 1 and builds pagination
