@@ -27,6 +27,14 @@ const cards = [
 		desc: t('page.products.cards.glasswares.desc'),
 		img: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=900&q=80',
 	},
+	{
+		key: 'instruments',
+		href: `${productsBase}/instruments`,
+		icon: 'precision_manufacturing',
+		title: t('page.products.cards.instruments.title'),
+		desc: t('page.products.cards.instruments.desc'),
+		img: 'https://images.unsplash.com/photo-1576319155264-99536e0be1ee?w=900&q=80',
+	},
 ];
 ---
 
@@ -51,7 +59,7 @@ const cards = [
 
 	<!-- Category cards -->
 	<main class="max-w-[1200px] mx-auto px-8 py-16">
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			{cards.map((c) => (
 				<a
 					href={c.href}

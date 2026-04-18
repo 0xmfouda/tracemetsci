@@ -124,6 +124,9 @@ export const ui = {
 		'page.products.cards.glasswares.title': 'Glasswares',
 		'page.products.cards.glasswares.desc':
 			'Volumetric flasks, pipettes, burettes, and laboratory glassware engineered for precision.',
+		'page.products.cards.instruments.title': 'Instruments',
+		'page.products.cards.instruments.desc':
+			'Micropipettes, digital balances, calibration masses, and hot plates — precision instruments for every analytical workflow.',
 		'page.products.cards.browse': 'Browse',
 		// Glasswares
 		'page.products.glasswares.title': 'Glasswares — TraceMet Science',
@@ -139,6 +142,12 @@ export const ui = {
 		'page.products.glasswares.filter.flasks': 'Flasks',
 		'page.products.glasswares.filter.pipettes': 'Pipettes & Burettes',
 		'page.products.glasswares.filter.storage': 'Storage Bottles',
+		// Instruments
+		'page.products.instruments.title': 'Instruments — TraceMet Science',
+		'page.products.instruments.heading': 'Laboratory Instruments',
+		'page.products.instruments.subtitle':
+			'Precision liquid-handling, weighing, heating, and calibration instruments — certified, traceable, and ready for your analytical workflow.',
+		'page.products.instruments.specs': 'Specifications',
 		'page.products.back': 'Back to products',
 	},
 	ar: {
@@ -255,6 +264,9 @@ export const ui = {
 		'page.products.cards.glasswares.title': 'الأدوات الزجاجية',
 		'page.products.cards.glasswares.desc':
 			'دوارق حجمية، ماصّات، سحّاحات، وأدوات زجاجية مخبرية مصممة للدقة العالية.',
+		'page.products.cards.instruments.title': 'الأجهزة',
+		'page.products.cards.instruments.desc':
+			'ماصّات دقيقة وموازين رقمية وكتل معايرة وصفائح تسخين — أجهزة دقيقة لكل سير عمل تحليلي.',
 		'page.products.cards.browse': 'تصفّح',
 		// Glasswares
 		'page.products.glasswares.title': 'الأدوات الزجاجية — تريسمت العلمية',
@@ -270,6 +282,12 @@ export const ui = {
 		'page.products.glasswares.filter.flasks': 'الدوارق',
 		'page.products.glasswares.filter.pipettes': 'الماصّات والسحّاحات',
 		'page.products.glasswares.filter.storage': 'قوارير التخزين',
+		// Instruments
+		'page.products.instruments.title': 'الأجهزة — تريسمت العلمية',
+		'page.products.instruments.heading': 'الأجهزة المخبرية',
+		'page.products.instruments.subtitle':
+			'أجهزة دقيقة للمناولة السائلة والوزن والتسخين والمعايرة — معتمدة وقابلة للتتبع وجاهزة لسير عملك التحليلي.',
+		'page.products.instruments.specs': 'المواصفات',
 		'page.products.back': 'العودة إلى المنتجات',
 	},
 } as const;

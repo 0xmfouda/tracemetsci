@@ -1,0 +1,101 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations, type Lang } from '../../i18n/utils';
+import { instruments } from '../../data/instruments';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
+
+const contactUrl = getRelativeLocaleUrl(lang, 'contact');
+const productsUrl = getRelativeLocaleUrl(lang, 'products');
+---
+
+<Layout title={t('page.products.instruments.title')} {lang}>
+	<NavBar {lang} />
+
+	<!-- Page header -->
+	<section class="bg-primary pt-20 pb-16 relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-container opacity-80"></div>
+		<div class="relative z-10 max-w-[1440px] mx-auto px-8">
+			<a href={productsUrl} class="inline-flex items-center gap-1 text-secondary-fixed-dim hover:text-white transition-colors text-sm mb-4">
+				<span class="material-symbols-outlined text-base">arrow_back</span>
+				{t('page.products.back')}
+			</a>
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary-fixed-dim font-bold text-xs tracking-widest uppercase mb-4 backdrop-blur-sm">
+				{t('page.products.cards.instruments.title')}
+			</div>
+			<h1 class="text-4xl md:text-5xl font-extrabold text-white font-headline tracking-tight mb-4">
+				{t('page.products.instruments.heading')}
+			</h1>
+			<p class="text-slate-300 text-lg max-w-3xl leading-relaxed">
+				{t('page.products.instruments.subtitle')}
+			</p>
+		</div>
+	</section>
+
+	<!-- Instruments grid -->
+	<main class="max-w-[1440px] mx-auto px-8 py-16">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+			{instruments.map((i) => (
+				<article class="group flex flex-col bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-xl hover:-translate-y-0.5 transition-all duration-500 overflow-hidden">
+					<div class="h-64 overflow-hidden relative bg-surface-container">
+						<img
+							src={i.image}
+							alt={i.name[lang]}
+							loading="lazy"
+							class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+						/>
+					</div>
+					<div class="p-7 flex-1 flex flex-col">
+						<div class="flex items-start justify-between gap-3 mb-2">
+							<h2 class="text-xl font-bold text-on-surface font-headline leading-snug group-hover:text-primary transition-colors">
+								{i.name[lang]}
+							</h2>
+							<span class="text-xs font-mono text-on-surface-variant/70 shrink-0 mt-1">{i.code}</span>
+						</div>
+						<p class="text-on-surface-variant leading-relaxed mb-5">
+							{i.description[lang]}
+						</p>
+
+						<!-- Specs -->
+						<div class="mb-5">
+							<h3 class="text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">
+								{t('page.products.instruments.specs')}
+							</h3>
+							<dl class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+								{i.specs.map((s) => (
+									<>
+										<dt class="text-on-surface-variant">{s.label[lang]}</dt>
+										<dd class="text-on-surface font-medium">{s.value}</dd>
+									</>
+								))}
+							</dl>
+						</div>
+
+						<!-- Application tags -->
+						<div class="flex flex-wrap gap-1.5 mb-5">
+							{i.applications.map((app) => (
+								<span class="px-2 py-0.5 bg-surface-container rounded text-xs text-on-surface-variant font-medium">
+									{app}
+								</span>
+							))}
+						</div>
+
+						<a
+							href={contactUrl}
+							class="mt-auto flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold hover:bg-primary/90 active:scale-[.98] transition-all"
+						>
+							{t('page.products.request_quote')}
+							<span class="material-symbols-outlined text-sm">arrow_forward</span>
+						</a>
+					</div>
+				</article>
+			))}
+		</div>
+	</main>
+
+	<Footer {lang} />
+</Layout>
