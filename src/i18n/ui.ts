@@ -117,6 +117,29 @@ export const ui = {
 		'page.products.noresults.reset': 'Clear filters',
 		'page.products.prev': 'Prev',
 		'page.products.next': 'Next',
+		// Products landing (category cards)
+		'page.products.cards.chemicals.title': 'Chemicals',
+		'page.products.cards.chemicals.desc':
+			'NIST-traceable reference standards, certified buffers, and primary-grade powders for every analytical technique.',
+		'page.products.cards.glasswares.title': 'Glasswares',
+		'page.products.cards.glasswares.desc':
+			'Volumetric flasks, pipettes, burettes, and laboratory glassware engineered for precision.',
+		'page.products.cards.browse': 'Browse',
+		// Glasswares
+		'page.products.glasswares.title': 'Glasswares — TraceMet Science',
+		'page.products.glasswares.heading': 'Laboratory Glasswares',
+		'page.products.glasswares.subtitle':
+			'Borosilicate volumetric flasks, pipettes, burettes, beakers, and storage bottles certified to ISO standards.',
+		'page.products.glasswares.material': 'Material',
+		'page.products.glasswares.tolerance': 'Tolerance',
+		'page.products.glasswares.standard': 'Standard',
+		'page.products.glasswares.filter.volumetric': 'Volumetric Flasks',
+		'page.products.glasswares.filter.measuring': 'Measuring Cylinders',
+		'page.products.glasswares.filter.beakers': 'Beakers',
+		'page.products.glasswares.filter.flasks': 'Flasks',
+		'page.products.glasswares.filter.pipettes': 'Pipettes & Burettes',
+		'page.products.glasswares.filter.storage': 'Storage Bottles',
+		'page.products.back': 'Back to products',
 	},
 	ar: {
 		// Site
@@ -225,5 +248,28 @@ export const ui = {
 		'page.products.noresults.reset': 'مسح الفلاتر',
 		'page.products.prev': 'السابق',
 		'page.products.next': 'التالي',
+		// Products landing (category cards)
+		'page.products.cards.chemicals.title': 'المواد الكيميائية',
+		'page.products.cards.chemicals.desc':
+			'معايير مرجعية قابلة للتتبع وفق NIST ومحاليل منظمة معتمدة ومساحيق بدرجة المعيار الأولي لكل تقنية تحليلية.',
+		'page.products.cards.glasswares.title': 'الأدوات الزجاجية',
+		'page.products.cards.glasswares.desc':
+			'دوارق حجمية، ماصّات، سحّاحات، وأدوات زجاجية مخبرية مصممة للدقة العالية.',
+		'page.products.cards.browse': 'تصفّح',
+		// Glasswares
+		'page.products.glasswares.title': 'الأدوات الزجاجية — تريسمت العلمية',
+		'page.products.glasswares.heading': 'الأدوات الزجاجية المخبرية',
+		'page.products.glasswares.subtitle':
+			'دوارق حجمية وماصّات وسحّاحات وبيكرات وقوارير تخزين من زجاج البوروسيليكات معتمدة وفق معايير ISO.',
+		'page.products.glasswares.material': 'المادة',
+		'page.products.glasswares.tolerance': 'التفاوت',
+		'page.products.glasswares.standard': 'المواصفة',
+		'page.products.glasswares.filter.volumetric': 'الدوارق الحجمية',
+		'page.products.glasswares.filter.measuring': 'المخابير المدرّجة',
+		'page.products.glasswares.filter.beakers': 'البيكرات',
+		'page.products.glasswares.filter.flasks': 'الدوارق',
+		'page.products.glasswares.filter.pipettes': 'الماصّات والسحّاحات',
+		'page.products.glasswares.filter.storage': 'قوارير التخزين',
+		'page.products.back': 'العودة إلى المنتجات',
 	},
 } as const;

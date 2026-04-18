@@ -3,23 +3,28 @@ import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import { useTranslations, type Lang } from '../../i18n/utils';
-import { products, categoryColors, type Category } from '../../data/products';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = (Astro.currentLocale ?? 'ar') as Lang;
 const t = useTranslations(lang);
 
-const contactUrl = getRelativeLocaleUrl(lang, 'contact');
+const productsBase = getRelativeLocaleUrl(lang, 'products').replace(/\/$/, '');
 
-const total = products.length;
-
-const categories: { key: Category | 'all'; label: string }[] = [
-	{ key: 'all', label: t('page.products.filter.all') },
-	{ key: 'chromatography', label: t('page.products.filter.chromatography') },
-	{ key: 'inorganic', label: t('page.products.filter.inorganic') },
-	{ key: 'icp', label: t('page.products.filter.icp') },
-	{ key: 'electrochemical', label: t('page.products.filter.electrochemical') },
-	{ key: 'powders', label: t('page.products.filter.powders') },
+const cards = [
+	{
+		key: 'chemicals',
+		href: `${productsBase}/chemicals`,
+		title: t('page.products.cards.chemicals.title'),
+		desc: t('page.products.cards.chemicals.desc'),
+		img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=900&q=80',
+	},
+	{
+		key: 'glasswares',
+		href: `${productsBase}/glasswares`,
+		title: t('page.products.cards.glasswares.title'),
+		desc: t('page.products.cards.glasswares.desc'),
+		img: 'https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=900&q=80',
+	},
 ];
 ---
 
@@ -42,327 +47,38 @@ const categories: { key: Category | 'all'; label: string }[] = [
 		</div>
 	</section>
 
-	<!-- Sticky filter bar -->
-	<div id="filter-bar" class="sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant/20 shadow-sm">
-		<div class="max-w-[1440px] mx-auto px-8 py-4 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-			<!-- Search -->
-			<div class="relative flex-1 max-w-md">
-				<span class="material-symbols-outlined absolute start-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl pointer-events-none">search</span>
-				<input
-					id="product-search"
-					type="search"
-					placeholder={t('page.products.search.placeholder')}
-					class="w-full ps-10 pe-4 py-2.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary text-sm"
-				/>
-			</div>
-			<!-- Result counter -->
-			<p class="text-sm text-on-surface-variant shrink-0">
-				{t('page.products.showing')}
-				<span id="result-from" class="font-bold text-on-surface">1</span>–<span id="result-to" class="font-bold text-on-surface">{Math.min(15, total)}</span>
-				{t('page.products.of')}
-				<span id="result-total" class="font-bold text-on-surface">{total}</span>
-				{t('page.products.results')}
-			</p>
-		</div>
-
-		<!-- Category tabs -->
-		<div class="max-w-[1440px] mx-auto px-8 pb-3 flex gap-2 flex-wrap">
-			{categories.map(({ key, label }) => (
-				<button
-					data-filter-btn={key}
-					class:list={[
-						'filter-btn px-4 py-1.5 rounded-full text-sm font-medium border transition-all',
-						key === 'all'
-							? 'bg-primary text-on-primary border-primary'
-							: 'bg-transparent text-on-surface-variant border-outline-variant/30 hover:bg-surface-container',
-					]}
+	<!-- Category cards -->
+	<main class="max-w-[1200px] mx-auto px-8 py-16">
+		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			{cards.map((c) => (
+				<a
+					href={c.href}
+					class="group flex flex-col bg-surface-container-lowest rounded-2xl border border-outline-variant/10 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500 overflow-hidden"
 				>
-					{label}
-				</button>
+					<div class="h-64 overflow-hidden relative">
+						<img
+							src={c.img}
+							alt={c.title}
+							class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+						/>
+						<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+					</div>
+					<div class="p-8 flex-1 flex flex-col">
+						<h2 class="text-2xl font-bold text-primary font-headline mb-3 group-hover:text-primary-container transition-colors">
+							{c.title}
+						</h2>
+						<p class="text-on-surface-variant leading-relaxed mb-6 flex-1">
+							{c.desc}
+						</p>
+						<span class="inline-flex items-center gap-2 text-primary font-semibold text-sm">
+							{t('page.products.cards.browse')}
+							<span class="material-symbols-outlined text-base group-hover:-translate-x-1 transition-transform">arrow_back</span>
+						</span>
+					</div>
+				</a>
 			))}
 		</div>
-	</div>
-
-	<!-- Product grid -->
-	<main class="max-w-[1440px] mx-auto px-8 py-12">
-		<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{products.map((p) => {
-				const colors = categoryColors[p.category];
-				const searchText = `${p.name.en} ${p.name.ar} ${p.code} ${p.cas ?? ''} ${p.applications.join(' ')}`.toLowerCase();
-				const categoryLabel = t(`page.products.filter.${p.category}` as any);
-				return (
-					<article
-						data-product-card
-						data-category={p.category}
-						data-searchtext={searchText}
-						class="group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-					>
-						<!-- Card header -->
-						<div class="flex items-start justify-between px-5 pt-5 pb-3 gap-3">
-							<span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border', colors.bg, colors.text, colors.border]}>
-								{categoryLabel}
-							</span>
-							<span class="text-xs font-mono text-on-surface-variant/70 shrink-0">{p.code}</span>
-						</div>
-
-						<!-- Card body -->
-						<div class="flex-1 px-5 pb-4">
-							<h3 class="text-base font-bold text-on-surface mb-1.5 leading-snug group-hover:text-primary transition-colors">
-								{p.name[lang]}
-							</h3>
-							<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2 mb-4">
-								{p.description[lang]}
-							</p>
-
-							<!-- Specs grid -->
-							<dl class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs mb-4">
-								{p.cas && (
-									<>
-										<dt class="text-on-surface-variant font-medium">{t('page.products.cas')}</dt>
-										<dd class="font-mono text-on-surface">{p.cas}</dd>
-									</>
-								)}
-								{p.concentration && (
-									<>
-										<dt class="text-on-surface-variant font-medium">{t('page.products.concentration')}</dt>
-										<dd class="text-on-surface">{p.concentration}</dd>
-									</>
-								)}
-								{p.purity && (
-									<>
-										<dt class="text-on-surface-variant font-medium">{t('page.products.purity')}</dt>
-										<dd class="text-on-surface">{p.purity}</dd>
-									</>
-								)}
-								{p.matrix && (
-									<>
-										<dt class="text-on-surface-variant font-medium">{t('page.products.matrix')}</dt>
-										<dd class="text-on-surface">{p.matrix}</dd>
-									</>
-								)}
-							</dl>
-
-							<!-- Application tags -->
-							<div class="flex flex-wrap gap-1.5 mb-4">
-								{p.applications.map((app) => (
-									<span class="px-2 py-0.5 bg-surface-container rounded text-xs text-on-surface-variant font-medium">
-										{app}
-									</span>
-								))}
-							</div>
-
-							<!-- Sizes -->
-							<div class="flex flex-wrap gap-1.5">
-								{p.sizes.map((size) => (
-									<span class="px-2.5 py-0.5 border border-outline-variant/40 rounded-md text-xs text-on-surface font-medium">
-										{size}
-									</span>
-								))}
-							</div>
-						</div>
-
-						<!-- Card footer -->
-						<div class="px-5 pb-5 pt-3 border-t border-outline-variant/10 mt-auto">
-							<a
-								href={contactUrl}
-								class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold hover:bg-primary/90 active:scale-[.98] transition-all"
-							>
-								{t('page.products.request_quote')}
-								<span class="material-symbols-outlined text-sm">arrow_back</span>
-							</a>
-						</div>
-					</article>
-				);
-			})}
-		</div>
-
-		<!-- No results state -->
-		<div id="no-results" class="hidden py-24 flex flex-col items-center justify-center text-center gap-4">
-			<span class="material-symbols-outlined text-5xl text-on-surface-variant/40">search_off</span>
-			<h3 class="text-xl font-semibold text-on-surface">{t('page.products.noresults.title')}</h3>
-			<p class="text-on-surface-variant max-w-sm">{t('page.products.noresults.desc')}</p>
-			<button
-				id="reset-filters"
-				class="mt-2 px-5 py-2 rounded-lg border border-outline-variant/40 text-sm font-medium text-on-surface hover:bg-surface-container transition-colors"
-			>
-				{t('page.products.noresults.reset')}
-			</button>
-		</div>
-
-		<!-- Pagination -->
-		<nav
-			id="pagination"
-			data-prev={t('page.products.prev')}
-			data-next={t('page.products.next')}
-			class="flex justify-center items-center gap-1.5 mt-10 flex-wrap"
-			aria-label="Product pages"
-		></nav>
 	</main>
 
 	<Footer {lang} />
 </Layout>
-
-<script>
-	const PAGE_SIZE = 15;
-
-	const searchInput  = document.getElementById('product-search') as HTMLInputElement;
-	const resultFrom   = document.getElementById('result-from')   as HTMLSpanElement;
-	const resultTo     = document.getElementById('result-to')     as HTMLSpanElement;
-	const resultTotal  = document.getElementById('result-total')  as HTMLSpanElement;
-	const noResults    = document.getElementById('no-results')    as HTMLDivElement;
-	const grid         = document.getElementById('product-grid')  as HTMLDivElement;
-	const resetBtn     = document.getElementById('reset-filters') as HTMLButtonElement;
-	const paginationEl = document.getElementById('pagination')    as HTMLElement;
-	const filterBtns   = document.querySelectorAll<HTMLButtonElement>('[data-filter-btn]');
-	const allCards     = Array.from(document.querySelectorAll<HTMLElement>('[data-product-card]'));
-
-	const prevLabel = paginationEl.dataset.prev!;
-	const nextLabel = paginationEl.dataset.next!;
-
-	let activeCategory = 'all';
-	let searchQuery    = '';
-	let currentPage    = 1;
-	let filteredCards: HTMLElement[] = [];
-
-	// ── Filter + paginate ─────────────────────────────────────────────────────────
-
-	function applyFilters() {
-		filteredCards = allCards.filter((card) => {
-			const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
-			const matchesSearch   = searchQuery === '' || card.dataset.searchtext!.includes(searchQuery);
-			return matchesCategory && matchesSearch;
-		});
-		currentPage = 1;
-		renderPage();
-	}
-
-	function renderPage() {
-		const total      = filteredCards.length;
-		const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
-		currentPage      = Math.max(1, Math.min(currentPage, totalPages));
-
-		const start = (currentPage - 1) * PAGE_SIZE;
-		const end   = start + PAGE_SIZE;
-
-		allCards.forEach((c) => { c.style.display = 'none'; });
-		filteredCards.slice(start, end).forEach((c) => { c.style.display = ''; });
-
-		resultFrom.textContent  = String(total === 0 ? 0 : start + 1);
-		resultTo.textContent    = String(Math.min(end, total));
-		resultTotal.textContent = String(total);
-
-		noResults.style.display = total === 0 ? 'flex' : 'none';
-		grid.style.display      = total === 0 ? 'none' : '';
-
-		renderPagination(totalPages);
-	}
-
-	// ── Pagination renderer ───────────────────────────────────────────────────────
-
-	function renderPagination(totalPages: number) {
-		if (totalPages <= 1) { paginationEl.innerHTML = ''; return; }
-
-		const pages: (number | '…')[] = [];
-		const delta = 2;
-		for (let i = 1; i <= totalPages; i++) {
-			if (i === 1 || i === totalPages || (i >= currentPage - delta && i <= currentPage + delta)) {
-				pages.push(i);
-			} else if (pages[pages.length - 1] !== '…') {
-				pages.push('…');
-			}
-		}
-
-		const base     = 'inline-flex items-center justify-center min-w-[2.25rem] h-9 px-3 rounded-lg text-sm font-medium transition-all';
-		const active   = 'bg-primary text-on-primary shadow-sm';
-		const passive  = 'text-on-surface-variant border border-outline-variant/30 hover:bg-surface-container';
-		const disabled = 'text-on-surface-variant/30 border border-outline-variant/20 cursor-not-allowed';
-
-		const prevOff = currentPage === 1;
-		const nextOff = currentPage === totalPages;
-
-		let html = `<button data-page="prev" ${prevOff ? 'disabled' : ''} class="${base} ${prevOff ? disabled : passive}">${prevLabel}</button>`;
-
-		for (const p of pages) {
-			if (p === '…') {
-				html += `<span class="px-1 text-on-surface-variant select-none">…</span>`;
-			} else {
-				const isCur = p === currentPage;
-				html += `<button data-page="${p}" ${isCur ? 'aria-current="page"' : ''} class="${base} ${isCur ? active : passive}">${p}</button>`;
-			}
-		}
-
-		html += `<button data-page="next" ${nextOff ? 'disabled' : ''} class="${base} ${nextOff ? disabled : passive}">${nextLabel}</button>`;
-
-		paginationEl.innerHTML = html;
-
-		paginationEl.querySelectorAll<HTMLButtonElement>('button[data-page]').forEach((btn) => {
-			btn.addEventListener('click', () => {
-				const val = btn.dataset.page!;
-				const maxPage = Math.ceil(filteredCards.length / PAGE_SIZE);
-				if (val === 'prev')      currentPage = Math.max(1, currentPage - 1);
-				else if (val === 'next') currentPage = Math.min(maxPage, currentPage + 1);
-				else                     currentPage = parseInt(val, 10);
-				renderPage();
-				document.getElementById('filter-bar')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
-			});
-		});
-	}
-
-	// ── Event listeners ───────────────────────────────────────────────────────────
-
-	function setActiveFilter(category: string) {
-		activeCategory = category;
-		filterBtns.forEach((b) => {
-			const on = b.dataset.filterBtn === category;
-			b.classList.toggle('bg-primary',                on);
-			b.classList.toggle('text-on-primary',           on);
-			b.classList.toggle('border-primary',            on);
-			b.classList.toggle('bg-transparent',            !on);
-			b.classList.toggle('text-on-surface-variant',   !on);
-			b.classList.toggle('border-outline-variant/30', !on);
-		});
-	}
-
-	filterBtns.forEach((btn) => {
-		btn.addEventListener('click', () => {
-			setActiveFilter(btn.dataset.filterBtn!);
-			applyFilters();
-		});
-	});
-
-	searchInput.addEventListener('input', () => {
-		searchQuery = searchInput.value.trim().toLowerCase();
-		applyFilters();
-	});
-
-	resetBtn.addEventListener('click', () => {
-		searchInput.value = '';
-		searchQuery = '';
-		setActiveFilter('all');
-		applyFilters();
-	});
-
-	// Pre-populate search and category from URL parameters
-	const urlParams = new URLSearchParams(window.location.search);
-	const qParam = urlParams.get('q');
-	if (qParam) {
-		searchInput.value = qParam;
-		searchQuery = qParam.trim().toLowerCase();
-	}
-	const categoryParam = urlParams.get('category');
-	if (categoryParam) {
-		setActiveFilter(categoryParam);
-	}
-
-	// Initialise — shows page 1 and builds pagination
-	applyFilters();
-</script>
-
-<style>
-	.line-clamp-2 {
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-</style>

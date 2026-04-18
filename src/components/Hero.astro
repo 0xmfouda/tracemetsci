@@ -9,7 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const productsUrl = getRelativeLocaleUrl(lang, 'products');
+const productsUrl = `${getRelativeLocaleUrl(lang, 'products').replace(/\/$/, '')}/chemicals`;
 
 // Compact data for suggestions — only what the client needs
 const suggestionData = products.map((p) => ({
