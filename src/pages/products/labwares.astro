@@ -1,31 +1,41 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import NavBar from '../../../components/NavBar.astro';
-import Footer from '../../../components/Footer.astro';
-import { useTranslations, type Lang } from '../../../i18n/utils';
-import { glasswares, glasswareCategoryColors, type GlasswareCategory } from '../../../data/glasswares';
+import Layout from '../../layouts/Layout.astro';
+import NavBar from '../../components/NavBar.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations, type Lang } from '../../i18n/utils';
+import { glasswares, glasswareCategoryColors, type GlasswareCategory } from '../../data/glasswares';
+import { instruments, instrumentCategoryColors, type InstrumentCategory } from '../../data/instruments';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
-const lang = (Astro.currentLocale ?? 'ar') as Lang;
+const lang = (Astro.currentLocale ?? 'en') as Lang;
 const t = useTranslations(lang);
 
 const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 const productsUrl = getRelativeLocaleUrl(lang, 'products');
 
-const total = glasswares.length;
+const total = glasswares.length + instruments.length;
 
-const categories: { key: GlasswareCategory | 'all'; label: string }[] = [
+type FilterKey =
+	| 'all'
+	| `gw:${GlasswareCategory}`
+	| `ins:${InstrumentCategory}`;
+
+const categories: { key: FilterKey; label: string }[] = [
 	{ key: 'all', label: t('page.products.filter.all') },
-	{ key: 'volumetric', label: t('page.products.glasswares.filter.volumetric') },
-	{ key: 'measuring', label: t('page.products.glasswares.filter.measuring') },
-	{ key: 'beakers', label: t('page.products.glasswares.filter.beakers') },
-	{ key: 'flasks', label: t('page.products.glasswares.filter.flasks') },
-	{ key: 'pipettes', label: t('page.products.glasswares.filter.pipettes') },
-	{ key: 'storage', label: t('page.products.glasswares.filter.storage') },
+	{ key: 'gw:volumetric', label: t('page.products.glasswares.filter.volumetric') },
+	{ key: 'gw:measuring', label: t('page.products.glasswares.filter.measuring') },
+	{ key: 'gw:beakers', label: t('page.products.glasswares.filter.beakers') },
+	{ key: 'gw:flasks', label: t('page.products.glasswares.filter.flasks') },
+	{ key: 'gw:pipettes', label: t('page.products.glasswares.filter.pipettes') },
+	{ key: 'gw:storage', label: t('page.products.glasswares.filter.storage') },
+	{ key: 'ins:pipetting', label: t('page.products.instruments.filter.pipetting') },
+	{ key: 'ins:weighing', label: t('page.products.instruments.filter.weighing') },
+	{ key: 'ins:heating', label: t('page.products.instruments.filter.heating') },
+	{ key: 'ins:electrochemistry', label: t('page.products.instruments.filter.electrochemistry') },
 ];
 ---
 
-<Layout title={t('page.products.glasswares.title')} {lang}>
+<Layout title={t('page.products.labwares.title')} {lang}>
 	<NavBar {lang} />
 
 	<!-- Page header -->
@@ -33,17 +43,17 @@ const categories: { key: GlasswareCategory | 'all'; label: string }[] = [
 		<div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-container opacity-80"></div>
 		<div class="relative z-10 max-w-[1440px] mx-auto px-8">
 			<a href={productsUrl} class="inline-flex items-center gap-1 text-secondary-fixed-dim hover:text-white transition-colors text-sm mb-4">
-				<span class="material-symbols-outlined text-base">arrow_forward</span>
+				<span class="material-symbols-outlined text-base">arrow_back</span>
 				{t('page.products.back')}
 			</a>
 			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary-fixed-dim font-bold text-xs tracking-widest uppercase mb-4 backdrop-blur-sm">
-				{t('page.products.cards.glasswares.title')}
+				{t('page.products.cards.labwares.title')}
 			</div>
 			<h1 class="text-4xl md:text-5xl font-extrabold text-white font-headline tracking-tight mb-4">
-				{t('page.products.glasswares.heading')}
+				{t('page.products.labwares.heading')}
 			</h1>
 			<p class="text-slate-300 text-lg max-w-3xl leading-relaxed">
-				{t('page.products.glasswares.subtitle')}
+				{t('page.products.labwares.subtitle')}
 			</p>
 		</div>
 	</section>
@@ -99,7 +109,7 @@ const categories: { key: GlasswareCategory | 'all'; label: string }[] = [
 				return (
 					<article
 						data-product-card
-						data-category={g.category}
+						data-category={`gw:${g.category}`}
 						data-searchtext={searchText}
 						class="group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
 					>
@@ -168,7 +178,79 @@ const categories: { key: GlasswareCategory | 'all'; label: string }[] = [
 								class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold hover:bg-primary/90 active:scale-[.98] transition-all"
 							>
 								{t('page.products.request_quote')}
-								<span class="material-symbols-outlined text-sm">arrow_back</span>
+								<span class="material-symbols-outlined text-sm">arrow_forward</span>
+							</a>
+						</div>
+					</article>
+				);
+			})}
+
+			{instruments.map((i) => {
+				const colors = instrumentCategoryColors[i.category];
+				const searchText = `${i.name.en} ${i.name.ar} ${i.code} ${i.applications.join(' ')} ${i.specs.map((s) => s.value).join(' ')}`.toLowerCase();
+				const categoryLabel = t(`page.products.instruments.filter.${i.category}` as any);
+				return (
+					<article
+						data-product-card
+						data-category={`ins:${i.category}`}
+						data-searchtext={searchText}
+						class="group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
+					>
+						<!-- Image -->
+						<div class="h-48 overflow-hidden relative bg-surface-container">
+							<img
+								src={i.image}
+								alt={i.name[lang]}
+								loading="lazy"
+								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+							/>
+						</div>
+
+						<!-- Card header -->
+						<div class="flex items-start justify-between px-5 pt-5 pb-3 gap-3">
+							<span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border', colors.bg, colors.text, colors.border]}>
+								{categoryLabel}
+							</span>
+							<span class="text-xs font-mono text-on-surface-variant/70 shrink-0">{i.code}</span>
+						</div>
+
+						<!-- Card body -->
+						<div class="flex-1 px-5 pb-4">
+							<h3 class="text-base font-bold text-on-surface mb-1.5 leading-snug group-hover:text-primary transition-colors">
+								{i.name[lang]}
+							</h3>
+							<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2 mb-4">
+								{i.description[lang]}
+							</p>
+
+							<!-- Specs grid -->
+							<dl class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs mb-4">
+								{i.specs.map((s) => (
+									<>
+										<dt class="text-on-surface-variant font-medium">{s.label[lang]}</dt>
+										<dd class="text-on-surface">{s.value}</dd>
+									</>
+								))}
+							</dl>
+
+							<!-- Application tags -->
+							<div class="flex flex-wrap gap-1.5">
+								{i.applications.map((app) => (
+									<span class="px-2 py-0.5 bg-surface-container rounded text-xs text-on-surface-variant font-medium">
+										{app}
+									</span>
+								))}
+							</div>
+						</div>
+
+						<!-- Card footer -->
+						<div class="px-5 pb-5 pt-3 border-t border-outline-variant/10 mt-auto">
+							<a
+								href={contactUrl}
+								class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold hover:bg-primary/90 active:scale-[.98] transition-all"
+							>
+								{t('page.products.request_quote')}
+								<span class="material-symbols-outlined text-sm">arrow_forward</span>
 							</a>
 						</div>
 					</article>
@@ -194,15 +276,15 @@ const categories: { key: GlasswareCategory | 'all'; label: string }[] = [
 </Layout>
 
 <script>
-	const searchInput  = document.getElementById('product-search') as HTMLInputElement;
-	const resultFrom   = document.getElementById('result-from')   as HTMLSpanElement;
-	const resultTo     = document.getElementById('result-to')     as HTMLSpanElement;
-	const resultTotal  = document.getElementById('result-total')  as HTMLSpanElement;
-	const noResults    = document.getElementById('no-results')    as HTMLDivElement;
-	const grid         = document.getElementById('product-grid')  as HTMLDivElement;
-	const resetBtn     = document.getElementById('reset-filters') as HTMLButtonElement;
-	const filterBtns   = document.querySelectorAll<HTMLButtonElement>('[data-filter-btn]');
-	const allCards     = Array.from(document.querySelectorAll<HTMLElement>('[data-product-card]'));
+	const searchInput = document.getElementById('product-search') as HTMLInputElement;
+	const resultFrom  = document.getElementById('result-from')  as HTMLSpanElement;
+	const resultTo    = document.getElementById('result-to')    as HTMLSpanElement;
+	const resultTotal = document.getElementById('result-total') as HTMLSpanElement;
+	const noResults   = document.getElementById('no-results')   as HTMLDivElement;
+	const grid        = document.getElementById('product-grid') as HTMLDivElement;
+	const resetBtn    = document.getElementById('reset-filters') as HTMLButtonElement;
+	const filterBtns  = document.querySelectorAll<HTMLButtonElement>('[data-filter-btn]');
+	const allCards    = Array.from(document.querySelectorAll<HTMLElement>('[data-product-card]'));
 
 	let activeCategory = 'all';
 	let searchQuery    = '';

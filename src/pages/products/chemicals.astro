@@ -12,19 +12,19 @@ const t = useTranslations(lang);
 const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 const productsUrl = getRelativeLocaleUrl(lang, 'products');
 
-const total = products.length;
+const ANALYTICAL_CATEGORIES: Category[] = ['chromatography', 'electrochemical'];
+const analyticalProducts = products.filter((p) => ANALYTICAL_CATEGORIES.includes(p.category));
+
+const total = analyticalProducts.length;
 
 const categories: { key: Category | 'all'; label: string }[] = [
 	{ key: 'all', label: t('page.products.filter.all') },
 	{ key: 'chromatography', label: t('page.products.filter.chromatography') },
-	{ key: 'inorganic', label: t('page.products.filter.inorganic') },
-	{ key: 'icp', label: t('page.products.filter.icp') },
 	{ key: 'electrochemical', label: t('page.products.filter.electrochemical') },
-	{ key: 'powders', label: t('page.products.filter.powders') },
 ];
 ---
 
-<Layout title={t('page.products.title')} {lang}>
+<Layout title={t('page.products.analytical-chemistry.title')} {lang}>
 	<NavBar {lang} />
 
 	<!-- Page header -->
@@ -36,13 +36,13 @@ const categories: { key: Category | 'all'; label: string }[] = [
 				{t('page.products.back')}
 			</a>
 			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary-fixed-dim font-bold text-xs tracking-widest uppercase mb-4 backdrop-blur-sm">
-				{t('page.products.cards.chemicals.title')}
+				{t('page.products.cards.analytical-chemistry.title')}
 			</div>
 			<h1 class="text-4xl md:text-5xl font-extrabold text-white font-headline tracking-tight mb-4">
-				{t('page.products.heading')}
+				{t('page.products.analytical-chemistry.heading')}
 			</h1>
 			<p class="text-slate-300 text-lg max-w-3xl leading-relaxed">
-				{t('page.products.subtitle')}
+				{t('page.products.analytical-chemistry.subtitle')}
 			</p>
 		</div>
 	</section>
@@ -91,7 +91,7 @@ const categories: { key: Category | 'all'; label: string }[] = [
 	<!-- Product grid -->
 	<main class="max-w-[1440px] mx-auto px-8 py-12">
 		<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{products.map((p) => {
+			{analyticalProducts.map((p) => {
 				const colors = categoryColors[p.category];
 				const searchText = `${p.name.en} ${p.name.ar} ${p.code} ${p.cas ?? ''} ${p.applications.join(' ')}`.toLowerCase();
 				const categoryLabel = t(`page.products.filter.${p.category}` as any);

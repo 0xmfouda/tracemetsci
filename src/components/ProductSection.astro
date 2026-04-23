@@ -9,31 +9,26 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const products = [
+const productsBase = getRelativeLocaleUrl(lang, 'products').replace(/\/$/, '');
+
+const categories = [
 	{
-		key: 'chromatography',
+		key: 'analytical-chemistry',
+		href: `${productsBase}/chemicals`,
 		img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80',
-		alt: 'Chromatography laboratory equipment',
+		alt: 'Chromatography analytical chemistry lab',
 	},
 	{
-		key: 'inorganic',
+		key: 'reference-materials',
+		href: `${productsBase}/reference-materials`,
 		img: 'https://images.unsplash.com/photo-1576319155264-99536e0be1ee?w=600&q=80',
-		alt: 'Inorganic elemental analysis instrument',
+		alt: 'Certified reference materials and standards',
 	},
 	{
-		key: 'icp',
-		img: 'https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=600&q=80',
-		alt: 'ICP-MS plasma spectroscopy system',
-	},
-	{
-		key: 'electrochemical',
+		key: 'labwares',
+		href: `${productsBase}/labwares`,
 		img: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80',
-		alt: 'Electrochemical measurement system',
-	},
-	{
-		key: 'powders',
-		img: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=600&q=80',
-		alt: 'High-purity chemical powders',
+		alt: 'Laboratory glassware and instruments',
 	},
 ] as const;
 ---
@@ -46,10 +41,10 @@ const products = [
 				<p class="text-on-surface-variant text-lg max-w-2xl">{t('products.subtitle')}</p>
 			</div>
 		</div>
-		<div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-			{products.map(({ key, img, alt }) => (
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			{categories.map(({ key, href, img, alt }) => (
 				<a
-					href={`${getRelativeLocaleUrl(lang, 'products').replace(/\/$/, '')}/chemicals?category=${key}`}
+					href={href}
 					class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10"
 				>
 					<div class="h-64 overflow-hidden">

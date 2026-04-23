@@ -26,21 +26,15 @@ export const ui = {
 		'products.title': 'Precision Product Categories',
 		'products.subtitle':
 			'Our metrological solutions are engineered for specific analytical environments, ensuring peak instrument performance and compliance.',
-		'products.chromatography.title': 'Chromatography',
-		'products.chromatography.desc':
-			'Optimized standards for HPLC, GC, and IC systems including pesticide, PAH mixes, and high-purity mobile phases.',
-		'products.inorganic.title': 'Inorganic Elemental',
-		'products.inorganic.desc':
-			'High-purity single and multi-element standards for UV-VIS and Atomic Absorption.',
-		'products.icp.title': 'ICP-MS & ICP-OES Standards',
-		'products.icp.desc':
-			'Specialized NIST-traceable standards designed for high-sensitivity plasma spectroscopy and matrix-matched analysis.',
-		'products.electrochemical.title': 'Electrochemical',
-		'products.electrochemical.desc':
-			'Precision pH buffers, conductivity standards, and ion-selective electrode solutions.',
-		'products.powders.title': 'High-Purity Powders',
-		'products.powders.desc':
-			'Ultra-pure chemicals and crystalline standards for primary calibration and synthesis.',
+		'products.analytical-chemistry.title': 'Analytical Chemistry',
+		'products.analytical-chemistry.desc':
+			'Chromatography standards and electrochemical solutions — pesticide mixes, PAH standards, pH buffers, and conductivity calibrators for HPLC, GC, IC, and ISE workflows.',
+		'products.reference-materials.title': 'Reference Materials',
+		'products.reference-materials.desc':
+			'NIST-traceable single- and multi-element standards, ICP solutions, and primary-grade powders for calibration, titrimetry, and elemental analysis.',
+		'products.labwares.title': 'Labwares',
+		'products.labwares.desc':
+			'Borosilicate volumetric glassware, pipettes, burettes, balances, and precision instruments — certified tools for every analytical bench.',
 		// CTA
 		'cta.title': 'Looking for a custom solution?',
 		'cta.desc':
@@ -118,21 +112,31 @@ export const ui = {
 		'page.products.prev': 'Prev',
 		'page.products.next': 'Next',
 		// Products landing (category cards)
-		'page.products.cards.chemicals.title': 'Chemicals',
-		'page.products.cards.chemicals.desc':
-			'NIST-traceable reference standards, certified buffers, and primary-grade powders for every analytical technique.',
-		'page.products.cards.glasswares.title': 'Glasswares',
-		'page.products.cards.glasswares.desc':
-			'Volumetric flasks, pipettes, burettes, and laboratory glassware engineered for precision.',
-		'page.products.cards.instruments.title': 'Instruments',
-		'page.products.cards.instruments.desc':
-			'Micropipettes, digital balances, calibration masses, and hot plates — precision instruments for every analytical workflow.',
+		'page.products.cards.analytical-chemistry.title': 'Analytical Chemistry',
+		'page.products.cards.analytical-chemistry.desc':
+			'Chromatography mixes, residual-solvent standards, pH buffers, conductivity calibrators, and ISE solutions for HPLC, GC, IC, and electrochemistry workflows.',
+		'page.products.cards.reference-materials.title': 'Reference Materials',
+		'page.products.cards.reference-materials.desc':
+			'NIST-traceable single- and multi-element standards, ICP calibration solutions, and primary-grade powders for elemental analysis and titrimetry.',
+		'page.products.cards.labwares.title': 'Labwares',
+		'page.products.cards.labwares.desc':
+			'Borosilicate volumetric flasks, pipettes, burettes, balances, and precision benchtop instruments — certified glassware and hardware for every lab.',
 		'page.products.cards.browse': 'Browse',
-		// Glasswares
-		'page.products.glasswares.title': 'Glasswares — TraceMet Science',
-		'page.products.glasswares.heading': 'Laboratory Glasswares',
-		'page.products.glasswares.subtitle':
-			'Borosilicate volumetric flasks, pipettes, burettes, beakers, and storage bottles certified to ISO standards.',
+		// Analytical Chemistry (chemicals page)
+		'page.products.analytical-chemistry.title': 'Analytical Chemistry — TraceMet Science',
+		'page.products.analytical-chemistry.heading': 'Analytical Chemistry Standards',
+		'page.products.analytical-chemistry.subtitle':
+			'Chromatography calibration mixes, residual-solvent standards, and electrochemistry buffers for precise method development and routine QC.',
+		// Reference Materials
+		'page.products.reference-materials.title': 'Reference Materials — TraceMet Science',
+		'page.products.reference-materials.heading': 'Certified Reference Materials',
+		'page.products.reference-materials.subtitle':
+			'NIST-traceable single- and multi-element standards, ICP solutions, and high-purity primary standards for calibration, validation, and titrimetry.',
+		// Labwares
+		'page.products.labwares.title': 'Labwares — TraceMet Science',
+		'page.products.labwares.heading': 'Laboratory Glassware & Instruments',
+		'page.products.labwares.subtitle':
+			'Borosilicate volumetric glassware alongside precision liquid-handling, weighing, heating, and electrochemistry instruments — certified and bench-ready.',
 		'page.products.glasswares.material': 'Material',
 		'page.products.glasswares.tolerance': 'Tolerance',
 		'page.products.glasswares.standard': 'Standard',
@@ -142,17 +146,35 @@ export const ui = {
 		'page.products.glasswares.filter.flasks': 'Flasks',
 		'page.products.glasswares.filter.pipettes': 'Pipettes & Burettes',
 		'page.products.glasswares.filter.storage': 'Storage Bottles',
-		// Instruments
-		'page.products.instruments.title': 'Instruments — TraceMet Science',
-		'page.products.instruments.heading': 'Laboratory Instruments',
-		'page.products.instruments.subtitle':
-			'Precision liquid-handling, weighing, heating, and electrochemistry instruments — certified, traceable, and ready for your analytical workflow.',
 		'page.products.instruments.specs': 'Specifications',
 		'page.products.instruments.filter.pipetting': 'Pipetting',
 		'page.products.instruments.filter.weighing': 'Weighing',
 		'page.products.instruments.filter.heating': 'Heating',
 		'page.products.instruments.filter.electrochemistry': 'Electrochemistry',
 		'page.products.back': 'Back to products',
+		// About Us page
+		'about.title': 'About Us — TraceMet Science',
+		'about.heading': 'About Us',
+		'about.subtitle': 'Global leaders in metrological traceability and analytical excellence. Precision defined at every step.',
+		'about.mission.title': 'Our Mission',
+		'about.mission.desc': 'To deliver NIST-traceable reference materials and analytical standards of the highest purity and precision, empowering laboratories worldwide to achieve confident, reproducible results.',
+		'about.vision.title': 'Our Vision',
+		'about.vision.desc': 'To be the most trusted global partner for analytical laboratories, setting the benchmark for traceability, quality, and innovation in every standard we produce.',
+		'about.values.title': 'Our Values',
+		'about.values.precision': 'Precision',
+		'about.values.precision.desc': 'Every product we manufacture undergoes rigorous metrological validation, ensuring uncompromising accuracy down to the last decimal.',
+		'about.values.integrity': 'Integrity',
+		'about.values.integrity.desc': 'Full documentation, transparent traceability chains, and honest reporting are the cornerstones of how we operate.',
+		'about.values.innovation': 'Innovation',
+		'about.values.innovation.desc': 'We continuously invest in research and development, pushing the boundaries of what certified reference materials can achieve.',
+		'about.values.collaboration': 'Collaboration',
+		'about.values.collaboration.desc': 'We partner with laboratories, regulatory bodies, and academic institutions to advance the science of measurement.',
+		'about.team.title': 'Our Team',
+		'about.team.desc': 'Our team of metrologists, analytical chemists, and quality specialists brings decades of combined experience from leading laboratories and institutions around the world.',
+		'about.cta.title': 'Ready to work with us?',
+		'about.cta.desc': 'Discover our full catalog of NIST-traceable standards and reference materials.',
+		'about.cta.button': 'Browse Products',
+		'about.cta.contact': 'Contact Us',
 	},
 	ar: {
 		// Site
@@ -173,21 +195,15 @@ export const ui = {
 		'products.title': 'فئات المنتجات الدقيقة',
 		'products.subtitle':
 			'حلولنا المترولوجية مُهندَسة لبيئات تحليلية محددة، لضمان أعلى أداء للأجهزة والامتثال للمعايير.',
-		'products.chromatography.title': 'الكروماتوغرافيا',
-		'products.chromatography.desc':
-			'معايير محسّنة لأنظمة HPLC وGC وIC، تشمل خلائط المبيدات وPAH والمراحل المتنقلة عالية النقاء.',
-		'products.inorganic.title': 'التحليل غير العضوي',
-		'products.inorganic.desc':
-			'معايير أحادية ومتعددة العناصر عالية النقاء لأجهزة UV-VIS والامتصاص الذري.',
-		'products.icp.title': 'معايير ICP-MS و ICP-OES',
-		'products.icp.desc':
-			'معايير متخصصة قابلة للتتبع وفق NIST، مصممة لطيف البلازما عالي الحساسية والتحليل المتوافق مع المصفوفة.',
-		'products.electrochemical.title': 'الكيمياء الكهربائية',
-		'products.electrochemical.desc':
-			'محاليل pH دقيقة ومعايير الموصلية وحلول أقطاب انتقاء الأيونات.',
-		'products.powders.title': 'مساحيق عالية النقاء',
-		'products.powders.desc':
-			'مواد كيميائية ومعايير بلورية فائقة النقاء للمعايرة الأولية والتوليف.',
+		'products.analytical-chemistry.title': 'الكيمياء التحليلية',
+		'products.analytical-chemistry.desc':
+			'معايير الكروماتوغرافيا وحلول الكيمياء الكهربائية — خلائط المبيدات وPAH والمحاليل المنظمة للـ pH ومعايير الموصلية لأنظمة HPLC وGC وIC وISE.',
+		'products.reference-materials.title': 'المواد المرجعية',
+		'products.reference-materials.desc':
+			'معايير أحادية ومتعددة العناصر قابلة للتتبع وفق NIST، ومحاليل ICP، ومساحيق بدرجة المعيار الأولي للمعايرة والتحليل العنصري.',
+		'products.labwares.title': 'الأدوات المخبرية',
+		'products.labwares.desc':
+			'دوارق حجمية وماصّات وسحّاحات وموازين وأجهزة دقيقة من زجاج البوروسيليكات — أدوات معتمدة لكل منضدة تحليلية.',
 		// CTA
 		'cta.title': 'هل تبحث عن حل مخصص؟',
 		'cta.desc':
@@ -262,21 +278,31 @@ export const ui = {
 		'page.products.prev': 'السابق',
 		'page.products.next': 'التالي',
 		// Products landing (category cards)
-		'page.products.cards.chemicals.title': 'المواد الكيميائية',
-		'page.products.cards.chemicals.desc':
-			'معايير مرجعية قابلة للتتبع وفق NIST ومحاليل منظمة معتمدة ومساحيق بدرجة المعيار الأولي لكل تقنية تحليلية.',
-		'page.products.cards.glasswares.title': 'الأدوات الزجاجية',
-		'page.products.cards.glasswares.desc':
-			'دوارق حجمية، ماصّات، سحّاحات، وأدوات زجاجية مخبرية مصممة للدقة العالية.',
-		'page.products.cards.instruments.title': 'الأجهزة',
-		'page.products.cards.instruments.desc':
-			'ماصّات دقيقة وموازين رقمية وكتل معايرة وصفائح تسخين — أجهزة دقيقة لكل سير عمل تحليلي.',
+		'page.products.cards.analytical-chemistry.title': 'الكيمياء التحليلية',
+		'page.products.cards.analytical-chemistry.desc':
+			'خلائط الكروماتوغرافيا ومعايير المذيبات المتبقية والمحاليل المنظمة للـ pH ومعايير الموصلية وحلول ISE لأنظمة HPLC وGC وIC والكيمياء الكهربائية.',
+		'page.products.cards.reference-materials.title': 'المواد المرجعية',
+		'page.products.cards.reference-materials.desc':
+			'معايير أحادية ومتعددة العناصر قابلة للتتبع وفق NIST، ومحاليل معايرة ICP، ومساحيق بدرجة المعيار الأولي للتحليل العنصري وقياسات التتبع.',
+		'page.products.cards.labwares.title': 'الأدوات المخبرية',
+		'page.products.cards.labwares.desc':
+			'دوارق حجمية من زجاج البوروسيليكات وماصّات وسحّاحات وموازين وأجهزة مخبرية دقيقة — زجاجيات ومعدات معتمدة لكل مختبر.',
 		'page.products.cards.browse': 'تصفّح',
-		// Glasswares
-		'page.products.glasswares.title': 'الأدوات الزجاجية — تريسمت العلمية',
-		'page.products.glasswares.heading': 'الأدوات الزجاجية المخبرية',
-		'page.products.glasswares.subtitle':
-			'دوارق حجمية وماصّات وسحّاحات وبيكرات وقوارير تخزين من زجاج البوروسيليكات معتمدة وفق معايير ISO.',
+		// Analytical Chemistry (chemicals page)
+		'page.products.analytical-chemistry.title': 'الكيمياء التحليلية — تريسمت العلمية',
+		'page.products.analytical-chemistry.heading': 'معايير الكيمياء التحليلية',
+		'page.products.analytical-chemistry.subtitle':
+			'خلائط معايرة الكروماتوغرافيا ومعايير المذيبات المتبقية ومحاليل الكيمياء الكهربائية المنظمة — لتطوير الطرق ومراقبة الجودة الروتينية.',
+		// Reference Materials
+		'page.products.reference-materials.title': 'المواد المرجعية — تريسمت العلمية',
+		'page.products.reference-materials.heading': 'المواد المرجعية المعتمدة',
+		'page.products.reference-materials.subtitle':
+			'معايير أحادية ومتعددة العناصر قابلة للتتبع وفق NIST، ومحاليل ICP، ومعايير أولية عالية النقاء للمعايرة والتحقق وقياسات التتبع.',
+		// Labwares
+		'page.products.labwares.title': 'الأدوات المخبرية — تريسمت العلمية',
+		'page.products.labwares.heading': 'الزجاجيات والأجهزة المخبرية',
+		'page.products.labwares.subtitle':
+			'زجاجيات حجمية من البوروسيليكات إلى جانب أجهزة دقيقة للمناولة السائلة والوزن والتسخين والكيمياء الكهربائية — معتمدة وجاهزة للاستخدام.',
 		'page.products.glasswares.material': 'المادة',
 		'page.products.glasswares.tolerance': 'التفاوت',
 		'page.products.glasswares.standard': 'المواصفة',
@@ -286,16 +312,34 @@ export const ui = {
 		'page.products.glasswares.filter.flasks': 'الدوارق',
 		'page.products.glasswares.filter.pipettes': 'الماصّات والسحّاحات',
 		'page.products.glasswares.filter.storage': 'قوارير التخزين',
-		// Instruments
-		'page.products.instruments.title': 'الأجهزة — تريسمت العلمية',
-		'page.products.instruments.heading': 'الأجهزة المخبرية',
-		'page.products.instruments.subtitle':
-			'أجهزة دقيقة للمناولة السائلة والوزن والتسخين والكيمياء الكهربائية — معتمدة وقابلة للتتبع وجاهزة لسير عملك التحليلي.',
 		'page.products.instruments.specs': 'المواصفات',
 		'page.products.instruments.filter.pipetting': 'المناولة السائلة',
 		'page.products.instruments.filter.weighing': 'الوزن',
 		'page.products.instruments.filter.heating': 'التسخين',
 		'page.products.instruments.filter.electrochemistry': 'الكيمياء الكهربائية',
 		'page.products.back': 'العودة إلى المنتجات',
+		// About Us page
+		'about.title': 'من نحن — تريسمت العلمية',
+		'about.heading': 'من نحن',
+		'about.subtitle': 'رواد عالميون في قابلية التتبع المترولوجي والتميز التحليلي. الدقة محددة في كل خطوة.',
+		'about.mission.title': 'رسالتنا',
+		'about.mission.desc': 'تقديم مواد مرجعية قابلة للتتبع وفق NIST ومعايير تحليلية بأعلى درجات النقاء والدقة، لتمكين المختبرات حول العالم من تحقيق نتائج واثقة وقابلة للتكرار.',
+		'about.vision.title': 'رؤيتنا',
+		'about.vision.desc': 'أن نكون الشريك العالمي الأكثر ثقة للمختبرات التحليلية، وضع المعيار المرجعي في قابلية التتبع والجودة والابتكار في كل معيار ننتجه.',
+		'about.values.title': 'قيمنا',
+		'about.values.precision': 'الدقة',
+		'about.values.precision.desc': 'كل منتج نصنعه يخضع لتحقق مترولوجي صارم، لضمان دقة لا تقبل المساومة وصولاً إلى آخر رقم عشري.',
+		'about.values.integrity': 'النزاهة',
+		'about.values.integrity.desc': 'التوثيق الكامل وسلاسل التتبع الشفافة والتقارير الصادقة هي أساس كيفية عملنا.',
+		'about.values.innovation': 'الابتكار',
+		'about.values.innovation.desc': 'نستثمر باستمرار في البحث والتطوير، لدفع حدود ما يمكن أن تحققه المواد المرجعية المعتمدة.',
+		'about.values.collaboration': 'التعاون',
+		'about.values.collaboration.desc': 'نتشارك مع المختبرات والجهات التنظيمية والمؤسسات الأكاديمية لتطوير علم القياس.',
+		'about.team.title': 'فريقنا',
+		'about.team.desc': 'يجمع فريقنا من المتروولوجيين والكيميائيين التحليليين وأخصائيي الجودة عقوداً من الخبرة المتراكمة من أرقى المختبرات والمؤسسات حول العالم.',
+		'about.cta.title': 'هل أنت مستعد للعمل معنا؟',
+		'about.cta.desc': 'اكتشف كتالوجنا الكامل من المعايير القابلة للتتبع وفق NIST والمواد المرجعية.',
+		'about.cta.button': 'تصفّح المنتجات',
+		'about.cta.contact': 'تواصل معنا',
 	},
 } as const;

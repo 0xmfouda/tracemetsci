@@ -3,7 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import NavBar from '../../../components/NavBar.astro';
 import Footer from '../../../components/Footer.astro';
 import { useTranslations, type Lang } from '../../../i18n/utils';
-import { instruments, instrumentCategoryColors, type InstrumentCategory } from '../../../data/instruments';
+import { products, categoryColors, type Category } from '../../../data/products';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = (Astro.currentLocale ?? 'ar') as Lang;
@@ -12,18 +12,20 @@ const t = useTranslations(lang);
 const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 const productsUrl = getRelativeLocaleUrl(lang, 'products');
 
-const total = instruments.length;
+const REFERENCE_CATEGORIES: Category[] = ['inorganic', 'icp', 'powders'];
+const referenceProducts = products.filter((p) => REFERENCE_CATEGORIES.includes(p.category));
 
-const categories: { key: InstrumentCategory | 'all'; label: string }[] = [
+const total = referenceProducts.length;
+
+const categories: { key: Category | 'all'; label: string }[] = [
 	{ key: 'all', label: t('page.products.filter.all') },
-	{ key: 'pipetting', label: t('page.products.instruments.filter.pipetting') },
-	{ key: 'weighing', label: t('page.products.instruments.filter.weighing') },
-	{ key: 'heating', label: t('page.products.instruments.filter.heating') },
-	{ key: 'electrochemistry', label: t('page.products.instruments.filter.electrochemistry') },
+	{ key: 'inorganic', label: t('page.products.filter.inorganic') },
+	{ key: 'icp', label: t('page.products.filter.icp') },
+	{ key: 'powders', label: t('page.products.filter.powders') },
 ];
 ---
 
-<Layout title={t('page.products.instruments.title')} {lang}>
+<Layout title={t('page.products.reference-materials.title')} {lang}>
 	<NavBar {lang} />
 
 	<!-- Page header -->
@@ -35,13 +37,13 @@ const categories: { key: InstrumentCategory | 'all'; label: string }[] = [
 				{t('page.products.back')}
 			</a>
 			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary-fixed-dim font-bold text-xs tracking-widest uppercase mb-4 backdrop-blur-sm">
-				{t('page.products.cards.instruments.title')}
+				{t('page.products.cards.reference-materials.title')}
 			</div>
 			<h1 class="text-4xl md:text-5xl font-extrabold text-white font-headline tracking-tight mb-4">
-				{t('page.products.instruments.heading')}
+				{t('page.products.reference-materials.heading')}
 			</h1>
 			<p class="text-slate-300 text-lg max-w-3xl leading-relaxed">
-				{t('page.products.instruments.subtitle')}
+				{t('page.products.reference-materials.subtitle')}
 			</p>
 		</div>
 	</section>
@@ -62,7 +64,7 @@ const categories: { key: InstrumentCategory | 'all'; label: string }[] = [
 			<!-- Result counter -->
 			<p class="text-sm text-on-surface-variant shrink-0">
 				{t('page.products.showing')}
-				<span id="result-from" class="font-bold text-on-surface">1</span>–<span id="result-to" class="font-bold text-on-surface">{total}</span>
+				<span id="result-from" class="font-bold text-on-surface">1</span>–<span id="result-to" class="font-bold text-on-surface">{Math.min(15, total)}</span>
 				{t('page.products.of')}
 				<span id="result-total" class="font-bold text-on-surface">{total}</span>
 				{t('page.products.results')}
@@ -87,62 +89,79 @@ const categories: { key: InstrumentCategory | 'all'; label: string }[] = [
 		</div>
 	</div>
 
-	<!-- Instruments grid -->
+	<!-- Product grid -->
 	<main class="max-w-[1440px] mx-auto px-8 py-12">
 		<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{instruments.map((i) => {
-				const colors = instrumentCategoryColors[i.category];
-				const searchText = `${i.name.en} ${i.name.ar} ${i.code} ${i.applications.join(' ')} ${i.specs.map(s => s.value).join(' ')}`.toLowerCase();
-				const categoryLabel = t(`page.products.instruments.filter.${i.category}` as any);
+			{referenceProducts.map((p) => {
+				const colors = categoryColors[p.category];
+				const searchText = `${p.name.en} ${p.name.ar} ${p.code} ${p.cas ?? ''} ${p.applications.join(' ')}`.toLowerCase();
+				const categoryLabel = t(`page.products.filter.${p.category}` as any);
 				return (
 					<article
 						data-product-card
-						data-category={i.category}
+						data-category={p.category}
 						data-searchtext={searchText}
 						class="group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
 					>
-						<!-- Image -->
-						<div class="h-48 overflow-hidden relative bg-surface-container">
-							<img
-								src={i.image}
-								alt={i.name[lang]}
-								loading="lazy"
-								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-							/>
-						</div>
-
 						<!-- Card header -->
 						<div class="flex items-start justify-between px-5 pt-5 pb-3 gap-3">
 							<span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border', colors.bg, colors.text, colors.border]}>
 								{categoryLabel}
 							</span>
-							<span class="text-xs font-mono text-on-surface-variant/70 shrink-0">{i.code}</span>
+							<span class="text-xs font-mono text-on-surface-variant/70 shrink-0">{p.code}</span>
 						</div>
 
 						<!-- Card body -->
 						<div class="flex-1 px-5 pb-4">
 							<h3 class="text-base font-bold text-on-surface mb-1.5 leading-snug group-hover:text-primary transition-colors">
-								{i.name[lang]}
+								{p.name[lang]}
 							</h3>
 							<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2 mb-4">
-								{i.description[lang]}
+								{p.description[lang]}
 							</p>
 
 							<!-- Specs grid -->
 							<dl class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs mb-4">
-								{i.specs.map((s) => (
+								{p.cas && (
 									<>
-										<dt class="text-on-surface-variant font-medium">{s.label[lang]}</dt>
-										<dd class="text-on-surface">{s.value}</dd>
+										<dt class="text-on-surface-variant font-medium">{t('page.products.cas')}</dt>
+										<dd class="font-mono text-on-surface">{p.cas}</dd>
 									</>
-								))}
+								)}
+								{p.concentration && (
+									<>
+										<dt class="text-on-surface-variant font-medium">{t('page.products.concentration')}</dt>
+										<dd class="text-on-surface">{p.concentration}</dd>
+									</>
+								)}
+								{p.purity && (
+									<>
+										<dt class="text-on-surface-variant font-medium">{t('page.products.purity')}</dt>
+										<dd class="text-on-surface">{p.purity}</dd>
+									</>
+								)}
+								{p.matrix && (
+									<>
+										<dt class="text-on-surface-variant font-medium">{t('page.products.matrix')}</dt>
+										<dd class="text-on-surface">{p.matrix}</dd>
+									</>
+								)}
 							</dl>
 
 							<!-- Application tags -->
-							<div class="flex flex-wrap gap-1.5">
-								{i.applications.map((app) => (
+							<div class="flex flex-wrap gap-1.5 mb-4">
+								{p.applications.map((app) => (
 									<span class="px-2 py-0.5 bg-surface-container rounded text-xs text-on-surface-variant font-medium">
 										{app}
+									</span>
+								))}
+							</div>
+
+							<!-- Sizes -->
+							<div class="flex flex-wrap gap-1.5">
+								{p.sizes.map((size) => (
+									<span class="px-2.5 py-0.5 border border-outline-variant/40 rounded-md text-xs text-on-surface font-medium">
+										{size}
 									</span>
 								))}
 							</div>
@@ -175,12 +194,23 @@ const categories: { key: InstrumentCategory | 'all'; label: string }[] = [
 				{t('page.products.noresults.reset')}
 			</button>
 		</div>
+
+		<!-- Pagination -->
+		<nav
+			id="pagination"
+			data-prev={t('page.products.prev')}
+			data-next={t('page.products.next')}
+			class="flex justify-center items-center gap-1.5 mt-10 flex-wrap"
+			aria-label="Product pages"
+		></nav>
 	</main>
 
 	<Footer {lang} />
 </Layout>
 
 <script>
+	const PAGE_SIZE = 15;
+
 	const searchInput = document.getElementById('product-search') as HTMLInputElement;
 	const resultFrom  = document.getElementById('result-from')  as HTMLSpanElement;
 	const resultTo    = document.getElementById('result-to')    as HTMLSpanElement;
@@ -188,39 +218,107 @@ const categories: { key: InstrumentCategory | 'all'; label: string }[] = [
 	const noResults   = document.getElementById('no-results')   as HTMLDivElement;
 	const grid        = document.getElementById('product-grid') as HTMLDivElement;
 	const resetBtn    = document.getElementById('reset-filters') as HTMLButtonElement;
+	const paginationEl = document.getElementById('pagination')  as HTMLElement;
 	const filterBtns  = document.querySelectorAll<HTMLButtonElement>('[data-filter-btn]');
 	const allCards    = Array.from(document.querySelectorAll<HTMLElement>('[data-product-card]'));
 
+	const prevLabel = paginationEl.dataset.prev!;
+	const nextLabel = paginationEl.dataset.next!;
+
 	let activeCategory = 'all';
 	let searchQuery    = '';
+	let currentPage    = 1;
+	let filteredCards: HTMLElement[] = [];
 
 	function applyFilters() {
-		const visible = allCards.filter((card) => {
+		filteredCards = allCards.filter((card) => {
 			const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
 			const matchesSearch   = searchQuery === '' || card.dataset.searchtext!.includes(searchQuery);
-			const ok = matchesCategory && matchesSearch;
-			card.style.display = ok ? '' : 'none';
-			return ok;
+			return matchesCategory && matchesSearch;
 		});
+		currentPage = 1;
+		renderPage();
+	}
 
-		const total = visible.length;
-		resultFrom.textContent  = String(total === 0 ? 0 : 1);
-		resultTo.textContent    = String(total);
+	function renderPage() {
+		const total      = filteredCards.length;
+		const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+		currentPage      = Math.max(1, Math.min(currentPage, totalPages));
+
+		const start = (currentPage - 1) * PAGE_SIZE;
+		const end   = start + PAGE_SIZE;
+
+		allCards.forEach((c) => { c.style.display = 'none'; });
+		filteredCards.slice(start, end).forEach((c) => { c.style.display = ''; });
+
+		resultFrom.textContent  = String(total === 0 ? 0 : start + 1);
+		resultTo.textContent    = String(Math.min(end, total));
 		resultTotal.textContent = String(total);
 
 		noResults.style.display = total === 0 ? 'flex' : 'none';
 		grid.style.display      = total === 0 ? 'none' : '';
+
+		renderPagination(totalPages);
+	}
+
+	function renderPagination(totalPages: number) {
+		if (totalPages <= 1) { paginationEl.innerHTML = ''; return; }
+
+		const pages: (number | '…')[] = [];
+		const delta = 2;
+		for (let i = 1; i <= totalPages; i++) {
+			if (i === 1 || i === totalPages || (i >= currentPage - delta && i <= currentPage + delta)) {
+				pages.push(i);
+			} else if (pages[pages.length - 1] !== '…') {
+				pages.push('…');
+			}
+		}
+
+		const base    = 'inline-flex items-center justify-center min-w-[2.25rem] h-9 px-3 rounded-lg text-sm font-medium transition-all';
+		const active  = 'bg-primary text-on-primary shadow-sm';
+		const passive = 'text-on-surface-variant border border-outline-variant/30 hover:bg-surface-container';
+		const disabled = 'text-on-surface-variant/30 border border-outline-variant/20 cursor-not-allowed';
+
+		const prevOff = currentPage === 1;
+		const nextOff = currentPage === totalPages;
+
+		let html = `<button data-page="prev" ${prevOff ? 'disabled' : ''} class="${base} ${prevOff ? disabled : passive}">${prevLabel}</button>`;
+
+		for (const p of pages) {
+			if (p === '…') {
+				html += `<span class="px-1 text-on-surface-variant select-none">…</span>`;
+			} else {
+				const isCur = p === currentPage;
+				html += `<button data-page="${p}" ${isCur ? 'aria-current="page"' : ''} class="${base} ${isCur ? active : passive}">${p}</button>`;
+			}
+		}
+
+		html += `<button data-page="next" ${nextOff ? 'disabled' : ''} class="${base} ${nextOff ? disabled : passive}">${nextLabel}</button>`;
+
+		paginationEl.innerHTML = html;
+
+		paginationEl.querySelectorAll<HTMLButtonElement>('button[data-page]').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const val = btn.dataset.page!;
+				const maxPage = Math.ceil(filteredCards.length / PAGE_SIZE);
+				if (val === 'prev')      currentPage = Math.max(1, currentPage - 1);
+				else if (val === 'next') currentPage = Math.min(maxPage, currentPage + 1);
+				else                     currentPage = parseInt(val, 10);
+				renderPage();
+				document.getElementById('filter-bar')!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			});
+		});
 	}
 
 	function setActiveFilter(category: string) {
 		activeCategory = category;
 		filterBtns.forEach((b) => {
 			const on = b.dataset.filterBtn === category;
-			b.classList.toggle('bg-primary',                on);
-			b.classList.toggle('text-on-primary',           on);
-			b.classList.toggle('border-primary',            on);
-			b.classList.toggle('bg-transparent',            !on);
-			b.classList.toggle('text-on-surface-variant',   !on);
+			b.classList.toggle('bg-primary',              on);
+			b.classList.toggle('text-on-primary',         on);
+			b.classList.toggle('border-primary',          on);
+			b.classList.toggle('bg-transparent',          !on);
+			b.classList.toggle('text-on-surface-variant', !on);
 			b.classList.toggle('border-outline-variant/30', !on);
 		});
 	}

@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NavBar from '../components/NavBar.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations, type Lang } from '../i18n/utils';
+
+const lang = (Astro.currentLocale ?? 'en') as Lang;
+const t = useTranslations(lang);
+---
+
+<Layout title={t('about.title')} {lang}>
+	<NavBar {lang} />
+
+	<section class="py-24 bg-surface-container-low">
+		<div class="max-w-[1440px] mx-auto px-8">
+			<div class="text-center mb-16">
+				<h1 class="text-5xl font-extrabold text-primary font-headline tracking-tight mb-4">{t('about.heading')}</h1>
+				<p class="text-on-surface-variant text-lg max-w-3xl mx-auto">{t('about.subtitle')}</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+				<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-lg border border-outline-variant/10">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="material-symbols-outlined text-3xl text-secondary">flag</span>
+						<h2 class="text-2xl font-bold text-primary">{t('about.mission.title')}</h2>
+					</div>
+					<p class="text-on-surface-variant leading-relaxed">{t('about.mission.desc')}</p>
+				</div>
+				<div class="bg-surface-container-lowest rounded-2xl p-8 shadow-lg border border-outline-variant/10">
+					<div class="flex items-center gap-3 mb-4">
+						<span class="material-symbols-outlined text-3xl text-secondary">visibility</span>
+						<h2 class="text-2xl font-bold text-primary">{t('about.vision.title')}</h2>
+					</div>
+					<p class="text-on-surface-variant leading-relaxed">{t('about.vision.desc')}</p>
+				</div>
+			</div>
+
+			<div class="mb-20">
+				<h2 class="text-3xl font-bold text-primary text-center mb-12">{t('about.values.title')}</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+					<div class="bg-surface-container-lowest rounded-xl p-6 shadow border border-outline-variant/10 text-center">
+						<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+							<span class="material-symbols-outlined text-2xl text-primary">straighten</span>
+						</div>
+						<h3 class="text-lg font-semibold text-primary mb-2">{t('about.values.precision')}</h3>
+						<p class="text-on-surface-variant text-sm leading-relaxed">{t('about.values.precision.desc')}</p>
+					</div>
+					<div class="bg-surface-container-lowest rounded-xl p-6 shadow border border-outline-variant/10 text-center">
+						<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+							<span class="material-symbols-outlined text-2xl text-primary">verified</span>
+						</div>
+						<h3 class="text-lg font-semibold text-primary mb-2">{t('about.values.integrity')}</h3>
+						<p class="text-on-surface-variant text-sm leading-relaxed">{t('about.values.integrity.desc')}</p>
+					</div>
+					<div class="bg-surface-container-lowest rounded-xl p-6 shadow border border-outline-variant/10 text-center">
+						<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+							<span class="material-symbols-outlined text-2xl text-primary">lightbulb</span>
+						</div>
+						<h3 class="text-lg font-semibold text-primary mb-2">{t('about.values.innovation')}</h3>
+						<p class="text-on-surface-variant text-sm leading-relaxed">{t('about.values.innovation.desc')}</p>
+					</div>
+					<div class="bg-surface-container-lowest rounded-xl p-6 shadow border border-outline-variant/10 text-center">
+						<div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+							<span class="material-symbols-outlined text-2xl text-primary">groups</span>
+						</div>
+						<h3 class="text-lg font-semibold text-primary mb-2">{t('about.values.collaboration')}</h3>
+						<p class="text-on-surface-variant text-sm leading-relaxed">{t('about.values.collaboration.desc')}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="bg-surface-container-lowest rounded-2xl p-10 shadow-lg border border-outline-variant/10 mb-20">
+				<div class="flex items-center gap-3 mb-4">
+					<span class="material-symbols-outlined text-3xl text-secondary">group</span>
+					<h2 class="text-2xl font-bold text-primary">{t('about.team.title')}</h2>
+				</div>
+				<p class="text-on-surface-variant leading-relaxed max-w-3xl">{t('about.team.desc')}</p>
+			</div>
+
+			<div class="text-center py-16 px-8 bg-primary/5 rounded-2xl border border-primary/10">
+				<h2 class="text-3xl font-bold text-primary mb-4">{t('about.cta.title')}</h2>
+				<p class="text-on-surface-variant mb-8 max-w-2xl mx-auto">{t('about.cta.desc')}</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/products" class="inline-flex items-center justify-center px-8 py-3 rounded-md bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors">{t('about.cta.button')}</a>
+					<a href="/contact" class="inline-flex items-center justify-center px-8 py-3 rounded-md border border-outline-variant text-on-surface font-semibold hover:bg-surface-container-high transition-colors">{t('about.cta.contact')}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<Footer {lang} />
+</Layout>
