@@ -1,4 +1,4 @@
-const analyticalCategories = [
+export const analyticalCategories: Category[] = [
 	'solvents',
 	'acids',
 	'salts',
@@ -9,6 +9,15 @@ const analyticalCategories = [
 	'indicators',
 	'titration_reagents',
 	'ph_conductivity'
+];
+
+export const referenceMaterialCategories: Category[] = [
+	'aas_icp_standards',
+	'ion_chromatography_standards',
+	'pesticide_standards',
+	'pharma_qc_standards',
+	'organic_pollutant_standards',
+	'powders'
 ];
 export type Category =
 	| 'solvents'
@@ -21,8 +30,11 @@ export type Category =
 	| 'indicators'
 	| 'titration_reagents'
 	| 'ph_conductivity'
-	| 'inorganic'
-	| 'icp'
+	| 'aas_icp_standards'
+	| 'ion_chromatography_standards'
+	| 'pesticide_standards'
+	| 'pharma_qc_standards'
+	| 'organic_pollutant_standards'
 	| 'powders';
 
 export interface Product {
@@ -44,7 +56,7 @@ export const products: Product[] = [
 	{
 		id: 'c-001',
 		code: 'TM-C-001',
-		category: 'chromatography_standards',
+		category: 'pesticide_standards',
 		concentration: '100 µg/mL each',
 		matrix: 'Acetonitrile',
 		name: {
@@ -61,7 +73,7 @@ export const products: Product[] = [
 	{
 		id: 'c-002',
 		code: 'TM-C-002',
-		category: 'chromatography_standards',
+		category: 'organic_pollutant_standards',
 		concentration: '100 µg/mL each',
 		matrix: 'Acetonitrile',
 		name: {
@@ -78,7 +90,7 @@ export const products: Product[] = [
 	{
 		id: 'c-003',
 		code: 'TM-C-003',
-		category: 'solvents',
+		category: 'pharma_qc_standards',
 		concentration: '200 µg/mL each',
 		matrix: 'DMSO / Water (9:1)',
 		name: {
@@ -95,7 +107,7 @@ export const products: Product[] = [
 	{
 		id: 'c-004',
 		code: 'TM-C-004',
-		category: 'solvents',
+		category: 'pharma_qc_standards',
 		concentration: '500 µg/mL each',
 		matrix: 'Methanol / Water (1:1)',
 		name: {
@@ -112,7 +124,7 @@ export const products: Product[] = [
 	{
 		id: 'c-005',
 		code: 'TM-C-005',
-		category: 'chromatography_standards',
+		category: 'pharma_qc_standards',
 		concentration: '0.1% v/v each',
 		matrix: 'Methanol',
 		name: {
@@ -129,7 +141,7 @@ export const products: Product[] = [
 	{
 		id: 'c-006',
 		code: 'TM-C-006',
-		category: 'chromatography_standards',
+		category: 'pharma_qc_standards',
 		concentration: '0.5 mg/mL each',
 		matrix: '0.1 N HCl',
 		name: {
@@ -146,7 +158,7 @@ export const products: Product[] = [
 	{
 		id: 'c-007',
 		code: 'TM-C-007',
-		category: 'chromatography_standards',
+		category: 'ion_chromatography_standards',
 		concentration: '100 mg/L each',
 		matrix: 'Ultrapure Water',
 		name: {
@@ -2525,7 +2537,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-001',
 		code: 'TM-IE-001',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		cas: '7439-92-1',
 		concentration: '1000 mg/L',
 		matrix: '2% HNO₃',
@@ -2543,7 +2555,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-002',
 		code: 'TM-IE-002',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		cas: '7440-43-9',
 		concentration: '1000 mg/L',
 		matrix: '2% HNO₃',
@@ -2561,7 +2573,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-003',
 		code: 'TM-IE-003',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		cas: '7440-38-2',
 		concentration: '1000 mg/L',
 		matrix: '2% HNO₃',
@@ -2579,7 +2591,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-004',
 		code: 'TM-IE-004',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		cas: '7439-97-6',
 		concentration: '1000 mg/L',
 		matrix: '10% HNO₃',
@@ -2597,7 +2609,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-005',
 		code: 'TM-IE-005',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		cas: '7439-89-6',
 		concentration: '1000 mg/L',
 		matrix: '2% HNO₃',
@@ -2615,7 +2627,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-006',
 		code: 'TM-IE-006',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		cas: '7440-50-8',
 		concentration: '1000 mg/L',
 		matrix: '2% HNO₃',
@@ -2633,7 +2645,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-007',
 		code: 'TM-IE-007',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		concentration: '100 mg/L each',
 		matrix: '2% HNO₃',
 		name: {
@@ -2650,7 +2662,7 @@ export const products: Product[] = [
 	{
 		id: 'ie-008',
 		code: 'TM-IE-008',
-		category: 'inorganic',
+		category: 'aas_icp_standards',
 		cas: '7782-49-2',
 		concentration: '1000 mg/L',
 		matrix: '2% HNO₃',
@@ -2670,7 +2682,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-001',
 		code: 'TM-ICP-001',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '10 mg/L each',
 		matrix: '2% HNO₃',
 		name: {
@@ -2687,7 +2699,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-002',
 		code: 'TM-ICP-002',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '10 µg/L each',
 		matrix: '2% HNO₃',
 		name: {
@@ -2704,7 +2716,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-003',
 		code: 'TM-ICP-003',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '1 mg/L each',
 		matrix: '3% HNO₃ / 1% HF',
 		name: {
@@ -2721,7 +2733,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-004',
 		code: 'TM-ICP-004',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '10 mg/L each',
 		matrix: '2% HNO₃',
 		name: {
@@ -2738,7 +2750,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-005',
 		code: 'TM-ICP-005',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '10 µg/L each',
 		matrix: '2% HNO₃',
 		name: {
@@ -2755,7 +2767,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-006',
 		code: 'TM-ICP-006',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '10 mg/L each',
 		matrix: '5% HCl / 2% HNO₃',
 		name: {
@@ -2772,7 +2784,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-007',
 		code: 'TM-ICP-007',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '1 µg/L each',
 		matrix: '1% HNO₃',
 		name: {
@@ -2789,7 +2801,7 @@ export const products: Product[] = [
 	{
 		id: 'icp-008',
 		code: 'TM-ICP-008',
-		category: 'icp',
+		category: 'aas_icp_standards',
 		concentration: '100 mg/L each',
 		matrix: '2% HNO₃',
 		name: {
@@ -2801,6 +2813,227 @@ export const products: Product[] = [
 			ar: 'مصفوفة فارغة من حمض النيتريك 2% عالي النقاء بدرجة دون ppb لتسلسلات المعايرة وفراغات الطريقة في ICP-OES وICP-MS.',
 		},
 		sizes: ['500 mL', '1 L'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-009',
+		code: 'TM-ICP-009',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '0.5 mol/L HNO₃',
+		name: {
+			en: 'Sodium Standard Solution — Certipur®',
+			ar: 'محلول صوديوم معياري — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. NaNO₃ in HNO₃ 0.5 mol/l 1000 mg/l Na Certipur® for AAS and ICP.',
+			ar: 'قابل للتتبع وفق SRM من NIST. نترات الصوديوم في حمض النيتريك 0.5 مول/لتر 1000 مجم/لتر Na Certipur® لأجهزة AAS و ICP.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['AAS', 'ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-010',
+		code: 'TM-ICP-010',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: 'Nitric acid',
+		name: {
+			en: 'Copper Standard for AAS — TraceCERT®',
+			ar: 'معيار النحاس لـ AAS — TraceCERT®',
+		},
+		description: {
+			en: 'Copper Standard for AAS TraceCERT®, 1 g/L Cu in nitric acid (nominal concentration), traceable to NIST.',
+			ar: 'معيار النحاس لأجهزة AAS من TraceCERT®، بتركيز 1 جم/لتر Cu في حمض النيتريك (تركيز اسمي)، قابل للتتبع وفق NIST.',
+		},
+		sizes: ['100 mL', '250 mL'],
+		applications: ['FAAS', 'GFAAS'],
+	},
+	{
+		id: 'icp-011',
+		code: 'TM-ICP-011',
+		category: 'aas_icp_standards',
+		concentration: '100 mg/L each',
+		matrix: 'Nitric acid and hydrofluoric acid',
+		name: {
+			en: 'Multielement Standard Solution 6 for ICP — TraceCERT®',
+			ar: 'محلول معياري متعدد العناصر 6 لـ ICP — TraceCERT®',
+		},
+		description: {
+			en: 'Multielement Standard Solution 6 for ICP TraceCERT®, 23 elements, 100 mg/L each in nitric acid and hydrofluoric acid.',
+			ar: 'محلول معياري متعدد العناصر 6 لأجهزة ICP من TraceCERT®، يحتوي على 23 عنصراً، 100 مجم/لتر لكل منها في حمض النيتريك وحمض الهيدروفلوريك.',
+		},
+		sizes: ['50 mL', '100 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-012',
+		code: 'TM-ICP-012',
+		category: 'aas_icp_standards',
+		concentration: 'Varied (23 elements)',
+		matrix: 'Diluted nitric acid',
+		name: {
+			en: 'ICP Multi-element Standard Solution IV — Certipur®',
+			ar: 'محلول معياري متعدد العناصر IV لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'ICP Multi element standard solution IV certified reference material (23 elements in diluted nitric acid), Certipur®.',
+			ar: 'مادة مرجعية معتمدة من المحلول المعياري متعدد العناصر IV لأجهزة ICP (23 عنصراً في حمض النيتريك المخفف)، Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-013',
+		code: 'TM-ICP-013',
+		category: 'aas_icp_standards',
+		concentration: '10000 mg/L',
+		matrix: '4% NaOH',
+		name: {
+			en: 'Silicon ICP Standard — Certipur®',
+			ar: 'معيار سيليكون لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. SiO₂ in NaOH 4% 10000 mg/l Si Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. ثاني أكسيد السيليكون في هيدروكسيد الصوديوم 4% بتركيز 10000 مجم/لتر Si Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-014',
+		code: 'TM-ICP-014',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '7% HCl',
+		name: {
+			en: 'Tin ICP Standard — Certipur®',
+			ar: 'معيار قصدير لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. SnCl₄ in HCl 7% 1000 mg/l Sn Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. رابع كلوريد القصدير في حمض الهيدروكلوريك 7% بتركيز 1000 مجم/لتر Sn Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-015',
+		code: 'TM-ICP-015',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '7% HCl',
+		name: {
+			en: 'Antimony ICP Standard — Certipur®',
+			ar: 'معيار أنتيمون لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. Sb₂O₃ in HCl 7% 1000 mg/l Sb Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. ثالث أكسيد الأنتيمون في حمض الهيدروكلوريك 7% بتركيز 1000 مجم/لتر Sb Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-016',
+		code: 'TM-ICP-016',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '7% HCl',
+		name: {
+			en: 'Platinum ICP Standard — Certipur®',
+			ar: 'معيار بلاتين لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. H₂PtCl₆ in HCl 7% 1000 mg/l Pt Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. حمض سداسي كلورو البلاتينيك في حمض الهيدروكلوريك 7% بتركيز 1000 مجم/لتر Pt Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-017',
+		code: 'TM-ICP-017',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '2-3% HNO₃',
+		name: {
+			en: 'Lithium ICP Standard — Certipur®',
+			ar: 'معيار ليثيوم لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. LiNO₃ in HNO₃ 2-3% 1000 mg/l Li Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. نترات الليثيوم في حمض النيتريك 2-3% بتركيز 1000 مجم/لتر Li Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-018',
+		code: 'TM-ICP-018',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '2-3% HNO₃',
+		name: {
+			en: 'Potassium ICP Standard — Certipur®',
+			ar: 'معيار بوتاسيوم لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. KNO₃ in HNO₃ 2-3% 1000 mg/l K Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. نترات البوتاسيوم في حمض النيتريك 2-3% بتركيز 1000 مجم/لتر K Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-019',
+		code: 'TM-ICP-019',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '2-3% HNO₃',
+		name: {
+			en: 'Selenium ICP Standard — Certipur®',
+			ar: 'معيار سيلينيوم لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. SeO₂ in HNO₃ 2-3% 1000 mg/l Se Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. ثاني أكسيد السيلينيوم في حمض النيتريك 2-3% بتركيز 1000 مجم/لتر Se Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-020',
+		code: 'TM-ICP-020',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '2-3% HNO₃',
+		name: {
+			en: 'Silver ICP Standard — Certipur®',
+			ar: 'معيار فضة لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. AgNO₃ in HNO₃ 2-3% 1000 mg/l Ag Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. نترات الفضة في حمض النيتريك 2-3% بتركيز 1000 مجم/لتر Ag Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
+		applications: ['ICP-OES', 'ICP-MS'],
+	},
+	{
+		id: 'icp-021',
+		code: 'TM-ICP-021',
+		category: 'aas_icp_standards',
+		concentration: '1000 mg/L',
+		matrix: '2-3% HNO₃',
+		name: {
+			en: 'Sodium ICP Standard — Certipur®',
+			ar: 'معيار صوديوم لـ ICP — Certipur®',
+		},
+		description: {
+			en: 'Traceable to SRM from NIST. NaNO₃ in HNO₃ 2-3% 1000 mg/l Na Certipur®.',
+			ar: 'قابل للتتبع وفق SRM من NIST. نترات الصوديوم في حمض النيتريك 2-3% بتركيز 1000 مجم/لتر Na Certipur®.',
+		},
+		sizes: ['100 mL', '500 mL'],
 		applications: ['ICP-OES', 'ICP-MS'],
 	},
 
@@ -3181,15 +3414,30 @@ export const categoryColors: Record<Category, { bg: string; text: string; border
 	indicators: { bg: 'bg-pink-500/10', text: 'text-pink-700', border: 'border-pink-500/30' },
 	titration_reagents: { bg: 'bg-rose-500/10', text: 'text-rose-700', border: 'border-rose-500/30' },
 	ph_conductivity: { bg: 'bg-emerald-500/10', text: 'text-emerald-700', border: 'border-emerald-500/30' },
-	inorganic: {
+	aas_icp_standards: {
+		bg: 'bg-purple-500/10',
+		text: 'text-purple-700',
+		border: 'border-purple-500/30',
+	},
+	ion_chromatography_standards: {
 		bg: 'bg-amber-500/10',
 		text: 'text-amber-700',
 		border: 'border-amber-500/30',
 	},
-	icp: {
-		bg: 'bg-purple-500/10',
-		text: 'text-purple-700',
-		border: 'border-purple-500/30',
+	pesticide_standards: {
+		bg: 'bg-green-500/10',
+		text: 'text-green-700',
+		border: 'border-green-500/30',
+	},
+	pharma_qc_standards: {
+		bg: 'bg-teal-500/10',
+		text: 'text-teal-700',
+		border: 'border-teal-500/30',
+	},
+	organic_pollutant_standards: {
+		bg: 'bg-stone-500/10',
+		text: 'text-stone-700',
+		border: 'border-stone-500/30',
 	},
 	powders: {
 		bg: 'bg-slate-500/10',

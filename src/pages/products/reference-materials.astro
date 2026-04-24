@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import { useTranslations, type Lang } from '../../i18n/utils';
-import { products, categoryColors, type Category } from '../../data/products';
+import { products, categoryColors, referenceMaterialCategories, type Category } from '../../data/products';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = (Astro.currentLocale ?? 'en') as Lang;
@@ -12,16 +12,17 @@ const t = useTranslations(lang);
 const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 const productsUrl = getRelativeLocaleUrl(lang, 'products');
 
-const REFERENCE_CATEGORIES: Category[] = ['inorganic', 'icp', 'powders'];
+const REFERENCE_CATEGORIES: Category[] = referenceMaterialCategories;
 const referenceProducts = products.filter((p) => REFERENCE_CATEGORIES.includes(p.category));
 
 const total = referenceProducts.length;
 
 const categories: { key: Category | 'all'; label: string }[] = [
 	{ key: 'all', label: t('page.products.filter.all') },
-	{ key: 'inorganic', label: t('page.products.filter.inorganic') },
-	{ key: 'icp', label: t('page.products.filter.icp') },
-	{ key: 'powders', label: t('page.products.filter.powders') },
+	...REFERENCE_CATEGORIES.map(key => ({
+		key,
+		label: t(`page.products.filter.${key}` as any)
+	}))
 ];
 ---
 
