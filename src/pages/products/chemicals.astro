@@ -12,15 +12,34 @@ const t = useTranslations(lang);
 const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 const productsUrl = getRelativeLocaleUrl(lang, 'products');
 
-const ANALYTICAL_CATEGORIES: Category[] = ['chromatography', 'electrochemical'];
+const ANALYTICAL_CATEGORIES: Category[] = [
+	'solvents',
+	'acids',
+	'salts',
+	'chromatography_standards',
+	'hplc_buffers',
+	'caustic_alkalis_bases',
+	'karl_fischer',
+	'indicators',
+	'titration_reagents',
+	'ph_conductivity'
+];
 const analyticalProducts = products.filter((p) => ANALYTICAL_CATEGORIES.includes(p.category));
 
 const total = analyticalProducts.length;
 
 const categories: { key: Category | 'all'; label: string }[] = [
 	{ key: 'all', label: t('page.products.filter.all') },
-	{ key: 'chromatography', label: t('page.products.filter.chromatography') },
-	{ key: 'electrochemical', label: t('page.products.filter.electrochemical') },
+	{ key: 'solvents', label: t('page.products.filter.solvents') },
+	{ key: 'acids', label: t('page.products.filter.acids') },
+	{ key: 'salts', label: t('page.products.filter.salts') },
+	{ key: 'chromatography_standards', label: t('page.products.filter.chromatography_standards') },
+	{ key: 'hplc_buffers', label: t('page.products.filter.hplc_buffers') },
+	{ key: 'caustic_alkalis_bases', label: t('page.products.filter.caustic_alkalis_bases') },
+	{ key: 'karl_fischer', label: t('page.products.filter.karl_fischer') },
+	{ key: 'indicators', label: t('page.products.filter.indicators') },
+	{ key: 'titration_reagents', label: t('page.products.filter.titration_reagents') },
+	{ key: 'ph_conductivity', label: t('page.products.filter.ph_conductivity') },
 ];
 ---
 
