@@ -413,6 +413,180 @@ export const instruments: Instrument[] = [
 		},
 		applications: ['Micro-weighing', 'Filter Weighing', 'Stent Weighing'],
 	},
+	{
+		id: 'inst-w-007',
+		code: 'AND-BM-252',
+		category: 'weighing',
+		image: '/images/instruments/and-bm-252.jpg',
+		specs: [
+			{
+				label: { en: 'Capacity', ar: 'السعة' },
+				value: '250 g',
+			},
+			{
+				label: { en: 'Readability', ar: 'الدقة' },
+				value: '0.01 mg',
+			},
+			{
+				label: { en: 'Features', ar: 'الميزات' },
+				value: 'Built-in Fanless Ionizer',
+			}
+		],
+		name: {
+			en: 'A&D BM Series Micro Analytical Balance',
+			ar: 'ميزان تحليلي دقيق A&D سلسلة BM',
+		},
+		description: {
+			en: 'High-precision micro analytical balance featuring a built-in fanless ionizer to eliminate static electricity errors instantly.',
+			ar: 'ميزان تحليلي دقيق عالي الدقة يتميز بمؤين مدمج بدون مروحة للقضاء على أخطاء الكهرباء الساكنة على الفور.',
+		},
+		applications: ['Micro-weighing', 'Filter Weighing', 'High-precision Analysis'],
+	},
+	{
+		id: 'inst-w-008',
+		code: 'AND-FX-3000i',
+		category: 'weighing',
+		image: '/images/instruments/and-fx-i.jpg',
+		specs: [
+			{
+				label: { en: 'Capacity', ar: 'السعة' },
+				value: '3200 g',
+			},
+			{
+				label: { en: 'Readability', ar: 'الدقة' },
+				value: '0.01 g',
+			},
+			{
+				label: { en: 'Sensor', ar: 'المستشعر' },
+				value: 'Compact SHS',
+			}
+		],
+		name: {
+			en: 'A&D FX-i Series Precision Balance',
+			ar: 'ميزان دقة A&D سلسلة FX-i',
+		},
+		description: {
+			en: 'Compact precision balance with Compact Super Hybrid Sensor (C-SHS) providing an ultra-fast 1-second stabilization time.',
+			ar: 'ميزان دقة مدمج مزود بمستشعر هجين فائق مدمج (C-SHS) يوفر وقت استقرار فائق السرعة يبلغ ثانية واحدة.',
+		},
+		applications: ['Routine Laboratory', 'Industrial Weighing', 'Educational'],
+	},
+	{
+		id: 'inst-w-009',
+		code: 'AND-MS-70',
+		category: 'weighing',
+		image: '/images/instruments/and-ms70.jpg',
+		specs: [
+			{
+				label: { en: 'Capacity', ar: 'السعة' },
+				value: '71 g',
+			},
+			{
+				label: { en: 'Moisture Readability', ar: 'دقة الرطوبة' },
+				value: '0.001%',
+			},
+			{
+				label: { en: 'Heating', ar: 'التسخين' },
+				value: 'Halogen Lamp',
+			}
+		],
+		name: {
+			en: 'A&D MS-70 Moisture Analyzer',
+			ar: 'محلل رطوبة A&D MS-70',
+		},
+		description: {
+			en: 'High-precision moisture analyzer with Fast Super Hybrid Sensor (SHS) and halogen heating for rapid, reproducible drying.',
+			ar: 'محلل رطوبة عالي الدقة مزود بمستشعر هجين فائق السرعة (SHS) وتسخين هالوجين لتجفيف سريع وقابل للتكرار.',
+		},
+		applications: ['Moisture Determination', 'Food Analysis', 'Pharma QC'],
+	},
+	{
+		id: 'inst-w-010',
+		code: 'RADWAG-AS-3Y',
+		category: 'weighing',
+		image: '/images/instruments/radwag-as3y.jpg',
+		specs: [
+			{
+				label: { en: 'Capacity', ar: 'السعة' },
+				value: '220 g',
+			},
+			{
+				label: { en: 'Readability', ar: 'الدقة' },
+				value: '0.1 mg',
+			},
+			{
+				label: { en: 'Display', ar: 'الشاشة' },
+				value: '5.7" Touchscreen',
+			}
+		],
+		name: {
+			en: 'RADWAG AS 3Y Analytical Balance',
+			ar: 'ميزان تحليلي رادواغ AS 3Y',
+		},
+		description: {
+			en: 'Professional analytical balance featuring an interactive touchscreen display, extensive databases, and automatic leveling system.',
+			ar: 'ميزان تحليلي احترافي يتميز بشاشة لمس تفاعلية، وقواعد بيانات واسعة، ونظام تسوية تلقائي.',
+		},
+		applications: ['Analytical Chemistry', 'Pharma QC', 'Formulation'],
+	},
+	{
+		id: 'inst-w-011',
+		code: 'RADWAG-PS-3Y',
+		category: 'weighing',
+		image: '/images/instruments/radwag-ps3y.jpg',
+		specs: [
+			{
+				label: { en: 'Capacity', ar: 'السعة' },
+				value: '1000 g - 6000 g',
+			},
+			{
+				label: { en: 'Readability', ar: 'الدقة' },
+				value: '0.001 g - 0.01 g',
+			},
+			{
+				label: { en: 'Connectivity', ar: 'الاتصال' },
+				value: 'Wi-Fi, Ethernet, USB',
+			}
+		],
+		name: {
+			en: 'RADWAG PS 3Y Precision Balance',
+			ar: 'ميزان دقة رادواغ PS 3Y',
+		},
+		description: {
+			en: 'Advanced precision balance with a large weighing pan, intuitive touch interface, and comprehensive GLP/GMP compliance data logging.',
+			ar: 'ميزان دقة متقدم مع كفة وزن كبيرة، وواجهة لمس بديهية، وتسجيل بيانات شامل للامتثال لـ GLP/GMP.',
+		},
+		applications: ['General Laboratory', 'Quality Control', 'Sample Prep'],
+	},
+	{
+		id: 'inst-w-012',
+		code: 'RADWAG-MA-X2A',
+		category: 'weighing',
+		image: '/images/instruments/radwag-ma-x2a.jpg',
+		specs: [
+			{
+				label: { en: 'Capacity', ar: 'السعة' },
+				value: '50 g - 210 g',
+			},
+			{
+				label: { en: 'Moisture Readability', ar: 'دقة الرطوبة' },
+				value: '0.001%',
+			},
+			{
+				label: { en: 'Drying Chamber', ar: 'غرفة التجفيف' },
+				value: 'Automated opening/closing',
+			}
+		],
+		name: {
+			en: 'RADWAG MA X2.A Moisture Analyzer',
+			ar: 'محلل رطوبة رادواغ MA X2.A',
+		},
+		description: {
+			en: 'Highly advanced moisture analyzer with automated opening and closing of the drying chamber and a highly legible touchscreen.',
+			ar: 'محلل رطوبة متقدم للغاية مع فتح وإغلاق آلي لغرفة التجفيف وشاشة لمس واضحة جداً.',
+		},
+		applications: ['Moisture Content', 'Plastics Processing', 'Food Analysis'],
+	},
 
 	// ── Electrochemistry ─────────────────────────────────────────────────────────
 	{
@@ -735,6 +909,122 @@ export const instruments: Instrument[] = [
 			ar: 'مقلب مع لوح تسخين مدمج وموثوق مصمم لروتين المختبر اليومي. يتميز بلوح تسخين متين مطلي بالسيراميك لنقل الحرارة بسرعة.',
 		},
 		applications: ['Buffer Prep', 'Sample Dissolution', 'General Heating'],
+	},
+	{
+		id: 'inst-h-004',
+		code: 'ZOMAX-HPS-A',
+		category: 'heating',
+		image: '/images/instruments/zomax-analog-hotplate.jpg',
+		specs: [
+			{
+				label: { en: 'Temp Range', ar: 'نطاق الحرارة' },
+				value: 'Up to 380 °C',
+			},
+			{
+				label: { en: 'Stirring Speed', ar: 'سرعة التقليب' },
+				value: '100 - 1500 rpm',
+			},
+			{
+				label: { en: 'Stirring Volume', ar: 'حجم التقليب' },
+				value: 'Up to 2 L',
+			}
+		],
+		name: {
+			en: 'Zomax Analog Hotplate Stirrer',
+			ar: 'مقلب مغناطيسي تناظري مع لوح تسخين زوماكس',
+		},
+		description: {
+			en: 'Reliable analog hotplate stirrer with a ceramic-coated plate for general laboratory heating and mixing tasks.',
+			ar: 'مقلب مغناطيسي تناظري موثوق مع لوح مطلي بالسيراميك لمهام التدفئة والخلط في المختبرات العامة.',
+		},
+		applications: ['Routine Mixing', 'Sample Heating'],
+	},
+	{
+		id: 'inst-h-005',
+		code: 'ZOMAX-HPS-D',
+		category: 'heating',
+		image: '/images/instruments/zomax-digital-hotplate.jpg',
+		specs: [
+			{
+				label: { en: 'Temp Range', ar: 'نطاق الحرارة' },
+				value: 'Up to 380 °C',
+			},
+			{
+				label: { en: 'Stirring Speed', ar: 'سرعة التقليب' },
+				value: '100 - 1500 rpm',
+			},
+			{
+				label: { en: 'Display', ar: 'الشاشة' },
+				value: 'Digital LED',
+			}
+		],
+		name: {
+			en: 'Zomax Digital Hotplate Stirrer',
+			ar: 'مقلب مغناطيسي رقمي مع لوح تسخين زوماكس',
+		},
+		description: {
+			en: 'Advanced digital hotplate stirrer providing precise LED temperature and speed control, ensuring reproducible experimental conditions.',
+			ar: 'مقلب مغناطيسي رقمي متقدم يوفر تحكماً دقيقاً في درجة الحرارة والسرعة عبر شاشة LED، مما يضمن ظروفاً تجريبية قابلة للتكرار.',
+		},
+		applications: ['Precise Heating', 'Chemical Synthesis'],
+	},
+	{
+		id: 'inst-h-006',
+		code: 'UKAELAB-MS-H-PRO',
+		category: 'heating',
+		image: '/images/instruments/ukaelab-ms-h-pro.jpg',
+		specs: [
+			{
+				label: { en: 'Max Temp', ar: 'أقصى حرارة' },
+				value: '340 °C',
+			},
+			{
+				label: { en: 'Stirring Volume', ar: 'حجم التقليب' },
+				value: 'Up to 20 L (H₂O)',
+			},
+			{
+				label: { en: 'Plate Material', ar: 'مادة اللوح' },
+				value: 'Ceramic',
+			}
+		],
+		name: {
+			en: 'Ukaelab LCD Digital Hotplate Stirrer',
+			ar: 'مقلب مغناطيسي رقمي LCD مع لوح تسخين أوكاعلاب',
+		},
+		description: {
+			en: 'High-performance hotplate stirrer featuring an LCD display, precise PID temperature control, and a highly durable ceramic plate.',
+			ar: 'مقلب مغناطيسي عالي الأداء يتميز بشاشة LCD، وتحكم دقيق في درجة الحرارة (PID)، ولوح سيراميك عالي المتانة.',
+		},
+		applications: ['High-capacity Mixing', 'Advanced Synthesis'],
+	},
+	{
+		id: 'inst-h-007',
+		code: 'UKAELAB-MS-H-MULTI',
+		category: 'heating',
+		image: '/images/instruments/ukaelab-multi-hotplate.jpg',
+		specs: [
+			{
+				label: { en: 'Positions', ar: 'المواضع' },
+				value: '4 or 6 positions',
+			},
+			{
+				label: { en: 'Max Temp', ar: 'أقصى حرارة' },
+				value: '120 °C',
+			},
+			{
+				label: { en: 'Stirring Speed', ar: 'سرعة التقليب' },
+				value: '0 - 1100 rpm',
+			}
+		],
+		name: {
+			en: 'Ukaelab Multi-Position Hotplate Stirrer',
+			ar: 'مقلب مغناطيسي متعدد المواضع مع لوح تسخين أوكاعلاب',
+		},
+		description: {
+			en: 'Provides synchronized multi-position heating and stirring, perfect for high-throughput sample preparation and screening.',
+			ar: 'يوفر تسخيناً وتقليباً متزامناً متعدد المواضع، وهو مثالي لإعداد العينات وفحصها بإنتاجية عالية.',
+		},
+		applications: ['High-throughput Prep', 'Parallel Synthesis'],
 	}
 ];
 
