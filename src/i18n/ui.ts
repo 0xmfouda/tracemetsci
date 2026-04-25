@@ -35,6 +35,12 @@ export const ui = {
 		'products.labwares.title': 'Labwares',
 		'products.labwares.desc':
 			'Borosilicate volumetric glassware, pipettes, burettes, balances, and precision instruments — certified tools for every analytical bench.',
+		'products.glasswares.title': 'Glasswares',
+		'products.glasswares.desc':
+			'Borosilicate volumetric glassware, pipettes, burettes, and storage bottles — certified tools for every analytical bench.',
+		'products.instruments.title': 'Instruments',
+		'products.instruments.desc':
+			'Precision balances, pipettes, heating, and electrochemical instruments for accurate analytical workflows.',
 		// CTA
 		'cta.title': 'Looking for a custom solution?',
 		'cta.desc':
@@ -127,11 +133,16 @@ export const ui = {
 		'page.products.cards.analytical-chemistry.desc':
 			'Chromatography mixes, residual-solvent standards, pH buffers, conductivity calibrators, and ISE solutions for HPLC, GC, IC, and electrochemistry workflows.',
 		'page.products.cards.reference-materials.title': 'Reference Materials',
-		'page.products.cards.reference-materials.desc':
-			'NIST-traceable single- and multi-element standards, ICP calibration solutions, and primary-grade powders for elemental analysis and titrimetry.',
+		'page.products.cards.reference-materials.desc': 'NIST-traceable single- and multi-element standards, ICP calibration solutions, and primary-grade powders for elemental analysis and titrimetry.',
 		'page.products.cards.labwares.title': 'Labwares',
 		'page.products.cards.labwares.desc':
 			'Borosilicate volumetric flasks, pipettes, burettes, balances, and precision benchtop instruments — certified glassware and hardware for every lab.',
+		'page.products.cards.glasswares.title': 'Glasswares',
+		'page.products.cards.glasswares.desc':
+			'Borosilicate volumetric flasks, pipettes, burettes, and storage solutions — certified glassware for every lab.',
+		'page.products.cards.instruments.title': 'Instruments',
+		'page.products.cards.instruments.desc':
+			'Precision benchtop instruments, balances, and liquid-handling hardware — reliable tools for every analytical workflow.',
 		'page.products.cards.browse': 'Browse',
 		// Analytical Chemistry (chemicals page)
 		'page.products.analytical-chemistry.title': 'Analytical Chemistry — TraceMet Science',
@@ -148,6 +159,16 @@ export const ui = {
 		'page.products.labwares.heading': 'Laboratory Glassware & Instruments',
 		'page.products.labwares.subtitle':
 			'Borosilicate volumetric glassware alongside precision liquid-handling, weighing, heating, and electrochemistry instruments — certified and bench-ready.',
+		// Glasswares
+		'page.products.glasswares.title': 'Glasswares — TraceMet Science',
+		'page.products.glasswares.heading': 'Laboratory Glassware',
+		'page.products.glasswares.subtitle':
+			'Borosilicate volumetric glassware — certified and bench-ready.',
+		// Instruments
+		'page.products.instruments.title': 'Instruments — TraceMet Science',
+		'page.products.instruments.heading': 'Laboratory Instruments',
+		'page.products.instruments.subtitle':
+			'Precision liquid-handling, weighing, heating, and electrochemistry instruments — certified and bench-ready.',
 		'page.products.glasswares.material': 'Material',
 		'page.products.glasswares.tolerance': 'Tolerance',
 		'page.products.glasswares.standard': 'Standard',
@@ -215,6 +236,12 @@ export const ui = {
 		'products.labwares.title': 'الأدوات المخبرية',
 		'products.labwares.desc':
 			'دوارق حجمية وماصّات وسحّاحات وموازين وأجهزة دقيقة من زجاج البوروسيليكات — أدوات معتمدة لكل منضدة تحليلية.',
+		'products.glasswares.title': 'الزجاجيات',
+		'products.glasswares.desc':
+			'دوارق حجمية من زجاج البوروسيليكات وماصّات وسحّاحات وقوارير تخزين — أدوات معتمدة لكل منضدة تحليلية.',
+		'products.instruments.title': 'الأجهزة',
+		'products.instruments.desc':
+			'موازين دقيقة وماصّات وأجهزة تسخين وكيمياء كهربائية لضمان سير العمل التحليلي بدقة.',
 		// CTA
 		'cta.title': 'هل تبحث عن حل مخصص؟',
 		'cta.desc':
@@ -309,6 +336,12 @@ export const ui = {
 		'page.products.cards.labwares.title': 'الأدوات المخبرية',
 		'page.products.cards.labwares.desc':
 			'دوارق حجمية من زجاج البوروسيليكات وماصّات وسحّاحات وموازين وأجهزة مخبرية دقيقة — زجاجيات ومعدات معتمدة لكل مختبر.',
+		'page.products.cards.glasswares.title': 'الزجاجيات',
+		'page.products.cards.glasswares.desc':
+			'دوارق حجمية من زجاج البوروسيليكات وماصّات وسحّاحات وحلول تخزين — زجاجيات معتمدة لكل مختبر.',
+		'page.products.cards.instruments.title': 'الأجهزة',
+		'page.products.cards.instruments.desc':
+			'أجهزة مخبرية دقيقة وموازين ومعدات مناولة سائلة — أدوات موثوقة لكل مسار عمل تحليلي.',
 		'page.products.cards.browse': 'تصفّح',
 		// Analytical Chemistry (chemicals page)
 		'page.products.analytical-chemistry.title': 'الكيمياء التحليلية — تريسمت العلمية',
@@ -325,6 +358,16 @@ export const ui = {
 		'page.products.labwares.heading': 'الزجاجيات والأجهزة المخبرية',
 		'page.products.labwares.subtitle':
 			'زجاجيات حجمية من البوروسيليكات إلى جانب أجهزة دقيقة للمناولة السائلة والوزن والتسخين والكيمياء الكهربائية — معتمدة وجاهزة للاستخدام.',
+		// Glasswares
+		'page.products.glasswares.title': 'الزجاجيات — تريسمت العلمية',
+		'page.products.glasswares.heading': 'الزجاجيات المخبرية',
+		'page.products.glasswares.subtitle':
+			'زجاجيات حجمية من البوروسيليكات — معتمدة وجاهزة للاستخدام.',
+		// Instruments
+		'page.products.instruments.title': 'الأجهزة — تريسمت العلمية',
+		'page.products.instruments.heading': 'الأجهزة المخبرية',
+		'page.products.instruments.subtitle':
+			'أجهزة دقيقة للمناولة السائلة والوزن والتسخين والكيمياء الكهربائية — معتمدة وجاهزة للاستخدام.',
 		'page.products.glasswares.material': 'المادة',
 		'page.products.glasswares.tolerance': 'التفاوت',
 		'page.products.glasswares.standard': 'المواصفة',

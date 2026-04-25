@@ -3,35 +3,27 @@ import Layout from '../../layouts/Layout.astro';
 import NavBar from '../../components/NavBar.astro';
 import Footer from '../../components/Footer.astro';
 import { useTranslations, type Lang } from '../../i18n/utils';
-import { glasswares, glasswareCategoryColors, type GlasswareCategory } from '../../data/glasswares';
-import { instruments, instrumentCategoryColors, type InstrumentCategory } from '../../data/instruments';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = (Astro.currentLocale ?? 'en') as Lang;
 const t = useTranslations(lang);
 
-const contactUrl = getRelativeLocaleUrl(lang, 'contact');
 const productsUrl = getRelativeLocaleUrl(lang, 'products');
 
-const total = glasswares.length + instruments.length;
-
-type FilterKey =
-	| 'all'
-	| `gw:${GlasswareCategory}`
-	| `ins:${InstrumentCategory}`;
-
-const categories: { key: FilterKey; label: string }[] = [
-	{ key: 'all', label: t('page.products.filter.all') },
-	{ key: 'gw:volumetric', label: t('page.products.glasswares.filter.volumetric') },
-	{ key: 'gw:measuring', label: t('page.products.glasswares.filter.measuring') },
-	{ key: 'gw:beakers', label: t('page.products.glasswares.filter.beakers') },
-	{ key: 'gw:flasks', label: t('page.products.glasswares.filter.flasks') },
-	{ key: 'gw:pipettes', label: t('page.products.glasswares.filter.pipettes') },
-	{ key: 'gw:storage', label: t('page.products.glasswares.filter.storage') },
-	{ key: 'ins:pipetting', label: t('page.products.instruments.filter.pipetting') },
-	{ key: 'ins:weighing', label: t('page.products.instruments.filter.weighing') },
-	{ key: 'ins:heating', label: t('page.products.instruments.filter.heating') },
-	{ key: 'ins:electrochemistry', label: t('page.products.instruments.filter.electrochemistry') },
+const labwaresBase = productsUrl.replace(/\/$/, '');
+const categories = [
+	{
+		key: 'glasswares',
+		href: `${labwaresBase}/glasswares`,
+		img: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80',
+		alt: 'Laboratory glassware',
+	},
+	{
+		key: 'instruments',
+		href: `${labwaresBase}/instruments`,
+		img: 'https://images.unsplash.com/photo-1628889398458-993729c3d07a?w=600&q=80',
+		alt: 'Laboratory instruments',
+	},
 ];
 ---
 
@@ -58,306 +50,35 @@ const categories: { key: FilterKey; label: string }[] = [
 		</div>
 	</section>
 
-	<!-- Sticky filter bar -->
-	<div id="filter-bar" class="sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant/20 shadow-sm">
-		<div class="max-w-[1440px] mx-auto px-8 py-4 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
-			<!-- Search -->
-			<div class="relative flex-1 max-w-md">
-				<span class="material-symbols-outlined absolute start-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl pointer-events-none">search</span>
-				<input
-					id="product-search"
-					type="search"
-					placeholder={t('page.products.search.placeholder')}
-					class="w-full ps-10 pe-4 py-2.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary text-sm"
-				/>
-			</div>
-			<!-- Result counter -->
-			<p class="text-sm text-on-surface-variant shrink-0">
-				{t('page.products.showing')}
-				<span id="result-from" class="font-bold text-on-surface">1</span>–<span id="result-to" class="font-bold text-on-surface">{total}</span>
-				{t('page.products.of')}
-				<span id="result-total" class="font-bold text-on-surface">{total}</span>
-				{t('page.products.results')}
-			</p>
-		</div>
-
-		<!-- Category tabs -->
-		<div class="max-w-[1440px] mx-auto px-8 pb-3 flex gap-2 flex-wrap">
-			{categories.map(({ key, label }) => (
-				<button
-					data-filter-btn={key}
-					class:list={[
-						'filter-btn px-4 py-1.5 rounded-full text-sm font-medium border transition-all',
-						key === 'all'
-							? 'bg-primary text-on-primary border-primary'
-							: 'bg-transparent text-on-surface-variant border-outline-variant/30 hover:bg-surface-container',
-					]}
-				>
-					{label}
-				</button>
-			))}
-		</div>
-	</div>
-
-	<!-- Product grid -->
-	<main class="max-w-[1440px] mx-auto px-8 py-12">
-		<div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{glasswares.map((g) => {
-				const colors = glasswareCategoryColors[g.category];
-				const searchText = `${g.name.en} ${g.name.ar} ${g.code} ${g.material ?? ''} ${g.standard ?? ''} ${g.applications.join(' ')}`.toLowerCase();
-				const categoryLabel = t(`page.products.glasswares.filter.${g.category}` as any);
-				return (
-					<article
-						data-product-card
-						data-category={`gw:${g.category}`}
-						data-searchtext={searchText}
-						class="group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
+	<!-- Subcategories grid -->
+	<section class="py-24 bg-surface-container-low">
+		<div class="max-w-[1440px] mx-auto px-8">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+				{categories.map(({ key, href, img, alt }) => (
+					<a
+						href={href}
+						class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10 flex flex-col"
 					>
-						<!-- Card header -->
-						<div class="flex items-start justify-between px-5 pt-5 pb-3 gap-3">
-							<span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border', colors.bg, colors.text, colors.border]}>
-								{categoryLabel}
-							</span>
-							<span class="text-xs font-mono text-on-surface-variant/70 shrink-0">{g.code}</span>
-						</div>
-
-						<!-- Card body -->
-						<div class="flex-1 px-5 pb-4">
-							<h3 class="text-base font-bold text-on-surface mb-1.5 leading-snug group-hover:text-primary transition-colors">
-								{g.name[lang]}
-							</h3>
-							<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2 mb-4">
-								{g.description[lang]}
-							</p>
-
-							<!-- Specs grid -->
-							<dl class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs mb-4">
-								{g.material && (
-									<>
-										<dt class="text-on-surface-variant font-medium">{t('page.products.glasswares.material')}</dt>
-										<dd class="text-on-surface">{g.material}</dd>
-									</>
-								)}
-								{g.tolerance && (
-									<>
-										<dt class="text-on-surface-variant font-medium">{t('page.products.glasswares.tolerance')}</dt>
-										<dd class="text-on-surface">{g.tolerance}</dd>
-									</>
-								)}
-								{g.standard && (
-									<>
-										<dt class="text-on-surface-variant font-medium">{t('page.products.glasswares.standard')}</dt>
-										<dd class="text-on-surface font-mono">{g.standard}</dd>
-									</>
-								)}
-							</dl>
-
-							<!-- Application tags -->
-							<div class="flex flex-wrap gap-1.5 mb-4">
-								{g.applications.map((app) => (
-									<span class="px-2 py-0.5 bg-surface-container rounded text-xs text-on-surface-variant font-medium">
-										{app}
-									</span>
-								))}
-							</div>
-
-							<!-- Sizes -->
-							<div class="flex flex-wrap gap-1.5">
-								{g.sizes.map((size) => (
-									<span class="px-2.5 py-0.5 border border-outline-variant/40 rounded-md text-xs text-on-surface font-medium">
-										{size}
-									</span>
-								))}
-							</div>
-						</div>
-
-						<!-- Card footer -->
-						<div class="px-5 pb-5 pt-3 border-t border-outline-variant/10 mt-auto">
-							<a
-								href={contactUrl}
-								class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold hover:bg-primary/90 active:scale-[.98] transition-all"
-							>
-								{t('page.products.request_quote')}
-								<span class="material-symbols-outlined text-sm">arrow_forward</span>
-							</a>
-						</div>
-					</article>
-				);
-			})}
-
-			{instruments.map((i) => {
-				const colors = instrumentCategoryColors[i.category];
-				const searchText = `${i.name.en} ${i.name.ar} ${i.code} ${i.applications.join(' ')} ${i.specs.map((s) => s.value).join(' ')}`.toLowerCase();
-				const categoryLabel = t(`page.products.instruments.filter.${i.category}` as any);
-				return (
-					<article
-						data-product-card
-						data-category={`ins:${i.category}`}
-						data-searchtext={searchText}
-						class="group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
-					>
-						<!-- Image -->
-						<div class="h-48 overflow-hidden relative bg-surface-container">
+						<div class="h-80 overflow-hidden">
 							<img
-								src={i.image}
-								alt={i.name[lang]}
-								loading="lazy"
-								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+								src={img}
+								alt={alt}
+								class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
 							/>
 						</div>
-
-						<!-- Card header -->
-						<div class="flex items-start justify-between px-5 pt-5 pb-3 gap-3">
-							<span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border', colors.bg, colors.text, colors.border]}>
-								{categoryLabel}
-							</span>
-							<span class="text-xs font-mono text-on-surface-variant/70 shrink-0">{i.code}</span>
-						</div>
-
-						<!-- Card body -->
-						<div class="flex-1 px-5 pb-4">
-							<h3 class="text-base font-bold text-on-surface mb-1.5 leading-snug group-hover:text-primary transition-colors">
-								{i.name[lang]}
-							</h3>
-							<p class="text-on-surface-variant text-sm leading-relaxed line-clamp-2 mb-4">
-								{i.description[lang]}
-							</p>
-
-							<!-- Specs grid -->
-							<dl class="grid grid-cols-2 gap-x-4 gap-y-1.5 text-xs mb-4">
-								{i.specs.map((s) => (
-									<>
-										<dt class="text-on-surface-variant font-medium">{s.label[lang]}</dt>
-										<dd class="text-on-surface">{s.value}</dd>
-									</>
-								))}
-							</dl>
-
-							<!-- Application tags -->
-							<div class="flex flex-wrap gap-1.5">
-								{i.applications.map((app) => (
-									<span class="px-2 py-0.5 bg-surface-container rounded text-xs text-on-surface-variant font-medium">
-										{app}
-									</span>
-								))}
+						<div class="p-8 flex-1 flex flex-col text-center items-center">
+							<h3 class="text-3xl font-bold text-primary mb-4">{t(`page.products.cards.${key}.title` as any)}</h3>
+							<p class="text-on-surface-variant text-lg leading-relaxed mb-8 flex-1 max-w-md">{t(`page.products.cards.${key}.desc` as any)}</p>
+							<div class="px-6 py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold group-hover:bg-primary/90 transition-all inline-flex items-center gap-2">
+								{t('page.products.cards.browse')}
+								<span class="material-symbols-outlined text-sm">arrow_forward</span>
 							</div>
 						</div>
-
-						<!-- Card footer -->
-						<div class="px-5 pb-5 pt-3 border-t border-outline-variant/10 mt-auto">
-							<a
-								href={contactUrl}
-								class="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-primary text-on-primary text-sm font-semibold hover:bg-primary/90 active:scale-[.98] transition-all"
-							>
-								{t('page.products.request_quote')}
-								<span class="material-symbols-outlined text-sm">arrow_forward</span>
-							</a>
-						</div>
-					</article>
-				);
-			})}
+					</a>
+				))}
+			</div>
 		</div>
-
-		<!-- No results state -->
-		<div id="no-results" class="hidden py-24 flex flex-col items-center justify-center text-center gap-4">
-			<span class="material-symbols-outlined text-5xl text-on-surface-variant/40">search_off</span>
-			<h3 class="text-xl font-semibold text-on-surface">{t('page.products.noresults.title')}</h3>
-			<p class="text-on-surface-variant max-w-sm">{t('page.products.noresults.desc')}</p>
-			<button
-				id="reset-filters"
-				class="mt-2 px-5 py-2 rounded-lg border border-outline-variant/40 text-sm font-medium text-on-surface hover:bg-surface-container transition-colors"
-			>
-				{t('page.products.noresults.reset')}
-			</button>
-		</div>
-	</main>
+	</section>
 
 	<Footer {lang} />
 </Layout>
-
-<script>
-	const searchInput = document.getElementById('product-search') as HTMLInputElement;
-	const resultFrom  = document.getElementById('result-from')  as HTMLSpanElement;
-	const resultTo    = document.getElementById('result-to')    as HTMLSpanElement;
-	const resultTotal = document.getElementById('result-total') as HTMLSpanElement;
-	const noResults   = document.getElementById('no-results')   as HTMLDivElement;
-	const grid        = document.getElementById('product-grid') as HTMLDivElement;
-	const resetBtn    = document.getElementById('reset-filters') as HTMLButtonElement;
-	const filterBtns  = document.querySelectorAll<HTMLButtonElement>('[data-filter-btn]');
-	const allCards    = Array.from(document.querySelectorAll<HTMLElement>('[data-product-card]'));
-
-	let activeCategory = 'all';
-	let searchQuery    = '';
-
-	function applyFilters() {
-		const visible = allCards.filter((card) => {
-			const matchesCategory = activeCategory === 'all' || card.dataset.category === activeCategory;
-			const matchesSearch   = searchQuery === '' || card.dataset.searchtext!.includes(searchQuery);
-			const ok = matchesCategory && matchesSearch;
-			card.style.display = ok ? '' : 'none';
-			return ok;
-		});
-
-		const total = visible.length;
-		resultFrom.textContent  = String(total === 0 ? 0 : 1);
-		resultTo.textContent    = String(total);
-		resultTotal.textContent = String(total);
-
-		noResults.style.display = total === 0 ? 'flex' : 'none';
-		grid.style.display      = total === 0 ? 'none' : '';
-	}
-
-	function setActiveFilter(category: string) {
-		activeCategory = category;
-		filterBtns.forEach((b) => {
-			const on = b.dataset.filterBtn === category;
-			b.classList.toggle('bg-primary',                on);
-			b.classList.toggle('text-on-primary',           on);
-			b.classList.toggle('border-primary',            on);
-			b.classList.toggle('bg-transparent',            !on);
-			b.classList.toggle('text-on-surface-variant',   !on);
-			b.classList.toggle('border-outline-variant/30', !on);
-		});
-	}
-
-	filterBtns.forEach((btn) => {
-		btn.addEventListener('click', () => {
-			setActiveFilter(btn.dataset.filterBtn!);
-			applyFilters();
-		});
-	});
-
-	searchInput.addEventListener('input', () => {
-		searchQuery = searchInput.value.trim().toLowerCase();
-		applyFilters();
-	});
-
-	resetBtn.addEventListener('click', () => {
-		searchInput.value = '';
-		searchQuery = '';
-		setActiveFilter('all');
-		applyFilters();
-	});
-
-	const urlParams = new URLSearchParams(window.location.search);
-	const qParam = urlParams.get('q');
-	if (qParam) {
-		searchInput.value = qParam;
-		searchQuery = qParam.trim().toLowerCase();
-	}
-	const categoryParam = urlParams.get('category');
-	if (categoryParam) {
-		setActiveFilter(categoryParam);
-	}
-
-	applyFilters();
-</script>
-
-<style>
-	.line-clamp-2 {
-		display: -webkit-box;
-		-webkit-line-clamp: 2;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-	}
-</style>

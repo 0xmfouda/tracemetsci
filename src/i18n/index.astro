@@ -1,0 +1,71 @@
+---
+import { useTranslations, type Lang } from '../../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+interface Props {
+	lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const productsBase = getRelativeLocaleUrl(lang, 'products').replace(/\/$/, '');
+
+const categories = [
+	{
+		key: 'analytical-chemistry',
+		href: `${productsBase}/chemicals`,
+		img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80',
+		alt: 'Chromatography analytical chemistry lab',
+	},
+	{
+		key: 'reference-materials',
+		href: `${productsBase}/reference-materials`,
+		img: 'https://images.unsplash.com/photo-1576319155264-99536e0be1ee?w=600&q=80',
+		alt: 'Certified reference materials and standards',
+	},
+	{
+		key: 'glasswares',
+		href: `${productsBase}/glasswares`,
+		img: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80',
+		alt: 'Laboratory glassware',
+	},
+	{
+		key: 'instruments',
+		href: `${productsBase}/instruments`,
+		img: 'https://images.unsplash.com/photo-1628889398458-993729c3d07a?w=600&q=80',
+		alt: 'Laboratory instruments',
+	},
+] as const;
+---
+
+<section class="py-24 bg-surface-container-low">
+	<div class="max-w-[1440px] mx-auto px-8">
+		<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+			<div>
+				<h2 class="text-4xl font-extrabold text-primary font-headline tracking-tight mb-4">{t('products.title')}</h2>
+				<p class="text-on-surface-variant text-lg max-w-2xl">{t('products.subtitle')}</p>
+			</div>
+		</div>
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+			{categories.map(({ key, href, img, alt }) => (
+				<a
+					href={href}
+					class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10"
+				>
+					<div class="h-64 overflow-hidden">
+						<img
+							src={img}
+							alt={alt}
+							class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+						/>
+					</div>
+					<div class="p-6">
+						<h3 class="text-xl font-bold text-primary mb-3">{t(`products.${key}.title` as any)}</h3>
+						<p class="text-on-surface-variant text-sm leading-relaxed">{t(`products.${key}.desc` as any)}</p>
+					</div>
+				</a>
+			))}
+		</div>
+	</div>
+</section>

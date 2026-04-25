@@ -57,6 +57,60 @@ export const glasswares: Glassware[] = [
 		sizes: ['25 mL', '50 mL', '100 mL', '250 mL', '500 mL', '1000 mL'],
 		applications: ['Light-Sensitive Standards', 'UV Analysis'],
 	},
+	{
+		id: 'gw-v-003',
+		code: 'ISOLAB-013.01',
+		category: 'volumetric',
+		material: 'Borosilicate 3.3',
+		tolerance: 'Class A',
+		standard: 'DIN EN ISO 1042',
+		name: {
+			en: 'ISOLAB Volumetric Flask — Class A, Clear, with PE Stopper',
+			ar: 'دورق حجمي أيزولاب — فئة A، شفاف، مع سدادة PE',
+		},
+		description: {
+			en: 'Manufactured from heat resistant, durable borosilicate glass 3.3 according to DIN EN ISO 1042. Calibrated according to DIN/ISO Class A standard. Supplied with a leak-proof PE stopper.',
+			ar: 'مصنوع من زجاج البوروسيليكات 3.3 المتين والمقاوم للحرارة وفقًا لمعيار DIN EN ISO 1042. تمت معايرته وفقًا لمعيار DIN/ISO الفئة A. مزود بسدادة PE مانعة للتسرب.',
+		},
+		sizes: ['5 mL', '10 mL', '25 mL', '50 mL', '100 mL', '250 mL', '500 mL', '1000 mL', '2000 mL'],
+		applications: ['Standard Preparation', 'Quantitative Analysis'],
+	},
+	{
+		id: 'gw-v-004',
+		code: 'ISOLAB-014.01',
+		category: 'volumetric',
+		material: 'Borosilicate 3.3, Amber',
+		tolerance: 'Class A',
+		standard: 'DIN EN ISO 1042',
+		name: {
+			en: 'ISOLAB Volumetric Flask — Class A, Amber, with PE Stopper',
+			ar: 'دورق حجمي أيزولاب — فئة A، كهرماني، مع سدادة PE',
+		},
+		description: {
+			en: 'Manufactured from borosilicate glass 3.3. Amber color prevents UV light penetration, ideal for light-sensitive solutions. Class A conformity with batch certificate.',
+			ar: 'مصنوع من زجاج البوروسيليكات 3.3. يمنع اللون الكهرماني اختراق الأشعة فوق البنفسجية، مما يجعله مثاليًا للمحاليل الحساسة للضوء. يتوافق مع الفئة A ومرفق بشهادة الدفعة.',
+		},
+		sizes: ['5 mL', '10 mL', '25 mL', '50 mL', '100 mL', '250 mL', '500 mL', '1000 mL', '2000 mL'],
+		applications: ['Light-Sensitive Standards', 'UV Analysis'],
+	},
+	{
+		id: 'gw-v-005',
+		code: 'ISOLAB-013.11',
+		category: 'volumetric',
+		material: 'Borosilicate 3.3',
+		tolerance: 'Class A',
+		standard: 'DIN EN ISO 1042',
+		name: {
+			en: 'ISOLAB Volumetric Flask — Trapezoidal, Class A, Clear',
+			ar: 'دورق حجمي أيزولاب شبه منحرف — فئة A، شفاف',
+		},
+		description: {
+			en: 'Trapezoidal shape for small volumes (1 mL to 50 mL) ensures higher stability and prevents tipping. Supplied with a PE stopper. Class A accuracy.',
+			ar: 'شكل شبه منحرف للأحجام الصغيرة (1 مل إلى 50 مل) يضمن ثباتًا أعلى ويمنع الانقلاب. مزود بسدادة PE. دقة الفئة A.',
+		},
+		sizes: ['1 mL', '2 mL', '5 mL', '10 mL', '20 mL', '25 mL', '50 mL'],
+		applications: ['Micro-Volume Preparation', 'High-Stability Requirements'],
+	},
 
 	// ── Measuring cylinders ──────────────────────────────────────────────────────
 	{
@@ -93,6 +147,60 @@ export const glasswares: Glassware[] = [
 		},
 		sizes: ['25 mL', '50 mL', '100 mL', '250 mL', '500 mL', '1000 mL'],
 		applications: ['Teaching', 'General Lab Use'],
+	},
+	{
+		id: 'gw-m-003',
+		code: 'ISOLAB-015.01',
+		category: 'measuring',
+		material: 'Borosilicate 3.3',
+		tolerance: 'Class A',
+		standard: 'DIN EN ISO 4788',
+		name: {
+			en: 'ISOLAB Measuring Cylinder — Tall Form, Class A, Glass Base',
+			ar: 'مخبار مدرّج أيزولاب — شكل طويل، فئة A، قاعدة زجاجية',
+		},
+		description: {
+			en: 'Manufactured from borosilicate glass 3.3. Class A conformity with printed batch certificate. Features a hexagonal glass base for excellent stability and blue enamel graduations.',
+			ar: 'مصنوع من زجاج البوروسيليكات 3.3. يتوافق مع الفئة A ومرفق بشهادة الدفعة. يتميز بقاعدة زجاجية سداسية لثبات ممتاز وتدريجات بالمينا الزرقاء.',
+		},
+		sizes: ['5 mL', '10 mL', '25 mL', '50 mL', '100 mL', '250 mL', '500 mL', '1000 mL', '2000 mL'],
+		applications: ['Precise Volume Measurement', 'Analytical Preparation'],
+	},
+	{
+		id: 'gw-m-004',
+		code: 'ISOLAB-016.01',
+		category: 'measuring',
+		material: 'Borosilicate 3.3',
+		tolerance: 'Class B',
+		standard: 'DIN EN ISO 4788',
+		name: {
+			en: 'ISOLAB Measuring Cylinder — Tall Form, Class B, Glass Base',
+			ar: 'مخبار مدرّج أيزولاب — شكل طويل، فئة B، قاعدة زجاجية',
+		},
+		description: {
+			en: 'Class B measuring cylinder manufactured from borosilicate 3.3 glass. Features a hexagonal glass base and white enamel graduations for routine laboratory measurements.',
+			ar: 'مخبار مدرّج فئة B مصنوع من زجاج البوروسيليكات 3.3. يتميز بقاعدة زجاجية سداسية وتدريجات بالمينا البيضاء للقياسات المخبرية الروتينية.',
+		},
+		sizes: ['5 mL', '10 mL', '25 mL', '50 mL', '100 mL', '250 mL', '500 mL', '1000 mL', '2000 mL'],
+		applications: ['Routine Measurement', 'General Lab Use'],
+	},
+	{
+		id: 'gw-m-005',
+		code: 'ISOLAB-017.01',
+		category: 'measuring',
+		material: 'Borosilicate 3.3',
+		tolerance: 'Class A',
+		standard: 'DIN EN ISO 4788',
+		name: {
+			en: 'ISOLAB Mixing Cylinder — Class A, with PE Stopper',
+			ar: 'مخبار خلط أيزولاب — فئة A، مع سدادة PE',
+		},
+		description: {
+			en: 'Class A mixing cylinder with a standard ground joint and PE stopper. Ideal for mixing liquids safely and accurately. Blue enamel graduations and batch certificate included.',
+			ar: 'مخبار خلط فئة A مع وصلة قياسية وسدادة PE. مثالي لخلط السوائل بأمان ودقة. يتضمن تدريجات بالمينا الزرقاء وشهادة دفعة.',
+		},
+		sizes: ['10 mL', '25 mL', '50 mL', '100 mL', '250 mL', '500 mL', '1000 mL'],
+		applications: ['Liquid Mixing', 'Standard Preparation'],
 	},
 
 	// ── Beakers ──────────────────────────────────────────────────────────────────
@@ -221,6 +329,58 @@ export const glasswares: Glassware[] = [
 		},
 		sizes: ['10 mL', '25 mL', '50 mL', '100 mL'],
 		applications: ['Titration', 'Acid-Base Analysis'],
+	},
+	{
+		id: 'gw-p-004',
+		code: 'ISOLAB-021.01',
+		category: 'pipettes',
+		material: 'Borosilicate 3.3',
+		tolerance: 'Class AS',
+		standard: 'DIN EN ISO 648',
+		name: {
+			en: 'ISOLAB Volumetric Pipette — Class AS, 1 Mark',
+			ar: 'ماصّة حجمية أيزولاب — فئة AS، علامة واحدة',
+		},
+		description: {
+			en: 'Manufactured from borosilicate glass 3.3. Class AS conformity according to DIN EN ISO 648. Features blue enamel graduation mark and printed batch certificate.',
+			ar: 'مصنوعة من زجاج البوروسيليكات 3.3. تتوافق مع الفئة AS وفقًا لمعيار DIN EN ISO 648. تتميز بعلامة تدريج بالمينا الزرقاء وشهادة دفعة مطبوعة.',
+		},
+		sizes: ['1 mL', '2 mL', '5 mL', '10 mL', '20 mL', '25 mL', '50 mL', '100 mL'],
+		applications: ['Precise Aliquoting', 'Standard Preparation'],
+	},
+	{
+		id: 'gw-p-005',
+		code: 'ISOLAB-022.01',
+		category: 'pipettes',
+		material: 'Borosilicate 3.3',
+		tolerance: 'Class AS',
+		standard: 'DIN EN ISO 835',
+		name: {
+			en: 'ISOLAB Measuring Pipette — Class AS',
+			ar: 'ماصّة مدرّجة أيزولاب — فئة AS',
+		},
+		description: {
+			en: 'Measuring pipette manufactured to DIN EN ISO 835 standards. Class AS with waiting time of 5 seconds. Blue enamel graduations for easy volume reading.',
+			ar: 'ماصّة مدرّجة مُصنعة وفقًا لمعايير DIN EN ISO 835. فئة AS مع وقت انتظار 5 ثوانٍ. تدريجات بالمينا الزرقاء لسهولة قراءة الحجم.',
+		},
+		sizes: ['1 mL', '2 mL', '5 mL', '10 mL', '25 mL'],
+		applications: ['Variable Volume Transfer', 'Routine Titration'],
+	},
+	{
+		id: 'gw-p-006',
+		code: 'ISOLAB-022.02',
+		category: 'pipettes',
+		material: 'Neutral Glass',
+		name: {
+			en: 'ISOLAB Pasteur Pipette — Glass',
+			ar: 'ماصّة باستير أيزولاب — زجاج',
+		},
+		description: {
+			en: 'Disposable glass pasteur pipettes with long drawn capillary tips. Ideal for transferring small amounts of liquids safely.',
+			ar: 'ماصّات باستير زجاجية للاستخدام مرة واحدة بأطراف شعرية طويلة مسحوبة. مثالية لنقل كميات صغيرة من السوائل بأمان.',
+		},
+		sizes: ['150 mm', '230 mm'],
+		applications: ['Sample Transfer', 'Microbiology', 'Dropwise Additions'],
 	},
 
 	// ── Storage ──────────────────────────────────────────────────────────────────

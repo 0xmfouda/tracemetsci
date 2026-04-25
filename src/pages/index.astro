@@ -1,22 +1,85 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import NavBar from '../components/NavBar.astro';
-import Hero from '../components/Hero.astro';
-import ProductSection from '../components/ProductSection.astro';
-import CTASection from '../components/CTASection.astro';
 import Footer from '../components/Footer.astro';
 import { useTranslations, type Lang } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = (Astro.currentLocale ?? 'en') as Lang;
 const t = useTranslations(lang);
+
+const productsBase = getRelativeLocaleUrl(lang, 'products').replace(/\/$/, '');
+
+const categories = [
+	{
+		key: 'analytical-chemistry',
+		href: `${productsBase}/chemicals`,
+		img: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&q=80',
+		alt: 'Chromatography analytical chemistry lab',
+	},
+	{
+		key: 'reference-materials',
+		href: `${productsBase}/reference-materials`,
+		img: 'https://images.unsplash.com/photo-1576319155264-99536e0be1ee?w=600&q=80',
+		alt: 'Certified reference materials and standards',
+	},
+	{
+		key: 'labwares',
+		href: `${productsBase}/labwares`,
+		img: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=600&q=80',
+		alt: 'Laboratory glassware and instruments',
+	},
+] as const;
 ---
 
-<Layout title={t('site.title')} {lang}>
+<Layout title={t('page.products.title')} {lang}>
 	<NavBar {lang} />
-	<main>
-		<Hero {lang} />
-		<ProductSection {lang} />
-		<CTASection {lang} />
-	</main>
+
+	<!-- Page header -->
+	<section class="bg-primary pt-20 pb-16 relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary-container opacity-80"></div>
+		<div class="relative z-10 max-w-[1440px] mx-auto px-8 text-center">
+			<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/20 border border-secondary/40 text-secondary-fixed-dim font-bold text-xs tracking-widest uppercase mb-4 backdrop-blur-sm">
+				{t('page.products.badge')}
+			</div>
+			<h1 class="text-4xl md:text-5xl font-extrabold text-white font-headline tracking-tight mb-4">
+				{t('page.products.heading')}
+			</h1>
+			<p class="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+				{t('page.products.subtitle')}
+			</p>
+		</div>
+	</section>
+
+	<!-- Product grid -->
+	<section class="py-24 bg-surface-container-low">
+		<div class="max-w-[1440px] mx-auto px-8">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{categories.map(({ key, href, img, alt }) => (
+					<a
+						href={href}
+						class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-outline-variant/10 flex flex-col"
+					>
+						<div class="h-48 overflow-hidden">
+							<img
+								src={img}
+								alt={alt}
+								class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+							/>
+						</div>
+						<div class="p-6 flex-1 flex flex-col">
+							<h3 class="text-xl font-bold text-primary mb-3">{t(`page.products.cards.${key}.title` as any)}</h3>
+							<p class="text-on-surface-variant text-sm leading-relaxed mb-6 flex-1">{t(`page.products.cards.${key}.desc` as any)}</p>
+							<div class="text-secondary font-semibold text-sm inline-flex items-center gap-1 group-hover:gap-2 transition-all mt-auto">
+								{t('page.products.cards.browse')}
+								<span class="material-symbols-outlined text-sm">arrow_forward</span>
+							</div>
+						</div>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
 	<Footer {lang} />
 </Layout>
