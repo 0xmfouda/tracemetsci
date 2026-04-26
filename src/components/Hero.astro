@@ -1,7 +1,9 @@
 ---
 import { useTranslations, type Lang } from '../i18n/utils';
 import { getRelativeLocaleUrl } from 'astro:i18n';
-import { products } from '../data/products';
+import { products, analyticalCategories, referenceMaterialCategories } from '../data/products';
+import { glasswares } from '../data/glasswares';
+import { instruments } from '../data/instruments';
 
 interface Props {
 	lang: Lang;
@@ -9,14 +11,39 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const productsUrl = `${getRelativeLocaleUrl(lang, 'products').replace(/\/$/, '')}/chemicals`;
+const productsUrl = getRelativeLocaleUrl(lang, 'products');
+const productsBase = productsUrl.replace(/\/$/, '');
 
-// Compact data for suggestions — only what the client needs
-const suggestionData = products.map((p) => ({
-	name: p.name[lang],
-	code: p.code,
-	cas: p.cas ?? null,
-}));
+// Compact data for suggestions covering everything
+const suggestionData = [
+	...products.map((p) => {
+		let page = 'chemicals';
+		if (referenceMaterialCategories.includes(p.category) || p.category === 'powders') {
+			page = 'reference-materials';
+		}
+		return {
+			name: p.name[lang],
+			enName: p.name['en'],
+			code: p.code,
+			cas: p.cas ?? null,
+			url: `${productsBase}/${page}`
+		};
+	}),
+	...glasswares.map((g) => ({
+		name: g.name[lang],
+		enName: g.name['en'],
+		code: g.code,
+		cas: null,
+		url: `${productsBase}/glasswares`
+	})),
+	...instruments.map((i) => ({
+		name: i.name[lang],
+		enName: i.name['en'],
+		code: i.code,
+		cas: null,
+		url: `${productsBase}/instruments`
+	}))
+];
 ---
 
 <section class="relative min-h-[800px] flex items-center overflow-x-hidden">
@@ -68,127 +95,160 @@ const suggestionData = products.map((p) => ({
 </section>
 
 <script>
-	const input       = document.getElementById('hero-search-input') as HTMLInputElement;
-	const btn         = document.getElementById('hero-search-btn') as HTMLButtonElement;
-	const suggList    = document.getElementById('hero-suggestions') as HTMLUListElement;
-	const wrapper     = btn.closest('[data-products-url]') as HTMLElement;
-	const productsUrl = wrapper.dataset.productsUrl!;
+	function initHeroSearch() {
+		const input = document.getElementById('hero-search-input') as HTMLInputElement;
+		if (!input) return;
 
-	type SuggestionItem = { name: string; code: string; cas: string | null };
-	const allProducts: SuggestionItem[] = JSON.parse(wrapper.dataset.products!);
+		const btn         = document.getElementById('hero-search-btn') as HTMLButtonElement;
+		const suggList    = document.getElementById('hero-suggestions') as HTMLUListElement;
+		const wrapper     = btn.closest('[data-products-url]') as HTMLElement;
+		const productsUrl = wrapper.dataset.productsUrl!;
 
-	let activeIndex = -1;
+		type SuggestionItem = { name: string; enName: string; code: string; cas: string | null; url: string };
+		const allProducts: SuggestionItem[] = JSON.parse(wrapper.dataset.products!);
 
-	function navigate(query?: string) {
-		const q = (query ?? input.value).trim();
-		const url = q ? `${productsUrl}?q=${encodeURIComponent(q)}` : productsUrl;
-		window.location.href = url;
-	}
+		let activeIndex = -1;
 
-	function highlight(text: string, query: string): string {
-		if (!query) return text;
-		const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-		return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark class="bg-secondary/30 text-primary rounded-sm">$1</mark>');
-	}
+		function navigate(query?: string, itemUrl?: string) {
+			const q = (query ?? input.value).trim();
+			if (!q) return;
 
-	function positionDropdown() {
-		const rect = input.getBoundingClientRect();
-		suggList.style.top    = `${rect.bottom + 8}px`;
-		suggList.style.left   = `${rect.left}px`;
-		suggList.style.width  = `${wrapper.getBoundingClientRect().width}px`;
-	}
+			// Direct routing if user clicked a suggestion
+			if (itemUrl) {
+				window.location.href = `${itemUrl}?q=${encodeURIComponent(q)}`;
+				return;
+			}
 
-	function buildSuggestions(q: string) {
-		const query = q.trim().toLowerCase();
-		if (!query) { hideSuggestions(); return; }
-
-		const matches = allProducts.filter((p) =>
-			p.name.toLowerCase().includes(query) ||
-			p.code.toLowerCase().includes(query) ||
-			(p.cas && p.cas.toLowerCase().includes(query))
-		).slice(0, 7);
-
-		if (matches.length === 0) { hideSuggestions(); return; }
-
-		activeIndex = -1;
-		suggList.innerHTML = matches.map((p, i) => `
-			<li
-				role="option"
-				data-index="${i}"
-				data-query="${p.name}"
-				class="flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-slate-50 transition-colors border-b border-slate-100/70 last:border-0"
-			>
-				<span class="material-symbols-outlined text-slate-400 text-lg shrink-0">science</span>
-				<span class="flex-1 min-w-0">
-					<span class="block text-sm font-semibold text-on-surface truncate">${highlight(p.name, q)}</span>
-					<span class="block text-xs text-on-surface-variant font-mono mt-0.5">
-						${highlight(p.code, q)}${p.cas ? ` · CAS ${highlight(p.cas, q)}` : ''}
-					</span>
-				</span>
-				<span class="material-symbols-outlined text-slate-300 text-base shrink-0">arrow_forward</span>
-			</li>
-		`).join('');
-
-		suggList.querySelectorAll('li').forEach((li) => {
-			li.addEventListener('mousedown', (e) => {
-				e.preventDefault(); // keep focus on input
-				navigate((li as HTMLElement).dataset.query!);
+			// Find the best category match if they just hit 'Enter'
+			const queryLower = q.toLowerCase();
+			const terms = queryLower.split(/\s+/).filter(Boolean);
+			const bestMatch = allProducts.find((p) => {
+				const searchStr = `${p.name || ''} ${p.enName || ''} ${p.code || ''} ${p.cas || ''}`.toLowerCase();
+				return terms.every(t => searchStr.includes(t));
 			});
-		});
 
-		positionDropdown();
-		suggList.classList.remove('hidden');
-	}
-
-	function hideSuggestions() {
-		suggList.classList.add('hidden');
-		activeIndex = -1;
-	}
-
-	function setActive(index: number) {
-		const items = suggList.querySelectorAll<HTMLElement>('li');
-		items.forEach((li, i) => {
-			li.classList.toggle('bg-slate-50', i === index);
-		});
-		activeIndex = index;
-		if (index >= 0 && items[index]) {
-			input.value = items[index].dataset.query!;
+			if (bestMatch) {
+				window.location.href = `${bestMatch.url}?q=${encodeURIComponent(q)}`;
+			} else {
+				window.location.href = `${productsUrl}?q=${encodeURIComponent(q)}`;
+			}
 		}
-	}
 
-	input.addEventListener('input', () => buildSuggestions(input.value));
+		function highlight(text: string, query: string): string {
+			if (!query) return text;
+			const terms = query.trim().split(/\s+/).filter(Boolean);
+			if (terms.length === 0) return text;
+			const escaped = terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|');
+			return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark class="bg-secondary/30 text-primary rounded-sm">$1</mark>');
+		}
 
-	input.addEventListener('keydown', (e) => {
-		const items = suggList.querySelectorAll<HTMLElement>('li');
-		if (e.key === 'ArrowDown') {
-			e.preventDefault();
-			setActive(Math.min(activeIndex + 1, items.length - 1));
-		} else if (e.key === 'ArrowUp') {
-			e.preventDefault();
-			setActive(Math.max(activeIndex - 1, -1));
-		} else if (e.key === 'Escape') {
-			hideSuggestions();
-		} else if (e.key === 'Enter') {
+		function positionDropdown() {
+			const rect = input.getBoundingClientRect();
+			suggList.style.top    = `${rect.bottom + 8}px`;
+			suggList.style.left   = `${rect.left}px`;
+			suggList.style.width  = `${wrapper.getBoundingClientRect().width}px`;
+		}
+
+		function buildSuggestions(q: string) {
+			const query = q.trim().toLowerCase();
+			if (!query) { hideSuggestions(); return; }
+			const terms = query.split(/\s+/).filter(Boolean);
+
+			const matches = allProducts.filter((p) => {
+				const searchStr = `${p.name || ''} ${p.enName || ''} ${p.code || ''} ${p.cas || ''}`.toLowerCase();
+				return terms.every(t => searchStr.includes(t));
+			}).slice(0, 7);
+
+			if (matches.length === 0) { hideSuggestions(); return; }
+
+			activeIndex = -1;
+			suggList.innerHTML = matches.map((p, i) => `
+				<li
+					role="option"
+					data-index="${i}"
+					data-query="${p.name}"
+					data-url="${p.url}"
+					class="flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-slate-50 transition-colors border-b border-slate-100/70 last:border-0"
+				>
+					<span class="material-symbols-outlined text-slate-400 text-lg shrink-0">science</span>
+					<span class="flex-1 min-w-0">
+						<span class="block text-sm font-semibold text-on-surface truncate">${highlight(p.name, q)}</span>
+						<span class="block text-xs text-on-surface-variant font-mono mt-0.5">
+							${highlight(p.code, q)}${p.cas ? ` · CAS ${highlight(p.cas, q)}` : ''}
+						</span>
+					</span>
+					<span class="material-symbols-outlined text-slate-300 text-base shrink-0">arrow_forward</span>
+				</li>
+			`).join('');
+
+			suggList.querySelectorAll('li').forEach((li) => {
+				li.addEventListener('mousedown', (e) => {
+					e.preventDefault(); // keep focus on input
+				navigate((li as HTMLElement).dataset.query!, (li as HTMLElement).dataset.url!);
+				});
+			});
+
+			positionDropdown();
+			suggList.classList.remove('hidden');
+		}
+
+		function hideSuggestions() {
+			suggList.classList.add('hidden');
+			activeIndex = -1;
+		}
+
+		function setActive(index: number) {
+			const items = suggList.querySelectorAll<HTMLElement>('li');
+			items.forEach((li, i) => {
+				li.classList.toggle('bg-slate-50', i === index);
+			});
+			activeIndex = index;
+			if (index >= 0 && items[index]) {
+				input.value = items[index].dataset.query!;
+			}
+		}
+
+		input.addEventListener('input', () => buildSuggestions(input.value));
+
+		input.addEventListener('keydown', (e) => {
+			const items = suggList.querySelectorAll<HTMLElement>('li');
+			if (e.key === 'ArrowDown') {
+				e.preventDefault();
+				setActive(Math.min(activeIndex + 1, items.length - 1));
+			} else if (e.key === 'ArrowUp') {
+				e.preventDefault();
+				setActive(Math.max(activeIndex - 1, -1));
+			} else if (e.key === 'Escape') {
+				hideSuggestions();
+			} else if (e.key === 'Enter') {
+				e.preventDefault();
+				hideSuggestions();
+				if (activeIndex >= 0 && items[activeIndex]) {
+					navigate(items[activeIndex].dataset.query!, items[activeIndex].dataset.url!);
+				} else {
+					navigate();
+				}
+			}
+		});
+
+		input.addEventListener('blur', () => {
+			// Small delay so mousedown on suggestion fires first
+			setTimeout(hideSuggestions, 150);
+		});
+
+		window.addEventListener('scroll', () => {
+			if (!suggList.classList.contains('hidden')) positionDropdown();
+		}, { passive: true });
+
+		window.addEventListener('resize', () => {
+			if (!suggList.classList.contains('hidden')) positionDropdown();
+		});
+
+		btn.addEventListener('click', () => {
 			hideSuggestions();
 			navigate();
-		}
-	});
+		});
+	}
 
-	input.addEventListener('blur', () => {
-		// Small delay so mousedown on suggestion fires first
-		setTimeout(hideSuggestions, 150);
-	});
-
-	window.addEventListener('scroll', () => {
-		if (!suggList.classList.contains('hidden')) positionDropdown();
-	}, { passive: true });
-
-	window.addEventListener('resize', () => {
-		if (!suggList.classList.contains('hidden')) positionDropdown();
-	});
-
-	btn.addEventListener('click', () => {
-		hideSuggestions();
-		navigate();
-	});
+	initHeroSearch();
 </script>

@@ -26,9 +26,6 @@ const t = useTranslations(lang);
 					<form id="contact-form" action="https://formsubmit.co/ajax/info@tracemetsci.com" method="POST" class="space-y-6">
 						{/* IMPORTANT: After deploying, submit the form once to activate it via the confirmation email from FormSubmit. */}
 
-						{/* FormSubmit Subject */}
-						<input type="hidden" name="_subject" value="Contact Form Submission from TraceMet Science" />
-
 						{/* Disable CAPTCHA redirect */}
 						<input type="hidden" name="_captcha" value="false" />
 
@@ -60,6 +57,19 @@ const t = useTranslations(lang);
 									class="block w-full rounded-md border-outline-variant/20 bg-surface-container shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3"
 									required
 									placeholder={t('contact.email.placeholder')}
+								/>
+							</div>
+						</div>
+						<div>
+							<label for="subject" class="block text-sm font-medium text-on-surface">{t('contact.subject.label')}</label>
+							<div class="mt-1">
+								<input
+									type="text"
+									name="_subject"
+									id="subject"
+									class="block w-full rounded-md border-outline-variant/20 bg-surface-container shadow-sm focus:border-primary focus:ring-primary sm:text-sm p-3"
+									required
+									placeholder={t('contact.subject.placeholder')}
 								/>
 							</div>
 						</div>
