@@ -25,7 +25,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-001',
 		code: 'TM-I-P-001',
 		category: 'pipetting',
-		image: '/images/instruments/micropipette.jpg', // Replace with your actual image path
+		image: '/Homepage Pics/Labware/Instruments/ISO LAB Micro Pipette Single Channel.jpg', // Replace with your actual image path
 		specs: [
 			{
 				label: { en: 'Volume', ar: 'الحجم' },
@@ -50,7 +50,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-002',
 		code: 'ISOLAB-011.01',
 		category: 'pipetting',
-		image: '/images/instruments/micropipette-adj.jpg',
+		image: '/Homepage Pics/Labware/Instruments/ISO LAB Micro Pipette Single Channel Adj.jpg',
 		specs: [
 			{
 				label: { en: 'Volume Range', ar: 'نطاق الحجم' },
@@ -79,7 +79,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-003',
 		code: 'ISOLAB-010.01',
 		category: 'pipetting',
-		image: '/images/instruments/pipette-pump.jpg',
+		image: '/Homepage Pics/Labware/Instruments/ISO LAb Manual.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -104,7 +104,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-004',
 		code: 'ISOLAB-009.01',
 		category: 'pipetting',
-		image: '/images/instruments/electronic-controller.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Pipette controller.jpg',
 		specs: [
 			{
 				label: { en: 'Compatibility', ar: 'التوافق' },
@@ -129,7 +129,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-005',
 		code: 'ISOLAB-008.01',
 		category: 'pipetting',
-		image: '/images/instruments/dispenser.jpg',
+		image: '/Homepage Pics/Labware/Instruments/ISO Lab Dispenser.jpg',
 		specs: [
 			{
 				label: { en: 'Volume Range', ar: 'نطاق الحجم' },
@@ -154,7 +154,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-006',
 		code: 'RAININ-PLXLS',
 		category: 'pipetting',
-		image: '/images/instruments/rainin-pipet-lite.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Rainin Pipet-Lite XLS+ Single Channel.jpg',
 		specs: [
 			{
 				label: { en: 'Volume Range', ar: 'نطاق الحجم' },
@@ -183,7 +183,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-007',
 		code: 'RAININ-E4XLS',
 		category: 'pipetting',
-		image: '/images/instruments/rainin-e4-xls.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Rainin E4 XLS+ Electronic Pipette.jpg',
 		specs: [
 			{
 				label: { en: 'Volume Range', ar: 'نطاق الحجم' },
@@ -212,7 +212,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-p-008',
 		code: 'RAININ-PLXLS-MULTI',
 		category: 'pipetting',
-		image: '/images/instruments/rainin-pipet-lite-multi.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Multichannel.jpg',
 		specs: [
 			{
 				label: { en: 'Channels', ar: 'القنوات' },
@@ -243,7 +243,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-001',
 		code: 'BEL-M214A',
 		category: 'weighing',
-		image: '/images/instruments/bel-analytical-balance.jpg',
+		image: '/Homepage Pics/Labware/Instruments/BEL Analytical Balance — M Series 220.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -272,7 +272,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-002',
 		code: 'BEL-L2102',
 		category: 'weighing',
-		image: '/images/instruments/bel-precision-balance.jpg',
+		image: '/Homepage Pics/Labware/Instruments/BEL Toploading Precision Balance — L Series 2100.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -301,7 +301,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-003',
 		code: 'BEL-HP105A',
 		category: 'weighing',
-		image: '/images/instruments/bel-semimicro-balance.jpg',
+		image: '/Homepage Pics/Labware/Instruments/BEL Semi-Micro Balance — HP Series 102.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -330,7 +330,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-004',
 		code: 'KERN-ABJ',
 		category: 'weighing',
-		image: '/images/instruments/kern-abj.jpg',
+		image: '/Homepage Pics/Labware/Instruments/KERN ABJ Analytical Balance.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -359,7 +359,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-005',
 		code: 'AND-GF',
 		category: 'weighing',
-		image: '/images/instruments/and-gf.jpg',
+		image: '/Homepage Pics/Labware/Instruments/A&D GF Series Precision Balance 3200g.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -388,7 +388,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-006',
 		code: 'RADWAG-MYA',
 		category: 'weighing',
-		image: '/images/instruments/radwag-mya.jpg',
+		image: '/Homepage Pics/Labware/Instruments/RADWAG MYA Microbalance 21g.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -417,7 +417,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-007',
 		code: 'AND-BM-252',
 		category: 'weighing',
-		image: '/images/instruments/and-bm-252.jpg',
+		image: '/Homepage Pics/Labware/Instruments/A&D BM Series Micro Analytical Balance 250.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -446,7 +446,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-008',
 		code: 'AND-FX-3000i',
 		category: 'weighing',
-		image: '/images/instruments/and-fx-i.jpg',
+		image: '/Homepage Pics/Labware/Instruments/A&D FX-i Series Precision Balance.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -475,7 +475,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-009',
 		code: 'AND-MS-70',
 		category: 'weighing',
-		image: '/images/instruments/and-ms70.jpg',
+		image: '/Homepage Pics/Labware/Instruments/A&D MS-70 Moisture Analyzer 71g.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -504,7 +504,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-010',
 		code: 'RADWAG-AS-3Y',
 		category: 'weighing',
-		image: '/images/instruments/radwag-as3y.jpg',
+		image: '/Homepage Pics/Labware/Instruments/RADWAG AS 3Y Analytical Balance.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -533,7 +533,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-011',
 		code: 'RADWAG-PS-3Y',
 		category: 'weighing',
-		image: '/images/instruments/radwag-ps3y.jpg',
+		image: '/Homepage Pics/Labware/Instruments/RADWAG PS 3Y Precision Balance.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -562,7 +562,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-w-012',
 		code: 'RADWAG-MA-X2A',
 		category: 'weighing',
-		image: '/images/instruments/radwag-ma-x2a.jpg',
+		image: '/Homepage Pics/Labware/Instruments/RADWAG MA X2.A Moisture Analyzer.jpg',
 		specs: [
 			{
 				label: { en: 'Capacity', ar: 'السعة' },
@@ -593,7 +593,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-001',
 		code: 'HORIBA-LAQUA-PH1100',
 		category: 'electrochemistry',
-		image: '/images/instruments/horiba-laqua.jpg',
+		image: '/Homepage Pics/Labware/Instruments/HORIBA LAQUA Benchtop pH Meter.jpg',
 		specs: [
 			{
 				label: { en: 'pH Range', ar: 'نطاق الـ pH' },
@@ -622,7 +622,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-002',
 		code: 'ADWA-AD8000',
 		category: 'electrochemistry',
-		image: '/images/instruments/adwa-ad8000.jpg',
+		image: '/Homepage Pics/Labware/Instruments/ADWA AD8000 Benchtop Multiparameter Meter.jpg',
 		specs: [
 			{
 				label: { en: 'Parameters', ar: 'المعلمات' },
@@ -651,7 +651,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-003',
 		code: 'HANNA-HI2020',
 		category: 'electrochemistry',
-		image: '/images/instruments/hanna-edge.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Hanna edge® Multiparameter Meter.jpg',
 		specs: [
 			{
 				label: { en: 'Design', ar: 'التصميم' },
@@ -680,7 +680,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-004',
 		code: 'MT-S220',
 		category: 'electrochemistry',
-		image: '/images/instruments/mettler-s220.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Mettler Toledo SevenCompact™ S220.jpg',
 		specs: [
 			{
 				label: { en: 'pH Range', ar: 'نطاق الـ pH' },
@@ -709,7 +709,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-005',
 		code: 'HANNA-HI991300',
 		category: 'electrochemistry',
-		image: '/images/instruments/hanna-hi991300.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Hanna HI991300 Portable pH-EC-TDS -Temp Meter.jpg',
 		specs: [
 			{
 				label: { en: 'Parameters', ar: 'المعلمات' },
@@ -738,7 +738,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-006',
 		code: 'MT-SD30',
 		category: 'electrochemistry',
-		image: '/images/instruments/mettler-sd30.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Mettler Toledo SevenDirect SD30 Conductivity Meter.jpg',
 		specs: [
 			{
 				label: { en: 'Cond Range', ar: 'نطاق الموصلية' },
@@ -767,7 +767,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-007',
 		code: 'WTW-7110',
 		category: 'electrochemistry',
-		image: '/images/instruments/wtw-inolab-7110.jpg',
+		image: '/Homepage Pics/Labware/Instruments/WTW inoLab® pH 7110 Benchtop Meter.jpg',
 		specs: [
 			{
 				label: { en: 'pH Range', ar: 'نطاق الـ pH' },
@@ -796,7 +796,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-e-008',
 		code: 'ADWA-AD310',
 		category: 'electrochemistry',
-		image: '/images/instruments/adwa-ad310.jpg',
+		image: '/Homepage Pics/Labware/Instruments/ADWA AD310 Portable pH-mV-Temp Meter.jpg',
 		specs: [
 			{
 				label: { en: 'Parameters', ar: 'المعلمات' },
@@ -827,7 +827,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-h-001',
 		code: 'IKA-CMAG-HS7',
 		category: 'heating',
-		image: '/images/instruments/ika-cmag-hs7.jpg',
+		image: '/Homepage Pics/Labware/Instruments/IKA C-MAG HS 7 Magnetic Stirrer with Heating.jpg',
 		specs: [
 			{
 				label: { en: 'Temp Range', ar: 'نطاق الحرارة' },
@@ -856,7 +856,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-h-002',
 		code: 'MEMMERT-UN30',
 		category: 'heating',
-		image: '/images/instruments/memmert-un30.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Memmert Universal Oven UN30.jpg',
 		specs: [
 			{
 				label: { en: 'Volume', ar: 'السعة' },
@@ -885,7 +885,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-h-003',
 		code: 'ISOLAB-613.01',
 		category: 'heating',
-		image: '/images/instruments/isolab-hotplate.jpg',
+		image: '/Homepage Pics/Labware/Instruments/ISOLAB Magnetic Stirrer with Hotplate.jpg',
 		specs: [
 			{
 				label: { en: 'Max Temp', ar: 'أقصى حرارة' },
@@ -914,7 +914,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-h-004',
 		code: 'ZOMAX-HPS-A',
 		category: 'heating',
-		image: '/images/instruments/zomax-analog-hotplate.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Zomax Analog Hotplate Stirrer.jpg',
 		specs: [
 			{
 				label: { en: 'Temp Range', ar: 'نطاق الحرارة' },
@@ -943,7 +943,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-h-005',
 		code: 'ZOMAX-HPS-D',
 		category: 'heating',
-		image: '/images/instruments/zomax-digital-hotplate.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Zomax Digital Hotplate Stirrer.jpg',
 		specs: [
 			{
 				label: { en: 'Temp Range', ar: 'نطاق الحرارة' },
@@ -972,7 +972,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-h-006',
 		code: 'UKAELAB-MS-H-PRO',
 		category: 'heating',
-		image: '/images/instruments/ukaelab-ms-h-pro.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Ukaelab LCD Digital Hotplate Stirrer.jpg',
 		specs: [
 			{
 				label: { en: 'Max Temp', ar: 'أقصى حرارة' },
@@ -1001,7 +1001,7 @@ export const instruments: Instrument[] = [
 		id: 'inst-h-007',
 		code: 'UKAELAB-MS-H-MULTI',
 		category: 'heating',
-		image: '/images/instruments/ukaelab-multi-hotplate.jpg',
+		image: '/Homepage Pics/Labware/Instruments/Ukaelab Multi-Position Hotplate Stirrer.jpg',
 		specs: [
 			{
 				label: { en: 'Positions', ar: 'المواضع' },
