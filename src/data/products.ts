@@ -40,6 +40,7 @@ export interface Product {
 	id: string;
 	code: string;
 	category: Category;
+	image?: string;
 	cas?: string;
 	concentration?: string;
 	purity?: string;
@@ -172,35 +173,19 @@ export const products: Product[] = [
 		applications: ['IC', 'Capillary Electrophoresis'],
 	},
 	{
-		id: 'c-008',
-		code: 'TM-C-008',
-		category: 'chromatography_standards',
-		concentration: '10 mg/mL each',
-		matrix: 'Hexane / Heptane (1:1)',
-		name: {
-			en: 'FAME Mix Standard — 37 Component',
-			ar: 'معيار خليط FAME — 37 مركباً',
-		},
-		description: {
-			en: '37 fatty acid methyl esters (C8–C24) per AOCS Ce 1j-07 for complete fatty acid profiling of food and feed oils by GC.',
-			ar: 'سبعة وثلاثون إسترات ميثيل للأحماض الدهنية (C8–C24) وفق AOCS Ce 1j-07 لتحديد ملف الأحماض الدهنية الكامل بـ GC.',
-		},
-		sizes: ['1 mL', '5 mL'],
-		applications: ['GC-FID'],
-	},
-	{
 		id: 'c-009',
 		code: 'TM-C-009',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Acetonitrile.jpg',
 		cas: '75-05-8',
 		purity: '≥ 99.9%',
 		name: {
-			en: 'Acetonitrile — LC-MS Grade',
-			ar: 'أسيتونيتريل — درجة LC-MS',
+			en: 'Acetonitrile — HPLC Grade',
+			ar: 'أسيتونيتريل — درجة HPLC',
 		},
 		description: {
-			en: 'High-purity acetonitrile optimized for LC-MS and UHPLC. Features exceptionally low metal ion content and high UV transmittance.',
-			ar: 'أسيتونيتريل عالي النقاء مُحسَّن لأجهزة LC-MS و UHPLC. يتميز بمحتوى منخفض جداً من أيونات المعادن ونفاذية عالية للأشعة فوق البنفسجية.',
+			en: 'High-purity acetonitrile optimized for HPLC and UHPLC. Features exceptionally low metal ion content and high UV transmittance.',
+			ar: 'أسيتونيتريل عالي النقاء مُحسَّن لأجهزة HPLC و UHPLC. يتميز بمحتوى منخفض جداً من أيونات المعادن ونفاذية عالية للأشعة فوق البنفسجية.',
 		},
 		sizes: ['1 L', '2.5 L', '4 L'],
 		applications: ['LC-MS', 'UHPLC', 'HPLC'],
@@ -209,15 +194,16 @@ export const products: Product[] = [
 		id: 'c-010',
 		code: 'TM-C-010',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Methanol.jpg',
 		cas: '67-56-1',
 		purity: '≥ 99.9%',
 		name: {
-			en: 'Methanol — LC-MS Grade',
-			ar: 'ميثانول — درجة LC-MS',
+			en: 'Methanol — HPLC Grade',
+			ar: 'ميثانول — درجة HPLC',
 		},
 		description: {
-			en: 'Premium gradient-grade methanol for LC-MS and HPLC applications, ensuring low baseline noise and minimal organic impurities.',
-			ar: 'ميثانول عالي الجودة لتطبيقات LC-MS و HPLC، يضمن ضوضاء أساس منخفضة وأقل نسبة من الشوائب العضوية.',
+			en: 'Premium gradient-grade methanol for HPLC and HPLC applications, ensuring low baseline noise and minimal organic impurities.',
+			ar: 'ميثانول عالي الجودة لتطبيقات HPLC و HPLC، يضمن ضوضاء أساس منخفضة وأقل نسبة من الشوائب العضوية.',
 		},
 		sizes: ['1 L', '2.5 L', '4 L'],
 		applications: ['LC-MS', 'HPLC', 'Gradient Analysis'],
@@ -226,15 +212,16 @@ export const products: Product[] = [
 		id: 'c-011',
 		code: 'TM-C-011',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Water.jpg',
 		cas: '7732-18-5',
 		purity: 'Ultrapure',
 		name: {
-			en: 'Water — LC-MS Grade',
-			ar: 'ماء — درجة LC-MS',
+			en: 'Water — HPLC Grade',
+			ar: 'ماء — درجة HPLC',
 		},
 		description: {
-			en: 'Ultrapure water specifically processed for LC-MS applications, free from trace metals and organic contaminants.',
-			ar: 'ماء فائق النقاء معالج خصيصاً لتطبيقات LC-MS، خالٍ من المعادن النزرة والملوثات العضوية.',
+			en: 'Ultrapure water specifically processed for HPLC applications, free from trace metals and organic contaminants.',
+			ar: 'ماء فائق النقاء معالج خصيصاً لتطبيقات HPLC، خالٍ من المعادن النزرة والملوثات العضوية.',
 		},
 		sizes: ['1 L', '2.5 L', '4 L'],
 		applications: ['LC-MS', 'HPLC', 'UHPLC'],
@@ -243,15 +230,16 @@ export const products: Product[] = [
 		id: 'c-012',
 		code: 'TM-C-012',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/2-Propanol.jpg',
 		cas: '67-63-0',
 		purity: '≥ 99.9%',
 		name: {
-			en: '2-Propanol (Isopropanol) — LC-MS Grade',
-			ar: '2-بروبانول (أيزوبروبانول) — درجة LC-MS',
+			en: '2-Propanol (Isopropanol) — HPLC Grade',
+			ar: '2-بروبانول (أيزوبروبانول) — درجة HPLC',
 		},
 		description: {
-			en: 'High-purity 2-Propanol suitable for LC-MS mobile phases and HPLC washing protocols. Low particulate and metal content.',
-			ar: '2-بروبانول عالي النقاء مناسب للأطوار المتحركة في LC-MS وبروتوكولات الغسيل في HPLC. محتوى منخفض من الجسيمات والمعادن.',
+			en: 'High-purity 2-Propanol suitable for HPLC mobile phases and HPLC washing protocols. Low particulate and metal content.',
+			ar: '2-بروبانول عالي النقاء مناسب للأطوار المتحركة في HPLC وبروتوكولات الغسيل في HPLC. محتوى منخفض من الجسيمات والمعادن.',
 		},
 		sizes: ['1 L', '2.5 L', '4 L'],
 		applications: ['LC-MS', 'HPLC'],
@@ -260,6 +248,7 @@ export const products: Product[] = [
 		id: 'c-013',
 		code: 'TM-C-013',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Hexane.jpg',
 		cas: '110-54-3',
 		purity: '≥ 95.0%',
 		name: {
@@ -277,6 +266,7 @@ export const products: Product[] = [
 		id: 'c-014',
 		code: 'TM-C-014',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Dichloromethane.jpg',
 		cas: '75-09-2',
 		purity: '≥ 99.8%',
 		name: {
@@ -294,6 +284,7 @@ export const products: Product[] = [
 		id: 'c-015',
 		code: 'TM-C-015',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Ethyl Acetate.jpg',
 		cas: '141-78-6',
 		purity: '≥ 99.8%',
 		name: {
@@ -311,6 +302,7 @@ export const products: Product[] = [
 		id: 'c-016',
 		code: 'TM-C-016',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Acetone.jpg',
 		cas: '67-64-1',
 		purity: '≥ 99.8%',
 		name: {
@@ -328,6 +320,7 @@ export const products: Product[] = [
 		id: 'c-017',
 		code: 'TM-C-017',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Ethanol (Absolute).jpg',
 		cas: '64-17-5',
 		purity: '≥ 99.9%',
 		name: {
@@ -345,6 +338,7 @@ export const products: Product[] = [
 		id: 'c-018',
 		code: 'TM-C-018',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Tetrahydrofuran (THF).jpg',
 		cas: '109-99-9',
 		purity: '≥ 99.9%',
 		name: {
@@ -362,6 +356,7 @@ export const products: Product[] = [
 		id: 'c-019',
 		code: 'TM-C-019',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Dimethyl sulfoxide.jpg',
 		cas: '67-68-5',
 		purity: '≥ 99.9%',
 		name: {
@@ -379,6 +374,7 @@ export const products: Product[] = [
 		id: 'c-020',
 		code: 'TM-C-020',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/N,N-Dimethylformamide (DMF).jpg',
 		cas: '68-12-2',
 		purity: '≥ 99.9%',
 		name: {
@@ -396,6 +392,7 @@ export const products: Product[] = [
 		id: 'c-021',
 		code: 'TM-C-021',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Toluene.jpg',
 		cas: '108-88-3',
 		purity: '≥ 99.8%',
 		name: {
@@ -413,6 +410,7 @@ export const products: Product[] = [
 		id: 'c-022',
 		code: 'TM-C-022',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Chloroform.jpg',
 		cas: '67-66-3',
 		purity: '≥ 99.8%',
 		name: {
@@ -430,6 +428,7 @@ export const products: Product[] = [
 		id: 'c-023',
 		code: 'TM-C-023',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Heptane.jpg',
 		cas: '142-82-5',
 		purity: '≥ 99.0%',
 		name: {
@@ -447,6 +446,7 @@ export const products: Product[] = [
 		id: 'c-024',
 		code: 'TM-C-024',
 		category: 'solvents',
+		image: '/Homepage Pics/Solvent Images/Methyl tert-Butyl Ether (MTBE).jpg',
 		cas: '1634-04-4',
 		purity: '≥ 99.8%',
 		name: {
@@ -464,6 +464,7 @@ export const products: Product[] = [
 		id: 'c-025',
 		code: 'TM-C-025',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Multielement Ion Chromatography Cation Standard.jpg',
 		concentration: '10.0 mg/kg each',
 		matrix: 'Water',
 		name: {
@@ -481,6 +482,7 @@ export const products: Product[] = [
 		id: 'c-026',
 		code: 'TM-C-026',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Multielement Ion Chromatography Anion Standard.jpg',
 		concentration: '10.0 mg/kg each',
 		matrix: 'Water',
 		name: {
@@ -498,6 +500,7 @@ export const products: Product[] = [
 		id: 'c-027',
 		code: 'TM-C-027',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Fluoride Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -515,6 +518,7 @@ export const products: Product[] = [
 		id: 'c-028',
 		code: 'TM-C-028',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Chloride Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -532,6 +536,7 @@ export const products: Product[] = [
 		id: 'c-029',
 		code: 'TM-C-029',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Sulfate Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -549,6 +554,7 @@ export const products: Product[] = [
 		id: 'c-030',
 		code: 'TM-C-030',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Nitrate Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -566,6 +572,7 @@ export const products: Product[] = [
 		id: 'c-031',
 		code: 'TM-C-031',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Nitrite Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -583,6 +590,7 @@ export const products: Product[] = [
 		id: 'c-032',
 		code: 'TM-C-032',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Phosphate Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -600,6 +608,7 @@ export const products: Product[] = [
 		id: 'c-033',
 		code: 'TM-C-033',
 		category: 'ion_chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Bromide Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -617,6 +626,7 @@ export const products: Product[] = [
 		id: 'c-034',
 		code: 'TM-C-025',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Multielement Ion Chromatography Cation Standard.jpg',
 		concentration: '10.0 mg/kg each',
 		matrix: 'Water',
 		name: {
@@ -634,6 +644,7 @@ export const products: Product[] = [
 		id: 'c-035',
 		code: 'TM-C-026',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Multielement Ion Chromatography Anion Standard.jpg',
 		concentration: '10.0 mg/kg each',
 		matrix: 'Water',
 		name: {
@@ -651,6 +662,7 @@ export const products: Product[] = [
 		id: 'c-036',
 		code: 'TM-C-027',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Fluoride Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -668,6 +680,7 @@ export const products: Product[] = [
 		id: 'c-037',
 		code: 'TM-C-028',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Chloride Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -685,6 +698,7 @@ export const products: Product[] = [
 		id: 'c-038',
 		code: 'TM-C-029',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Sulfate Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -702,6 +716,7 @@ export const products: Product[] = [
 		id: 'c-039',
 		code: 'TM-C-030',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Nitrate Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -719,6 +734,7 @@ export const products: Product[] = [
 		id: 'c-040',
 		code: 'TM-C-031',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Nitrite Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -736,6 +752,7 @@ export const products: Product[] = [
 		id: 'c-041',
 		code: 'TM-C-032',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Phosphate Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {
@@ -753,6 +770,7 @@ export const products: Product[] = [
 		id: 'c-042',
 		code: 'TM-C-033',
 		category: 'chromatography_standards',
+		image: '/Homepage Pics/Chromatography Images/Bromide Standard for IC.jpg',
 		concentration: '1000 mg/L',
 		matrix: 'Water',
 		name: {

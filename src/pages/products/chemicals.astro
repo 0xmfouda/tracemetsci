@@ -102,6 +102,14 @@ const categories: { key: FilterKey; label: string }[] = [
 						data-searchtext={searchText}
 						class="group flex flex-col bg-surface-container-lowest rounded-xl border border-outline-variant/10 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
 					>
+						<div class="h-48 overflow-hidden bg-white border-b border-outline-variant/10 shrink-0 flex items-center justify-center">
+							<img
+								src={p.image || '/logo.png'}
+								alt={p.name[lang]}
+								class:list={["w-full h-full object-contain group-hover:scale-105 transition-transform duration-500", p.image ? "p-4" : "p-12 opacity-20"]}
+								onerror="this.src='/logo.png'; this.className='w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 p-12 opacity-20';"
+							/>
+						</div>
 						<div class="flex items-start justify-between px-5 pt-5 pb-3 gap-3">
 							<span class:list={['inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border', colors.bg, colors.text, colors.border]}>
 								{categoryLabel}
