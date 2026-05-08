@@ -3660,7 +3660,7 @@ export const products: Product[] = [
 		id: 'ec-006',
 		code: 'TM-EC-006',
 		category: 'ph_conductivity',
-		image: '/Homepage Pics/Electrochemistry/pH Storage.jpg',
+		image: '/Homepage Pics/Electrochemistry/pH Refill.jpg',
 		cas: '7447-40-7',
 		concentration: '3.0 mol/L',
 		matrix: 'Aqueous',
