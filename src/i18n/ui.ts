@@ -14,7 +14,7 @@ export const ui = {
 		'nav.home': 'Home',
 		'nav.products': 'Products',
 		'nav.contact': 'Contact Us',
-		'nav.quote': 'Request a quote',
+		'nav.quote': 'Customize your Reagents, QC, CRM, and Calibration Standards',
 		// Hero
 		'hero.badge': 'Analytical Excellence',
 		'hero.headline1': 'Metrologically',

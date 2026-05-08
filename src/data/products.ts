@@ -3567,6 +3567,7 @@ export const products: Product[] = [
 		id: 'ec-001',
 		code: 'TM-EC-001',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		cas: '877-24-7',
 		concentration: 'pH 4.00 ± 0.02 at 25°C',
 		matrix: 'Aqueous',
@@ -3585,6 +3586,7 @@ export const products: Product[] = [
 		id: 'ec-002',
 		code: 'TM-EC-002',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		concentration: 'pH 7.00 ± 0.02 at 25°C',
 		matrix: 'Aqueous',
 		name: {
@@ -3603,6 +3605,7 @@ export const products: Product[] = [
 		code: 'TM-EC-003',
 		category: 'ph_conductivity',
 		concentration: 'pH 10.00 ± 0.02 at 25°C',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		matrix: 'Aqueous',
 		name: {
 			en: 'pH 10.00 Buffer Solution — Borate/Carbonate Standard',
@@ -3620,6 +3623,7 @@ export const products: Product[] = [
 		code: 'TM-EC-004',
 		cas: '7447-40-7',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/Conductivity.jpg',
 		concentration: '147 µS/cm at 25°C',
 		matrix: 'KCl in Ultrapure Water',
 		name: {
@@ -3638,6 +3642,7 @@ export const products: Product[] = [
 		code: 'TM-EC-005',
 		cas: '7447-40-7',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/Conductivity.jpg',
 		concentration: '1413 µS/cm at 25°C',
 		matrix: 'KCl in Ultrapure Water',
 		name: {
@@ -3655,6 +3660,7 @@ export const products: Product[] = [
 		id: 'ec-006',
 		code: 'TM-EC-006',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Storage.jpg',
 		cas: '7447-40-7',
 		concentration: '3.0 mol/L',
 		matrix: 'Aqueous',
@@ -3673,6 +3679,7 @@ export const products: Product[] = [
 		id: 'ec-007',
 		code: 'TM-EC-007',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Storage.jpg',
 		cas: '7447-40-7',
 		concentration: '3.0 M KCl',
 		matrix: 'Aqueous',
@@ -3691,6 +3698,7 @@ export const products: Product[] = [
 		id: 'ec-008',
 		code: 'TM-EC-008',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		concentration: 'pH 1.68 ± 0.01 at 25°C',
 		matrix: 'Aqueous',
 		name: {
@@ -3708,6 +3716,7 @@ export const products: Product[] = [
 		id: 'ec-009',
 		code: 'TM-EC-009',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		concentration: 'pH 4.00 at 20°C',
 		matrix: 'Aqueous',
 		name: {
@@ -3725,6 +3734,7 @@ export const products: Product[] = [
 		id: 'ec-010',
 		code: 'TM-EC-010',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		concentration: 'pH 10.00 at 20°C',
 		matrix: 'Aqueous',
 		name: {
@@ -3742,6 +3752,7 @@ export const products: Product[] = [
 		id: 'ec-011',
 		code: 'TM-EC-011',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		concentration: 'pH 7.00 at 20°C',
 		matrix: 'Aqueous',
 		name: {
@@ -3759,6 +3770,7 @@ export const products: Product[] = [
 		id: 'ec-012',
 		code: 'TM-EC-012',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/Conductivity.jpg',
 		concentration: '84 µS/cm at 25°C',
 		matrix: 'KCl in Ultrapure Water',
 		name: {
@@ -3776,6 +3788,7 @@ export const products: Product[] = [
 		id: 'ec-013',
 		code: 'TM-EC-013',
 		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
 		concentration: 'pH 6.86 at 25°C',
 		matrix: 'Aqueous',
 		name: {
@@ -3785,6 +3798,97 @@ export const products: Product[] = [
 		description: {
 			en: 'Precision pH buffer solution for the calibration of pH measurement instruments.',
 			ar: 'محلول منظم pH دقيق لمعايرة أجهزة قياس الحموضة.',
+		},
+		sizes: ['500 mL', '1 L'],
+		applications: ['pH Calibration'],
+	},
+	{
+		id: 'ec-014',
+		code: 'TM-EC-014',
+		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/Conductivity.jpg',
+		cas: '7447-40-7',
+		concentration: '12.8 mS/cm at 25°C',
+		matrix: 'Aqueous KCl',
+		name: {
+			en: 'Conductivity Standard 12.8 mS/cm (0.1 mol/L KCl) — Certipur®',
+			ar: 'معيار الموصلية 12.8 mS/cm (0.1 مول/لتر KCl) — سيريتبور®',
+		},
+		description: {
+			en: 'Potassium chloride solution (nominal 12.8 mS/cm) certified reference material for the measurement of electrolytic conductivity, Certipur®.',
+			ar: 'محلول كلوريد البوتاسيوم (12.8 mS/cm اسمي) مادة مرجعية معتمدة لقياس الموصلية الكهربائية، سيريتبور®.',
+		},
+		sizes: ['500 mL'],
+		applications: ['Conductivity Calibration', 'Quality Control'],
+	},
+	{
+		id: 'ec-015',
+		code: 'TM-EC-015',
+		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/DO.jpg',
+		concentration: '0 mg/L O₂',
+		matrix: 'Aqueous',
+		name: {
+			en: 'Dissolved Oxygen (DO) Zero Calibration Standard',
+			ar: 'معيار أكسجين مذاب (DO) صفري للمعايرة',
+		},
+		description: {
+			en: 'Zero oxygen calibration solution designed for the accurate zero-point calibration of dissolved oxygen meters and sensors.',
+			ar: 'محلول معايرة الأكسجين الصفري مصمم للمعايرة الدقيقة لنقطة الصفر لأجهزة ومستشعرات الأكسجين المذاب.',
+		},
+		sizes: ['500 mL'],
+		applications: ['DO Calibration', 'Water Quality Testing', 'Environmental Analysis'],
+	},
+	{
+		id: 'ec-016',
+		code: 'TM-EC-016',
+		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
+		concentration: 'pH 2.00 ± 0.02 at 25°C',
+		matrix: 'Aqueous',
+		name: {
+			en: 'pH 2.00 Buffer Solution',
+			ar: 'محلول منظم pH 2.00',
+		},
+		description: {
+			en: 'Precision pH buffer solution for the calibration of pH measurement instruments in highly acidic ranges.',
+			ar: 'محلول منظم pH دقيق لمعايرة أجهزة قياس الحموضة في النطاقات شديدة الحموضة.',
+		},
+		sizes: ['500 mL', '1 L'],
+		applications: ['pH Calibration'],
+	},
+	{
+		id: 'ec-017',
+		code: 'TM-EC-017',
+		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
+		concentration: 'pH 9.00 ± 0.02 at 25°C',
+		matrix: 'Aqueous',
+		name: {
+			en: 'pH 9.00 Buffer Solution',
+			ar: 'محلول منظم pH 9.00',
+		},
+		description: {
+			en: 'Precision pH buffer solution for the calibration of pH measurement instruments in mildly alkaline ranges.',
+			ar: 'محلول منظم pH دقيق لمعايرة أجهزة قياس الحموضة في النطاقات القلوية الخفيفة.',
+		},
+		sizes: ['500 mL', '1 L'],
+		applications: ['pH Calibration'],
+	},
+	{
+		id: 'ec-018',
+		code: 'TM-EC-018',
+		category: 'ph_conductivity',
+		image: '/Homepage Pics/Electrochemistry/pH Buffers.jpg',
+		concentration: 'pH 12.00 ± 0.05 at 25°C',
+		matrix: 'Aqueous',
+		name: {
+			en: 'pH 12.00 Buffer Solution',
+			ar: 'محلول منظم pH 12.00',
+		},
+		description: {
+			en: 'Precision pH buffer solution for the calibration of pH measurement instruments in highly alkaline ranges.',
+			ar: 'محلول منظم pH دقيق لمعايرة أجهزة قياس الحموضة في النطاقات شديدة القلوية.',
 		},
 		sizes: ['500 mL', '1 L'],
 		applications: ['pH Calibration'],
