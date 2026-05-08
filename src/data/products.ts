@@ -1027,6 +1027,7 @@ export const products: Product[] = [
 		id: 'sa-001',
 		code: 'TM-SA-001',
 		category: 'salts',
+		image: '/Homepage Pics/Salts Images/NaCl.jpg',
 		cas: '7647-14-5',
 		purity: '≥ 99.5%',
 		name: {
@@ -1043,6 +1044,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-002',
 		code: 'TM-SA-002',
+		image: '/Homepage Pics/Salts Images/KCl.jpg',
 		category: 'salts',
 		cas: '7447-40-7',
 		purity: '≥ 99.0%',
@@ -1060,6 +1062,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-003',
 		code: 'TM-SA-003',
+		image: '/Homepage Pics/Salts Images/Sodium Carbonate (Anhydrous) — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '144-55-8',
 		purity: '≥ 99.7%',
@@ -1077,16 +1080,17 @@ export const products: Product[] = [
 	{
 		id: 'sa-004',
 		code: 'TM-SA-004',
+		image: '/Homepage Pics/Salts Images/MgSO4.jpg',
 		category: 'salts',
 		cas: '7487-88-9',
 		purity: '≥ 99.5%',
 		name: {
-			en: 'Magnesium Sulfate (Anhydrous) — Reagent Grade',
-			ar: 'كبريتات المغنيسيوم (لامائي) — درجة كاشف',
+			en: 'Magnesium Sulfate — Reagent Grade',
+			ar: 'كبريتات المغنيسيوم — درجة كاشف',
 		},
 		description: {
-			en: 'Anhydrous magnesium sulfate used widely as a drying agent in organic synthesis and extractions.',
-			ar: 'كبريتات المغنيسيوم اللامائية تُستخدم على نطاق واسع كعامل تجفيف في التخليق العضوي والاستخلاص.',
+			en: 'Magnesium sulfate used widely as a drying agent in organic synthesis and extractions.',
+			ar: 'كبريتات المغنيسيوم تُستخدم على نطاق واسع كعامل تجفيف في التخليق العضوي والاستخلاص.',
 		},
 		sizes: ['500 g', '1 kg'],
 		applications: ['Desiccant', 'Extraction'],
@@ -1094,16 +1098,17 @@ export const products: Product[] = [
 	{
 		id: 'sa-005',
 		code: 'TM-SA-005',
+		image: '/Homepage Pics/Salts Images/CaCl2.jpg',
 		category: 'salts',
 		cas: '10043-52-4',
 		purity: '≥ 96.0%',
 		name: {
-			en: 'Calcium Chloride (Anhydrous) — ACS Reagent',
-			ar: 'كلوريد الكالسيوم (لامائي) — كاشف ACS',
+			en: 'Calcium Chloride — ACS Reagent',
+			ar: 'كلوريد الكالسيوم — كاشف ACS',
 		},
 		description: {
-			en: 'Granular anhydrous calcium chloride ideal for use in desiccators and drying tubes.',
-			ar: 'كلوريد الكالسيوم اللامائي الحبيبي مثالي للاستخدام في المجففات وأنابيب التجفيف.',
+			en: 'Granular calcium chloride ideal for use in desiccators and drying tubes.',
+			ar: 'كلوريد الكالسيوم الحبيبي مثالي للاستخدام في المجففات وأنابيب التجفيف.',
 		},
 		sizes: ['500 g', '1 kg'],
 		applications: ['Desiccant', 'General Lab Use'],
@@ -1111,6 +1116,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-006',
 		code: 'TM-SA-006',
+		image: '/Homepage Pics/Salts Images/Potassium-iodide-100gm-Lab-Grade.jpg',
 		category: 'salts',
 		cas: '7681-11-0',
 		purity: '≥ 99.0%',
@@ -1128,16 +1134,17 @@ export const products: Product[] = [
 	{
 		id: 'sa-007',
 		code: 'TM-SA-007',
+		image: '/Homepage Pics/Salts Images/Sodium Acetate.jpg',
 		category: 'salts',
 		cas: '127-09-3',
 		purity: '≥ 99.0%',
 		name: {
-			en: 'Sodium Acetate (Anhydrous) — ACS Reagent',
-			ar: 'أسيتات الصوديوم (لامائي) — كاشف ACS',
+			en: 'Sodium Acetate — ACS Reagent',
+			ar: 'أسيتات الصوديوم — كاشف ACS',
 		},
 		description: {
-			en: 'Anhydrous sodium acetate used in buffer solutions, DNA precipitation, and organic synthesis.',
-			ar: 'أسيتات الصوديوم اللامائية تُستخدم في المحاليل المنظمة، وترسيب الحمض النووي، والتخليق العضوي.',
+			en: 'Sodium acetate used in buffer solutions, DNA precipitation, and organic synthesis.',
+			ar: 'أسيتات الصوديوم تُستخدم في المحاليل المنظمة، وترسيب الحمض النووي، والتخليق العضوي.',
 		},
 		sizes: ['500 g', '1 kg'],
 		applications: ['Buffer Prep', 'Molecular Biology'],
@@ -1145,6 +1152,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-008',
 		code: 'TM-SA-008',
+		image: '/Homepage Pics/Salts Images/Ammonium Chloride — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '12125-02-9',
 		purity: '≥ 99.5%',
@@ -1162,6 +1170,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-009',
 		code: 'TM-SA-009',
+		image: '/Homepage Pics/Salts Images/Copper(II) Sulfate Pentahydrate — Analytical Grade.jpg',
 		category: 'salts',
 		cas: '7758-99-8',
 		purity: '≥ 98.0%',
@@ -1179,6 +1188,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-010',
 		code: 'TM-SA-010',
+		image: '/Homepage Pics/Salts Images/Iron(III) Chloride Hexahydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '10025-77-1',
 		purity: '≥ 97.0%',
@@ -1196,6 +1206,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-011',
 		code: 'TM-SA-011',
+		image: '/Homepage Pics/Salts Images/Ammonium Sulfate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7783-20-2',
 		purity: '≥ 99.0%',
@@ -1213,6 +1224,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-012',
 		code: 'TM-SA-012',
+		image: '/Homepage Pics/Salts Images/Potassium Sulfate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7778-77-0',
 		purity: '≥ 99.0%',
@@ -1230,6 +1242,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-013',
 		code: 'TM-SA-013',
+		image: '/Homepage Pics/Salts Images/NaCl.jpg',
 		category: 'salts',
 		cas: '7757-82-6',
 		purity: '≥ 99.0%',
@@ -1247,6 +1260,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-014',
 		code: 'TM-SA-014',
+		image: '/Homepage Pics/Salts Images/Magnesium Chloride Hexahydrate — Molecular Biology Grade.jpg',
 		category: 'salts',
 		cas: '7791-18-6',
 		purity: '≥ 99.0%',
@@ -1264,6 +1278,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-015',
 		code: 'TM-SA-015',
+		image: '/Homepage Pics/Salts Images/Zinc Sulfate Heptahydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7446-20-0',
 		purity: '≥ 99.0%',
@@ -1279,25 +1294,9 @@ export const products: Product[] = [
 		applications: ['Titration', 'Cell Culture'],
 	},
 	{
-		id: 'sa-016',
-		code: 'TM-SA-016',
-		category: 'salts',
-		cas: '13477-34-4',
-		purity: '≥ 99.0%',
-		name: {
-			en: 'Calcium Nitrate Tetrahydrate — ACS Reagent',
-			ar: 'نترات الكالسيوم رباعي الهيدرات — كاشف ACS',
-		},
-		description: {
-			en: 'Highly soluble calcium nitrate for water treatment analysis, agricultural lab testing, and reagent formulation.',
-			ar: 'نترات الكالسيوم عالية الذوبان لتحليل معالجة المياه، والاختبارات المخبرية الزراعية، وتركيب الكواشف.',
-		},
-		sizes: ['500 g', '1 kg'],
-		applications: ['Water Testing', 'Agricultural Analysis'],
-	},
-	{
 		id: 'sa-017',
 		code: 'TM-SA-017',
+		image: '/Homepage Pics/Salts Images/Sodium Thiosulfate Pentahydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '10102-17-7',
 		purity: '≥ 99.5%',
@@ -1315,6 +1314,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-018',
 		code: 'TM-SA-018',
+		image: '/Homepage Pics/Salts Images/Sodium Carbonate (Anhydrous) — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '497-19-8',
 		purity: '≥ 99.5%',
@@ -1332,6 +1332,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-019',
 		code: 'TM-SA-019',
+		image: '/Homepage Pics/Salts Images/Potassium Carbonate (Anhydrous) — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '584-08-7',
 		purity: '≥ 99.0%',
@@ -1349,12 +1350,13 @@ export const products: Product[] = [
 	{
 		id: 'sa-020',
 		code: 'TM-SA-020',
+		image: '/Homepage Pics/Salts Images/Sodium Phosphate Dibasic — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7558-79-4',
 		purity: '≥ 99.0%',
 		name: {
-			en: 'Sodium Phosphate Dibasic (Anhydrous) — ACS Reagent',
-			ar: 'فوسفات الصوديوم ثنائي القاعدية (لامائي) — كاشف ACS',
+			en: 'Sodium Phosphate Dibasic — ACS Reagent',
+			ar: 'فوسفات الصوديوم ثنائي القاعدية — كاشف ACS',
 		},
 		description: {
 			en: 'Ideal for the preparation of phosphate buffer saline (PBS) and biological research.',
@@ -1366,6 +1368,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-021',
 		code: 'TM-SA-021',
+		image: '/Homepage Pics/Salts Images/Sodium Phosphate Monobasic Monohydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '10049-21-5',
 		purity: '≥ 99.0%',
@@ -1383,12 +1386,13 @@ export const products: Product[] = [
 	{
 		id: 'sa-022',
 		code: 'TM-SA-022',
+		image: '/Homepage Pics/Salts Images/Potassium Phosphate Dibasic — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7758-11-4',
 		purity: '≥ 99.0%',
 		name: {
-			en: 'Potassium Phosphate Dibasic (Anhydrous) — ACS Reagent',
-			ar: 'فوسفات البوتاسيوم ثنائي القاعدية (لامائي) — كاشف ACS',
+			en: 'Potassium Phosphate Dibasic — ACS Reagent',
+			ar: 'فوسفات البوتاسيوم ثنائي القاعدية — كاشف ACS',
 		},
 		description: {
 			en: 'Highly soluble buffer component commonly used in HPLC mobile phases and cell culture media.',
@@ -1400,6 +1404,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-023',
 		code: 'TM-SA-023',
+		image: '/Homepage Pics/Salts Images/Barium Chloride Dihydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '10326-27-9',
 		purity: '≥ 99.0%',
@@ -1417,6 +1422,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-024',
 		code: 'TM-SA-024',
+		image: '/Homepage Pics/Salts Images/Lithium Chloride — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7447-41-8',
 		purity: '≥ 99.0%',
@@ -1434,6 +1440,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-025',
 		code: 'TM-SA-025',
+		image: '/Homepage Pics/Salts Images/Iron(II) Sulfate Heptahydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7782-63-0',
 		purity: '≥ 99.0%',
@@ -1451,6 +1458,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-026',
 		code: 'TM-SA-026',
+		image: '/Homepage Pics/Salts Images/Potassium Sulfate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7778-80-5',
 		purity: '≥ 99.0%',
@@ -1468,6 +1476,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-027',
 		code: 'TM-SA-027',
+		image: '/Homepage Pics/Salts Images/Aluminum Sulfate Hexadecahydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '16828-11-8',
 		purity: '98-102%',
@@ -1485,6 +1494,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-028',
 		code: 'TM-SA-028',
+		image: '/Homepage Pics/Salts Images/Manganese(II) Sulfate Monohydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '13446-34-9',
 		purity: '≥ 98.0%',
@@ -1502,6 +1512,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-029',
 		code: 'TM-SA-029',
+		image: '/Homepage Pics/Salts Images/MgSO4.jpg',
 		category: 'salts',
 		cas: '10034-96-5',
 		purity: '≥ 98.0%',
@@ -1519,6 +1530,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-030',
 		code: 'TM-SA-030',
+		image: '/Homepage Pics/Salts Images/Cobalt(II) Chloride Hexahydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7791-13-1',
 		purity: '98-102%',
@@ -1536,6 +1548,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-031',
 		code: 'TM-SA-031',
+		image: '/Homepage Pics/Salts Images/Sodium Tetraborate Decahydrate (Borax) — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '1303-96-4',
 		purity: '≥ 99.5%',
@@ -1553,6 +1566,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-032',
 		code: 'TM-SA-032',
+		image: '/Homepage Pics/Salts Images/Ammonium Acetate — LC-MS Grade.jpg',
 		category: 'salts',
 		cas: '631-61-8',
 		purity: '≥ 99.0%',
@@ -1570,6 +1584,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-033',
 		code: 'TM-SA-033',
+		image: '/Homepage Pics/Salts Images/Sodium Citrate Dihydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '6132-04-3',
 		purity: '≥ 99.0%',
@@ -1587,6 +1602,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-034',
 		code: 'TM-SA-034',
+		image: '/Homepage Pics/Salts Images/Potassium Citrate Monohydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '6100-05-6',
 		purity: '≥ 99.0%',
@@ -1604,6 +1620,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-035',
 		code: 'TM-SA-035',
+		image: '/Homepage Pics/Salts Images/Potassium Oxalate Monohydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '6487-48-5',
 		purity: '≥ 99.0%',
@@ -1621,6 +1638,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-036',
 		code: 'TM-SA-036',
+		image: '/Homepage Pics/Salts Images/Ammonium Formate — LC-MS Grade.jpg',
 		category: 'salts',
 		cas: '540-69-2',
 		purity: '≥ 99.0%',
@@ -1638,6 +1656,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-037',
 		code: 'TM-SA-037',
+		image: '/Homepage Pics/Salts Images/Sodium Formate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '141-53-7',
 		purity: '≥ 99.0%',
@@ -1655,6 +1674,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-038',
 		code: 'TM-SA-038',
+		image: '/Homepage Pics/Salts Images/Sodium Tartrate Dihydrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '6106-24-7',
 		purity: '≥ 99.0%',
@@ -1672,6 +1692,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-039',
 		code: 'TM-SA-039',
+		image: '/Homepage Pics/Salts Images/Ammonium Bicarbonate — HPLC Grade.jpg',
 		category: 'salts',
 		cas: '1066-33-7',
 		purity: '≥ 99.0%',
@@ -1687,25 +1708,9 @@ export const products: Product[] = [
 		applications: ['HPLC', 'Proteomics', 'Buffer Prep'],
 	},
 	{
-		id: 'sa-040',
-		code: 'TM-SA-040',
-		category: 'salts',
-		cas: '1185-53-1',
-		purity: '≥ 99.8%',
-		name: {
-			en: 'Tris Hydrochloride (Tris-HCl) — Molecular Biology Grade',
-			ar: 'هيدروكلوريد تريس (Tris-HCl) — درجة البيولوجيا الجزيئية',
-		},
-		description: {
-			en: 'Biological buffer salt for preparing Tris buffers in electrophoresis, nucleic acid extraction, and cell culture.',
-			ar: 'ملح محلول منظم حيوي لتحضير محاليل تريس في الرحلان الكهربائي، واستخلاص الحمض النووي، وزراعة الخلايا.',
-		},
-		sizes: ['500 g', '1 kg'],
-		applications: ['Molecular Biology', 'Buffer Prep'],
-	},
-	{
 		id: 'sa-041',
 		code: 'TM-SA-041',
+		image: '/Homepage Pics/Salts Images/Silver Nitrate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '7761-88-8',
 		purity: '≥ 99.0%',
@@ -1723,6 +1728,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-042',
 		code: 'TM-SA-042',
+		image: '/Homepage Pics/Salts Images/Ammonium Carbonate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '506-87-6',
 		purity: '≥ 30.0% NH₃ basis',
@@ -1740,6 +1746,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-043',
 		code: 'TM-SA-043',
+		image: '/Homepage Pics/Salts Images/Barium Carbonate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '513-77-9',
 		purity: '≥ 99.0%',
@@ -1757,6 +1764,7 @@ export const products: Product[] = [
 	{
 		id: 'sa-044',
 		code: 'TM-SA-044',
+		image: '/Homepage Pics/Salts Images/Lithium Carbonate — ACS Reagent.jpg',
 		category: 'salts',
 		cas: '554-13-2',
 		purity: '≥ 99.0%',
@@ -1770,6 +1778,204 @@ export const products: Product[] = [
 		},
 		sizes: ['100 g', '500 g'],
 		applications: ['Flux Preparation', 'Materials Analysis'],
+	},
+	{
+		id: 'sa-045',
+		code: 'TM-SA-045',
+		image: '/Homepage Pics/Salts Images/Nickel-Sulfate-Hexahydrate-500gm-Merck.jpg',
+		category: 'salts',
+		cas: '10101-97-0',
+		purity: '≥ 98.0%',
+		name: {
+			en: 'Nickel(II) Sulfate Hexahydrate — ACS Reagent',
+			ar: 'كبريتات النيكل (الثنائي) سداسي الهيدرات — كاشف ACS',
+		},
+		description: {
+			en: 'High-purity nickel sulfate used in electroplating, as a mordant in dyeing, and in the preparation of other nickel compounds.',
+			ar: 'كبريتات نيكل عالية النقاء تُستخدم في الطلاء الكهربائي، وكمادة مثبتة في الصباغة، وفي تحضير مركبات النيكل الأخرى.',
+		},
+		sizes: ['500 g', '1 kg'],
+		applications: ['Electroplating', 'Synthesis'],
+	},
+	{
+		id: 'sa-046',
+		code: 'TM-SA-046',
+		image: '/Homepage Pics/Salts Images/Nickel-Chloride-Hexahydrate-500gm-Merck.jpg',
+		category: 'salts',
+		cas: '7791-20-0',
+		purity: '≥ 98.0%',
+		name: {
+			en: 'Nickel(II) Chloride Hexahydrate — ACS Reagent',
+			ar: 'كلوريد النيكل (الثنائي) سداسي الهيدرات — كاشف ACS',
+		},
+		description: {
+			en: 'Important source of nickel for chemical synthesis and widely used as an additive in nickel plating baths.',
+			ar: 'مصدر مهم للنيكل للتخليق الكيميائي ويُستخدم على نطاق واسع كمضاف في حمامات طلاء النيكل.',
+		},
+		sizes: ['250 g', '500 g'],
+		applications: ['Electroplating', 'Catalysis'],
+	},
+	{
+		id: 'sa-047',
+		code: 'TM-SA-047',
+		image: '/Homepage Pics/Salts Images/Zinc Chloride — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '7646-85-7',
+		purity: '≥ 97.0%',
+		name: {
+			en: 'Zinc Chloride — ACS Reagent',
+			ar: 'كلوريد الزنك — كاشف ACS',
+		},
+		description: {
+			en: 'Versatile anhydrous salt used as a catalyst, dehydrating agent, and flux for soldering in metallurgical operations.',
+			ar: 'ملح لامائي متعدد الاستخدامات يُستخدم كمحفز، وعامل تجفيف، وصهور للحام في العمليات المعدنية.',
+		},
+		sizes: ['500 g', '1 kg'],
+		applications: ['Synthesis', 'Catalyst', 'Flux'],
+	},
+	{
+		id: 'sa-048',
+		code: 'TM-SA-048',
+		image: '/Homepage Pics/Salts Images/Potassium Nitrate — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '7757-79-1',
+		purity: '≥ 99.0%',
+		name: {
+			en: 'Potassium Nitrate — ACS Reagent',
+			ar: 'نترات البوتاسيوم — كاشف ACS',
+		},
+		description: {
+			en: 'High-purity potassium nitrate used as an oxidizing agent, in analytical testing, and for buffer preparations.',
+			ar: 'نترات بوتاسيوم عالية النقاء تُستخدم كعامل مؤكسد، وفي الاختبارات التحليلية، وتحضير المحاليل المنظمة.',
+		},
+		sizes: ['500 g', '1 kg'],
+		applications: ['Oxidizing Agent', 'Analytical Reagent'],
+	},
+	{
+		id: 'sa-049',
+		code: 'TM-SA-049',
+		image: '/Homepage Pics/Salts Images/Copper(II) Chloride Dihydrate — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '10125-13-0',
+		purity: '≥ 99.0%',
+		name: {
+			en: 'Copper(II) Chloride Dihydrate — ACS Reagent',
+			ar: 'كلوريد النحاس (الثنائي) ثنائي الهيدرات — كاشف ACS',
+		},
+		description: {
+			en: 'Used extensively as a catalyst in organic and inorganic synthesis, and as a mordant in dyeing applications.',
+			ar: 'يُستخدم على نطاق واسع كمحفز في التخليق العضوي وغير العضوي، وكمادة مثبتة للصبغ في تطبيقات الصباغة.',
+		},
+		sizes: ['250 g', '500 g'],
+		applications: ['Catalysis', 'Synthesis'],
+	},
+	{
+		id: 'sa-050',
+		code: 'TM-SA-050',
+		image: '/Homepage Pics/Salts Images/Cobalt(II) Sulfate Heptahydrate — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '10026-24-1',
+		purity: '≥ 99.0%',
+		name: {
+			en: 'Cobalt(II) Sulfate Heptahydrate — ACS Reagent',
+			ar: 'كبريتات الكوبالت (الثنائي) سباعي الهيدرات — كاشف ACS',
+		},
+		description: {
+			en: 'Used in the preparation of pigments, as well as in the manufacture of other cobalt salts and analytical reagents.',
+			ar: 'يُستخدم في تحضير الأصباغ، وكذلك في تصنيع أملاح الكوبالت الأخرى والكواشف التحليلية.',
+		},
+		sizes: ['100 g', '500 g'],
+		applications: ['Pigment Preparation', 'Synthesis'],
+	},
+	{
+		id: 'sa-051',
+		code: 'TM-SA-051',
+		image: '/Homepage Pics/Salts Images/Tin(II) Chloride Dihydrate — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '10025-69-1',
+		purity: '≥ 98.0%',
+		name: {
+			en: 'Tin(II) Chloride Dihydrate — ACS Reagent',
+			ar: 'كلوريد القصدير (الثنائي) ثنائي الهيدرات — كاشف ACS',
+		},
+		description: {
+			en: 'Standard reducing agent used in analytical chemistry and for the colorimetric determination of molybdenum.',
+			ar: 'عامل مختزل قياسي يُستخدم في الكيمياء التحليلية وللتقدير اللوني للموليبدينوم.',
+		},
+		sizes: ['100 g', '500 g'],
+		applications: ['Reducing Agent', 'Colorimetry'],
+	},
+	{
+		id: 'sa-052',
+		code: 'TM-SA-052',
+		image: '/Homepage Pics/Salts Images/Sodium Fluoride — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '7681-49-4',
+		purity: '≥ 99.0%',
+		name: {
+			en: 'Sodium Fluoride — ACS Reagent',
+			ar: 'فلوريد الصوديوم — كاشف ACS',
+		},
+		description: {
+			en: 'High-purity sodium fluoride for preparation of fluoride standards, enzymatic assays, and metallurgical fluxes.',
+			ar: 'فلوريد صوديوم عالي النقاء لتحضير معايير الفلوريد، والمقايسات الإنزيمية، والتدفقات المعدنية.',
+		},
+		sizes: ['250 g', '500 g'],
+		applications: ['Fluoride Standards', 'Enzymatic Assays'],
+	},
+	{
+		id: 'sa-053',
+		code: 'TM-SA-053',
+		image: '/Homepage Pics/Salts Images/Potassium Fluoride — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '7789-23-3',
+		purity: '≥ 99.0%',
+		name: {
+			en: 'Potassium Fluoride — ACS Reagent',
+			ar: 'فلوريد البوتاسيوم — كاشف ACS',
+		},
+		description: {
+			en: 'Used as a fluorinating agent in organic synthesis and in the manufacture of fluxes and silver solders.',
+			ar: 'يُستخدم كعامل فلورة في التخليق العضوي وفي صناعة الصهورات ولحام الفضة.',
+		},
+		sizes: ['250 g', '500 g'],
+		applications: ['Synthesis', 'Flux'],
+	},
+	{
+		id: 'sa-054',
+		code: 'TM-SA-054',
+		image: '/Homepage Pics/Salts Images/Potassium Cyanide — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '151-50-8',
+		purity: '≥ 97.0%',
+		name: {
+			en: 'Potassium Cyanide — ACS Reagent',
+			ar: 'سيانيد البوتاسيوم — كاشف ACS',
+		},
+		description: {
+			en: 'High-purity potassium cyanide used in electroplating, metallurgy, and organic synthesis.',
+			ar: 'سيانيد بوتاسيوم عالي النقاء يُستخدم في الطلاء الكهربائي والمعادن والتخليق العضوي.',
+		},
+		sizes: ['100 g', '500 g'],
+		applications: ['Electroplating', 'Metallurgy', 'Synthesis'],
+	},
+	{
+		id: 'sa-055',
+		code: 'TM-SA-055',
+		image: '/Homepage Pics/Salts Images/Sodium Cyanide — ACS Reagent.jpg',
+		category: 'salts',
+		cas: '143-33-9',
+		purity: '≥ 97.0%',
+		name: {
+			en: 'Sodium Cyanide — ACS Reagent',
+			ar: 'سيانيد الصوديوم — كاشف ACS',
+		},
+		description: {
+			en: 'Versatile reagent used in chemical synthesis, extraction processes, and specialized analytical workflows.',
+			ar: 'كاشف متعدد الاستخدامات يُستخدم في التخليق الكيميائي، وعمليات الاستخلاص، ومسارات العمل التحليلية المتخصصة.',
+		},
+		sizes: ['100 g', '500 g'],
+		applications: ['Synthesis', 'Extraction'],
 	},
 
 	// ── HPLC Buffers ─────────────────────────────────────────────────────────────
