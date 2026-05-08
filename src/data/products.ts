@@ -790,6 +790,7 @@ export const products: Product[] = [
 		id: 'a-001',
 		code: 'TM-A-001',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Nitric Acid.jpg',
 		cas: '7697-37-2',
 		purity: '69%',
 		name: {
@@ -804,9 +805,28 @@ export const products: Product[] = [
 		applications: ['ICP-MS', 'AAS', 'Sample Digestion'],
 	},
 	{
+		id: 'a-007',
+		code: 'TM-A-007',
+		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Nitric EMSURE.jpg',
+		cas: '7697-37-2',
+		purity: '69%',
+		name: {
+			en: 'Nitric Acid — ACS Grade',
+			ar: 'حمض النيتريك ن',
+		},
+		description: {
+			en: 'High-purity nitric acid for analysis',
+			ar: 'حمض نيتريك عالي النقاء ـ ة.',
+		},
+		sizes: ['500 mL', '1 L', '2.5 L'],
+		applications: ['ICP-MS', 'AAS', 'Sample Digestion'],
+	},
+	{
 		id: 'a-002',
 		code: 'TM-A-002',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Hydrochloric Acid.jpg',
 		cas: '7647-01-0',
 		purity: '37%',
 		name: {
@@ -824,6 +844,7 @@ export const products: Product[] = [
 		id: 'a-003',
 		code: 'TM-A-003',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Sulfuric.jpg',
 		cas: '7664-93-9',
 		purity: '95-97%',
 		name: {
@@ -841,6 +862,7 @@ export const products: Product[] = [
 		id: 'a-004',
 		code: 'TM-A-004',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Acetic Acid.jpg',
 		cas: '64-19-7',
 		purity: '≥ 99.7%',
 		name: {
@@ -858,6 +880,7 @@ export const products: Product[] = [
 		id: 'a-005',
 		code: 'TM-A-005',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Formic Acid.jpg',
 		cas: '64-18-6',
 		purity: '~ 98%',
 		name: {
@@ -875,6 +898,7 @@ export const products: Product[] = [
 		id: 'a-006',
 		code: 'TM-A-006',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Ortho-Phosphoric-Acid-85-2.5L-Merck.jpg',
 		cas: '7664-38-2',
 		purity: '85%',
 		name: {
@@ -888,27 +912,12 @@ export const products: Product[] = [
 		sizes: ['500 mL', '1 L', '2.5 L'],
 		applications: ['HPLC', 'Sample Digestion', 'Buffer Prep'],
 	},
-	{
-		id: 'a-007',
-		code: 'TM-A-007',
-		category: 'acids',
-		cas: '76-05-1',
-		purity: '≥ 99.0%',
-		name: {
-			en: 'Trifluoroacetic Acid (TFA) — LC-MS Grade',
-			ar: 'حمض ثلاثي فلورو أسيتيك (TFA) — درجة LC-MS',
-		},
-		description: {
-			en: 'Ultrapure TFA commonly used as an ion-pairing agent in LC-MS and reversed-phase HPLC of peptides.',
-			ar: 'حمض TFA فائق النقاء يُستخدم بشكل شائع كعامل ترابط أيوني في LC-MS وHPLC للطور المعكوس للببتيدات.',
-		},
-		sizes: ['10 mL', '50 mL', '100 mL'],
-		applications: ['LC-MS', 'HPLC', 'Peptide Analysis'],
-	},
+	
 	{
 		id: 'a-008',
 		code: 'TM-A-008',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Perchloric_Acid_70-72__AR_2_5Lt-removebg-preview.jpg',
 		cas: '7601-90-3',
 		purity: '70%',
 		name: {
@@ -926,6 +935,7 @@ export const products: Product[] = [
 		id: 'a-009',
 		code: 'TM-A-009',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/HF.jpg',
 		cas: '7664-39-3',
 		purity: '48%',
 		name: {
@@ -940,35 +950,19 @@ export const products: Product[] = [
 		applications: ['ICP-MS', 'Sample Digestion', 'Semiconductor'],
 	},
 	{
-		id: 'a-010',
-		code: 'TM-A-010',
-		category: 'acids',
-		cas: '10035-10-6',
-		purity: '48%',
-		name: {
-			en: 'Hydrobromic Acid — ACS Reagent',
-			ar: 'حمض الهيدروبروميك — كاشف ACS',
-		},
-		description: {
-			en: 'ACS grade hydrobromic acid suitable for organic synthesis, pharmaceutical intermediates, and quantitative analysis.',
-			ar: 'حمض هيدروبروميك بدرجة ACS مناسب للتخليق العضوي، والوسطاء الصيدلانية، والتحليل الكمي.',
-		},
-		sizes: ['500 mL', '1 L'],
-		applications: ['Synthesis', 'Quantitative Analysis'],
-	},
-	{
 		id: 'a-011',
 		code: 'TM-A-011',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Citric.jpg',
 		cas: '77-92-9',
 		purity: '≥ 99.5%',
 		name: {
-			en: 'Citric Acid (Anhydrous) — ACS Reagent',
-			ar: 'حمض الستريك (اللامائي) — كاشف ACS',
+			en: 'Citric Acid — ACS Reagent',
+			ar: 'حمض الستريك — كاشف ACS',
 		},
 		description: {
-			en: 'Anhydrous citric acid for buffer preparation, analytical lab applications, and as a chelating agent.',
-			ar: 'حمض ستريك لامائي لتحضير المحاليل المنظمة، والتطبيقات المخبرية التحليلية، وكعامل خالب.',
+			en: 'Citric acid for buffer preparation, analytical lab applications, and as a chelating agent.',
+			ar: 'حمض ستريك لتحضير المحاليل المنظمة، والتطبيقات المخبرية التحليلية، وكعامل خالب.',
 		},
 		sizes: ['500 g', '1 kg', '2.5 kg'],
 		applications: ['Buffer Prep', 'Chelating Agent'],
@@ -977,6 +971,7 @@ export const products: Product[] = [
 		id: 'a-012',
 		code: 'TM-A-012',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/L_Ascorbic_Acid.jpg',
 		cas: '50-81-7',
 		purity: '≥ 99.0%',
 		name: {
@@ -994,6 +989,7 @@ export const products: Product[] = [
 		id: 'a-013',
 		code: 'TM-A-013',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/Boric.jpg',
 		cas: '10043-35-3',
 		purity: '≥ 99.5%',
 		name: {
@@ -1011,6 +1007,7 @@ export const products: Product[] = [
 		id: 'a-014',
 		code: 'TM-A-014',
 		category: 'acids',
+		image: '/Homepage Pics/Acid Images/TCAA.jpg',
 		cas: '76-03-9',
 		purity: '≥ 99.0%',
 		name: {
